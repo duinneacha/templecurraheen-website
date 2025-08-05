@@ -1,0 +1,63 @@
+---
+globs: "src/css/*.css,tailwind.config.js,src/_layouts/*.njk"
+description: "CSS and styling guidelines using Tailwind CSS"
+---
+
+# CSS and Styling Guidelines
+
+## Tailwind CSS Architecture
+
+### Configuration ([tailwind.config.js](mdc:tailwind.config.js))
+
+- Content paths: `["./src/**/*.{html,md,njk,js}"]`
+- Custom stone color palette (stone-50 through stone-900)
+- Custom fonts: Georgia serif, Inter sans-serif
+
+### Source CSS ([src/css/styles.css](mdc:src/css/styles.css))
+
+Uses Tailwind layers and `@apply` directives:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+### Custom Components
+
+- `.btn` - Base button styling with transitions
+- `.btn-primary` - Primary stone-700 background
+- `.btn-secondary` - Secondary stone-200 background
+- `.card` - White background with border and shadow
+- `.grave-card` - Card with hover effects
+- `.gallery-grid` - Responsive image grid
+- `.masonry-item` - Gallery image containers
+
+## Color Scheme
+
+Stone palette throughout:
+
+- **Backgrounds**: stone-50 (light), stone-800 (dark headers)
+- **Text**: stone-800 (primary), stone-600 (secondary), stone-400 (tertiary)
+- **Borders**: stone-200, stone-300
+- **Hover states**: stone-200, stone-900
+
+## Build Process
+
+- **Source**: [src/css/styles.css](mdc:src/css/styles.css) with Tailwind directives
+- **Output**: `_site/css/styles.css` with compiled CSS
+- **Watch**: `npm run css:watch` for development
+- **Build**: `npm run css:build` for production
+
+## Responsive Design
+
+- Mobile-first approach with `md:` and `lg:` breakpoints
+- Grid layouts: `grid md:grid-cols-2 lg:grid-cols-3`
+- Container max-width with `container mx-auto px-4`
+
+## Common Patterns
+
+- Navigation: `bg-stone-800 text-white hover:text-stone-200`
+- Cards: `bg-white rounded-lg shadow-md p-6 border border-stone-200`
+- Buttons: `px-4 py-2 rounded-md font-medium transition-colors`
+- Images: `w-full h-48 object-cover rounded-md`

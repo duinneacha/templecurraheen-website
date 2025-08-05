@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-secondary-800 bg-primary-50;
+    @apply dark:text-gray-200 dark:bg-gray-900;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-primary-900;
+    @apply dark:text-purple-300;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-colors duration-200 text-center;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-700 text-white hover:bg-primary-800;
+    @apply dark:bg-purple-600 dark:hover:bg-purple-700;
+  }
+  
+  .btn-secondary {
+    @apply bg-primary-200 text-primary-800 hover:bg-primary-300;
+    @apply dark:bg-purple-800 dark:text-purple-200 dark:hover:bg-purple-700;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md p-4 sm:p-6 border border-primary-200;
+    @apply dark:bg-gray-800 dark:border-gray-700 dark:shadow-lg;
+  }
+  
+  .grave-card {
+    @apply card hover:shadow-lg transition-shadow duration-200;
+    @apply dark:hover:shadow-purple-500/20;
+  }
+  
+  .burial-card {
+    @apply card hover:shadow-lg transition-shadow duration-200;
+    @apply dark:hover:shadow-purple-500/20;
+  }
+  
+  .gallery-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+  }
+  
+  .masonry-item {
+    @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200;
+    @apply dark:bg-gray-800 dark:hover:shadow-purple-500/20;
+  }
+  
+  /* Mobile-specific improvements */
+  .mobile-banner-text {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight;
+  }
+  
+  .mobile-subtitle {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+  
+  .mobile-responsive-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8;
+  }
+  
+  .mobile-card-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6;
+  }
+  
+  /* Improve button spacing on mobile */
+  .mobile-button-group {
+    @apply flex flex-col sm:flex-row gap-2 sm:gap-3;
+  }
+  
+  /* Better text sizing for mobile */
+  .mobile-text {
+    @apply text-sm sm:text-base;
+    @apply dark:text-gray-300;
+  }
+  
+  .mobile-heading {
+    @apply text-lg sm:text-xl md:text-2xl;
+    @apply dark:text-purple-300;
+  }
+  
+  /* Mobile-friendly search and filter controls */
+  .mobile-controls {
+    @apply flex flex-col sm:flex-row gap-3 sm:gap-4;
+  }
+  
+  /* Improved spacing for mobile */
+  .mobile-section {
+    @apply mb-8 sm:mb-12;
+  }
+  
+  .mobile-padding {
+    @apply px-3 sm:px-4;
+  }
+  
+  /* Mobile map container */
+  .mobile-map-container {
+    @apply h-64 sm:h-80;
+  }
+  
+  /* Dark mode specific improvements */
+  .dark-mode-header {
+    @apply dark:bg-gray-800 dark:border-gray-700;
+  }
+  
+  .dark-mode-footer {
+    @apply dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300;
+  }
+  
+  .dark-mode-banner {
+    @apply dark:bg-gray-800 dark:border-gray-700;
+  }
+  
+  .dark-mode-text {
+    @apply dark:text-gray-300;
+  }
+  
+  .dark-mode-text-secondary {
+    @apply dark:text-gray-400;
+  }
+  
+  .dark-mode-link {
+    @apply dark:text-purple-400 dark:hover:text-purple-300;
+  }
+}
