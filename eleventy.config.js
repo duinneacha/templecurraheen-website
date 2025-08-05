@@ -1,6 +1,5 @@
 module.exports = function(eleventyConfig) {
   // Copy assets
-  eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("assets");
   
   // Watch CSS files for changes
