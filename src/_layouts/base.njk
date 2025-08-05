@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if title %}{{ title }} - {% endif %}Templecurraheen Graveyard</title>
     <meta name="description" content="{{ description or 'Historical documentation for Templecurraheen Graveyard' }}">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="{{ '/css/styles.css' | url }}">
 </head>
 <body class="min-h-screen flex flex-col">
     <header class="bg-primary-800 text-white shadow-lg dark:bg-gray-800 dark:shadow-purple-500/20">
         <nav class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <h1 class="text-xl md:text-2xl font-serif font-bold">
-                    <a href="/" class="text-white hover:text-primary-200 dark:hover:text-purple-300 transition-colors">
+                    <a href="{{ '/' | url }}" class="text-white hover:text-primary-200 dark:hover:text-purple-300 transition-colors">
                         <span class="hidden sm:inline">Templecurraheen Graveyard</span>
                         <span class="sm:hidden">Templecurraheen</span>
                     </a>
@@ -27,22 +27,22 @@
                 
                 <!-- Desktop navigation -->
                 <ul class="hidden md:flex space-x-6">
-                    <li><a href="/" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">Home</a></li>
-                    <li><a href="/burials/" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">Burial List</a></li>
-                    <li><a href="/gallery/" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">Gallery</a></li>
-                    <li><a href="/history/" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">History</a></li>
-                    <li><a href="/about/" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">About</a></li>
+                    <li><a href="{{ '/' | url }}" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">Home</a></li>
+                    <li><a href="{{ '/burials/' | url }}" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">Burial List</a></li>
+                    <li><a href="{{ '/gallery/' | url }}" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">Gallery</a></li>
+                    <li><a href="{{ '/history/' | url }}" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">History</a></li>
+                    <li><a href="{{ '/about/' | url }}" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">About</a></li>
                 </ul>
             </div>
             
             <!-- Mobile navigation menu -->
             <div id="mobile-menu" class="md:hidden mt-4 pb-4 border-t border-primary-600 dark:border-gray-600 hidden">
                 <ul class="flex flex-col space-y-3 pt-4">
-                    <li><a href="/" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">Home</a></li>
-                    <li><a href="/burials/" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">Burial List</a></li>
-                    <li><a href="/gallery/" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">Gallery</a></li>
-                    <li><a href="/history/" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">History</a></li>
-                    <li><a href="/about/" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">About</a></li>
+                    <li><a href="{{ '/' | url }}" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">Home</a></li>
+                    <li><a href="{{ '/burials/' | url }}" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">Burial List</a></li>
+                    <li><a href="{{ '/gallery/' | url }}" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">Gallery</a></li>
+                    <li><a href="{{ '/history/' | url }}" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">History</a></li>
+                    <li><a href="{{ '/about/' | url }}" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">About</a></li>
                 </ul>
             </div>
         </nav>

@@ -56,6 +56,7 @@ module.exports = function(eleventyConfig) {
   });
   
   return {
+    pathPrefix: "/templecurraheen-website/",
     dir: {
       input: "src",
       output: "_site",
