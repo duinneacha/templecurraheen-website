@@ -1,0 +1,51 @@
+---
+alwaysApply: true
+description: "Development server and build commands for Templecurraheen project"
+---
+
+# Development Commands and Server Management
+
+## Critical Development Rules
+
+### ⚠️ Always Use `npm start` for Development
+
+- **NEVER** use `npm run dev` alone - this only runs Eleventy without CSS compilation
+- **ALWAYS** use `npm start` which runs both Tailwind CSS watch and Eleventy serve
+- This ensures CSS is properly compiled from Tailwind directives
+
+### Server Behavior Understanding
+
+- Development servers run indefinitely until manually stopped
+- When server shows "Watching..." it's working correctly (not hung)
+- Server serves site on `http://localhost:8080/`
+- Auto-rebuilds on file changes
+
+### Background vs Foreground Commands
+
+When using terminal commands through AI assistance:
+
+- **Background mode** (`is_background: true`): Allows continued conversation
+- **Foreground mode** (`is_background: false`): Blocks conversation until completed
+- For long-running servers, request background mode: "start the server in the background"
+
+### Common Issues and Solutions
+
+#### CSS Not Loading
+
+1. Check if Tailwind is running: Look for "Done in Xms" messages
+2. Verify `_site/css/styles.css` contains compiled CSS, not raw `@tailwind` directives
+3. Restart with `npm start` if CSS contains uncompiled directives
+
+#### Layout Errors
+
+- Missing layout files cause build failures
+- Ensure all referenced layouts exist in `src/_layouts/`
+- Check that `date` filter is defined in [eleventy.config.js](mdc:eleventy.config.js)
+
+## Available Scripts
+
+- `npm start` - Full development with CSS compilation and live server
+- `npm run build` - Production build
+- `npm run css:build` - Compile CSS for production
+- `npm run css:watch` - Watch and compile CSS only
+- `npm run deploy` - Build and deploy to GitHub Pages

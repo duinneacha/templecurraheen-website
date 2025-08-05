@@ -1,0 +1,83 @@
+---
+description: "Common issues and troubleshooting steps for development"
+---
+
+# Troubleshooting Guide
+
+## CSS Issues
+
+### CSS Not Loading / Unstyled Content
+
+**Symptoms**: Raw HTML with no styling, or CSS file contains `@tailwind` directives
+**Causes**: Tailwind CSS not compiled properly
+**Solutions**:
+
+1. Stop all processes (Ctrl+C)
+2. Run `npm start` (not `npm run dev`)
+3. Wait for both processes: CSS watch + Eleventy serve
+4. Check `_site/css/styles.css` contains compiled CSS rules, not raw directives
+
+### Layout Missing Errors
+
+**Symptoms**: Build fails with "layout does not exist" error
+**Causes**: Referenced layout file doesn't exist
+**Solutions**:
+
+1. Check layout name in frontmatter matches filename in `src/_layouts/`
+2. Ensure layout file exists and has correct `.njk` extension
+3. Verify layout extends base.njk if needed
+
+## Server Issues
+
+### Cannot Connect to localhost:8080
+
+**Symptoms**: Browser shows connection error
+**Causes**: Development server not running
+**Solutions**:
+
+1. Check if server is running: look for "Server at http://localhost:8080/" message
+2. Start server with `npm start`
+3. Verify no other process using port 8080
+
+### Server Appears Hung
+
+**Understanding**: Development servers run continuously (this is normal!)
+**Indicators of Success**:
+
+- "Server at http://localhost:8080/"
+- "Watching..." message
+- Site accessible in browser
+
+## Build Errors
+
+### Filter Not Found Error
+
+**Symptoms**: "filter not found: date" or similar
+**Causes**: Custom filter not defined in Eleventy config
+**Solutions**:
+
+1. Check [eleventy.config.js](mdc:eleventy.config.js) has required filters
+2. Verify filter syntax: `{{ dateField | date }}`
+3. Restart development server after config changes
+
+### Template Render Errors
+
+**Symptoms**: Nunjucks template errors in console
+**Causes**: Syntax errors in .njk files or missing data
+**Solutions**:
+
+1. Check Nunjucks syntax in layout files
+2. Verify data exists before using in templates
+3. Use conditional checks: `{% if data %}{{ data }}{% endif %}`
+
+## File Organization Issues
+
+### Images Not Displaying
+
+**Symptoms**: Broken image links in gallery or graves
+**Solutions**:
+
+1. Verify image files exist in [assets/imgs/](mdc:assets/imgs/)
+2. Check file paths in [gallery.json](mdc:src/_data/gallery.json) start with `/assets/imgs/`
+3. Ensure image filenames match exactly (case-sensitive)
+4. Confirm images are copied to `_site/assets/imgs/` during build

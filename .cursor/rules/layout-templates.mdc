@@ -1,0 +1,74 @@
+---
+globs: "src/_layouts/*.njk,src/**/*.md"
+description: "Layout and template guidelines for Nunjucks templates and Markdown files"
+---
+
+# Layout and Template Guidelines
+
+## Layout Structure
+
+### Base Layout ([src/\_layouts/base.njk](mdc:src/_layouts/base.njk))
+
+- Main HTML structure with navigation and footer
+- Includes CSS: `/css/styles.css`
+- Uses stone color scheme (bg-stone-800, text-stone-200, etc.)
+- Responsive navigation with container classes
+
+### Grave Layout ([src/\_layouts/grave.njk](mdc:src/_layouts/grave.njk))
+
+- Extends base.njk layout
+- Structured for burial record display
+- Includes photo gallery integration
+- Related graves cross-references
+- Proper date formatting using custom `date` filter
+
+## Template Requirements
+
+### Grave Files (src/graves/\*.md)
+
+Required frontmatter:
+
+```yaml
+---
+layout: grave.njk
+name: "Full Name"
+birthDate: "YYYY-MM-DD"
+deathDate: "YYYY-MM-DD"
+age: 65
+plot: "A-12"
+headstoneType: "Celtic Cross"
+inscription: "Memorial text"
+hasPhoto: true
+photos:
+  - src: "/assets/imgs/filename.jpg"
+    alt: "Description"
+    caption: "Caption text"
+    date: "YYYY-MM-DD"
+relatedGraves:
+  - name: "Related Person"
+    slug: "filename-without-extension"
+    relationship: "wife/husband/son/daughter"
+---
+```
+
+### Date Filter Usage
+
+- Use `{{ dateField | date }}` for formatted dates
+- Filter defined in [eleventy.config.js](mdc:eleventy.config.js)
+- Handles invalid dates gracefully
+
+## Color Scheme
+
+- Primary: stone-50 to stone-900 palette
+- Navigation: bg-stone-800, hover:text-stone-200
+- Cards: bg-white, border-stone-200
+- Text: text-stone-800, text-stone-600 for secondary
+
+## Navigation Links
+
+Standard navigation structure:
+
+- Home: `/`
+- Burial List: `/burials/`
+- Gallery: `/gallery/`
+- About: `/about/`

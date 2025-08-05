@@ -1,0 +1,91 @@
+---
+layout: base.njk
+---
+
+<article class="max-w-4xl mx-auto">
+    <header class="mb-8 p-6 bg-stone-50 rounded-lg border border-stone-200">
+        <h1 class="text-3xl font-serif font-bold text-stone-800 mb-4">{{ name }}</h1>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+                <h2 class="text-lg font-semibold text-stone-700 mb-3">Life Details</h2>
+                {% if birthDate %}
+                <p><span class="font-medium">Born:</span> {{ birthDate | date }}</p>
+                {% endif %}
+                {% if deathDate %}
+                <p><span class="font-medium">Died:</span> {{ deathDate | date }}</p>
+                {% endif %}
+                {% if age %}
+                <p><span class="font-medium">Age:</span> {{ age }} years</p>
+                {% endif %}
+                {% if plot %}
+                <p><span class="font-medium">Plot:</span> {{ plot }}</p>
+                {% endif %}
+            </div>
+            
+            <div class="space-y-2">
+                <h2 class="text-lg font-semibold text-stone-700 mb-3">Memorial Details</h2>
+                {% if headstoneType %}
+                <p><span class="font-medium">Headstone:</span> {{ headstoneType }}</p>
+                {% endif %}
+                {% if inscription %}
+                <blockquote class="italic text-stone-600 border-l-4 border-stone-300 pl-4 mt-3">
+                    "{{ inscription }}"
+                </blockquote>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    {% if hasPhoto and photos %}
+    <section class="mb-8">
+        <h2 class="text-2xl font-serif font-bold text-stone-800 mb-4">Photos</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {% for photo in photos %}
+            <figure class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="{{ photo.src }}" alt="{{ photo.alt }}" class="w-full h-64 object-cover">
+                {% if photo.caption %}
+                <figcaption class="p-3 text-sm text-stone-600">
+                    {{ photo.caption }}
+                    {% if photo.date %}
+                    <span class="block text-xs text-stone-500 mt-1">{{ photo.date | date }}</span>
+                    {% endif %}
+                </figcaption>
+                {% endif %}
+            </figure>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    {% if relatedGraves and relatedGraves.length %}
+    <section class="mb-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+        <h2 class="text-xl font-semibold text-stone-800 mb-3">Related Graves</h2>
+        <div class="space-y-2">
+            {% for related in relatedGraves %}
+            <div class="flex justify-between items-center">
+                <a href="/graves/{{ related.slug }}/" class="text-blue-700 hover:text-blue-900 font-medium">
+                    {{ related.name }}
+                </a>
+                <span class="text-sm text-stone-600 capitalize">{{ related.relationship }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    <section class="prose prose-stone max-w-none">
+        {{ content | safe }}
+    </section>
+
+    <nav class="mt-12 pt-8 border-t border-stone-200">
+        <div class="flex justify-between">
+            <a href="/burials/" class="text-stone-600 hover:text-stone-800 transition-colors">
+                ← Back to Burial List
+            </a>
+            <a href="/gallery/" class="text-stone-600 hover:text-stone-800 transition-colors">
+                View Gallery →
+            </a>
+        </div>
+    </nav>
+</article>

@@ -1,0 +1,60 @@
+---
+alwaysApply: true
+description: "Templecurraheen Graveyard project structure and architecture"
+---
+
+# Templecurraheen Graveyard Project Structure
+
+This is an Eleventy (11ty) static site generator project for documenting the Templecurraheen Graveyard heritage site.
+
+## Key Files and Architecture
+
+### Configuration Files
+
+- [eleventy.config.js](mdc:eleventy.config.js) - Main Eleventy configuration with custom filters and collections
+- [tailwind.config.js](mdc:tailwind.config.js) - Tailwind CSS configuration with custom color scheme
+- [package.json](mdc:package.json) - Dependencies and build scripts
+
+### Source Structure
+
+- [src/](mdc:src/) - All source files for the website
+- [src/\_layouts/](mdc:src/_layouts/) - Nunjucks templates (base.njk, grave.njk)
+- [src/\_data/](mdc:src/_data/) - Data files including gallery.json and burials.tsv
+- [src/graves/](mdc:src/graves/) - Individual grave/burial record markdown files
+- [src/css/styles.css](mdc:src/css/styles.css) - Tailwind CSS source file
+
+### Build Output
+
+- [\_site/](mdc:_site/) - Generated static site (do not edit directly)
+
+## Development Workflow
+
+### Starting Development Server
+
+Always use `npm start` (not `npm run dev`) which runs:
+
+- Tailwind CSS compilation in watch mode
+- Eleventy development server with live reload
+- Both processes run concurrently for full functionality
+
+### CSS Architecture
+
+- Uses Tailwind CSS with custom stone color palette
+- CSS must be compiled by Tailwind before serving
+- Raw `@tailwind` directives in source, compiled CSS in `_site/css/`
+
+## Data Management
+
+### Gallery Images
+
+Images are managed through [src/\_data/gallery.json](mdc:src/_data/gallery.json) with categories:
+
+- `general` - Overall graveyard views, entrance, grounds
+- `headstones` - Individual graves and monuments
+- `historical` - Archive photos and documentation
+
+### Burial Records
+
+- Individual grave files in [src/graves/](mdc:src/graves/) use `grave.njk` layout
+- Burial data in [src/\_data/burials.tsv](mdc:src/_data/burials.tsv)
+- Each grave file requires proper frontmatter with layout, name, dates, etc.
