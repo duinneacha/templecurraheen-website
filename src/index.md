@@ -6,7 +6,7 @@ description: "Documenting the history and heritage of Templecurraheen Graveyard"
 
 <!-- Hero Image -->
 <div class="w-full h-64 sm:h-80 md:h-96 mb-4 sm:mb-6 rounded-lg overflow-hidden shadow-lg">
-    {% image "/assets/imgs/banner-pic.jpg", "Templecurraheen Graveyard banner view", "w-full h-full object-cover" %}
+    <img src="{{ '/assets/imgs/banner-pic.jpg' | url }}" alt="Templecurraheen Graveyard banner view" class="w-full h-full object-cover" loading="lazy">
 </div>
 
 <!-- Banner Message -->
@@ -15,9 +15,6 @@ description: "Documenting the history and heritage of Templecurraheen Graveyard"
         REST IN PEACE IN THIS TRANQUIL GRAVEYARD<br class="hidden sm:inline">
         <span class="sm:hidden"> </span>OF TEMPLECURRAHEEN CARRIGTWOHILL
     </h1>
-    <p class="mobile-subtitle font-light text-primary-600 dark:text-purple-200">
-        Preserving memories • Honouring heritage • Connecting generations
-    </p>
 </div>
 
 # Welcome to Templecurraheen Graveyard

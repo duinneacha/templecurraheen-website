@@ -22,7 +22,7 @@ description: "Historical and contemporary photographs of Templecurraheen Graveya
     {% for image in gallery.images %}
     <div class="masonry-item gallery-item" data-category="{{ image.category }}" data-title="{{ image.title | lower }}">
         <div class="aspect-w-4 aspect-h-3">
-            {% image image.src, image.alt, "w-full h-40 sm:h-48 object-cover" %}
+            <img src="{{ image.src | url }}" alt="{{ image.alt }}" class="w-full h-40 sm:h-48 object-cover" loading="lazy">
         </div>
         <div class="p-4">
             <h3 class="font-medium text-stone-800 mb-2">{{ image.title }}</h3>
@@ -33,7 +33,7 @@ description: "Historical and contemporary photographs of Templecurraheen Graveya
             <p class="text-xs text-stone-400">{{ image.date }}</p>
             {% endif %}
             {% if image.graveReference %}
-            <a href="/graves/{{ image.graveReference }}/" class="text-stone-700 hover:text-stone-900 text-sm transition-colors">
+            <a href="{{ '/graves/' + image.graveReference + '/' | url }}" class="text-stone-700 hover:text-stone-900 text-sm transition-colors">
                 View burial record →
             </a>
             {% endif %}
@@ -62,7 +62,7 @@ description: "Historical and contemporary photographs of Templecurraheen Graveya
         <a href="mailto:contact@example.com?subject=Photo Contribution" class="btn btn-primary">
             Email Photos
         </a>
-        <a href="https://github.com/your-username/templecurraheen-graveyard/issues" class="btn btn-secondary">
+        <a href="https://github.com/duinneacha/templecurraheen-website/issues" class="btn btn-secondary">
             Submit via GitHub
         </a>
     </div>
