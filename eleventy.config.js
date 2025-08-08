@@ -26,6 +26,20 @@ module.exports = function(eleventyConfig) {
       return dateA - dateB;
     });
   });
+
+  // Add date filter
+  eleventyConfig.addFilter("date", function(date, format) {
+    if (!date) return '';
+    const d = new Date(date);
+    if (format) {
+      return d.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    }
+    return d.toLocaleDateString();
+  });
   
   // Add date filter for formatting dates
   eleventyConfig.addFilter("date", function(dateObj, format) {
@@ -55,7 +69,7 @@ module.exports = function(eleventyConfig) {
   });
   
   return {
-    pathPrefix: "/templecurraheen-website/",
+    // pathPrefix: "/templecurraheen-website/", // Commented out for local development
     dir: {
       input: "src",
       output: "_site",
