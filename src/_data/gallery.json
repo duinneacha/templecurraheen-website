@@ -5,64 +5,56 @@
       "alt": "Myrtle tree in Templecurraheen Graveyard",
       "title": "Myrtle",
       "description": "Found in graveyards due to their symbolism of love, immortality and remembrance. The myrtle is evergreen symbolising immortality and the continuation of life beyond physical death. This aligns with the idea of remembering and honouring the deceased.",
-      "category": "general",
-      "date": "2024"
+      "category": "general"
     },
     {
       "src": "/assets/imgs/banner-pic.jpg",
       "alt": "Scenic view of Templecurraheen Graveyard",
       "title": "Graveyard Banner View",
       "description": "Wide panoramic view showcasing the peaceful setting of the cemetery",
-      "category": "general",
-      "date": "2024"
+      "category": "general"
     },
     {
       "src": "/assets/imgs/story_a.jpg",
       "alt": "Historical documentation view",
       "title": "Story Section A",
       "description": "Part of the graveyard's historical narrative documentation",
-      "category": "historical",
-      "date": "2024"
+      "category": "historical"
     },
     {
       "src": "/assets/imgs/story-b.jpg",
       "alt": "Historical documentation view",
       "title": "Story Section B",
       "description": "Continuation of the graveyard's historical narrative",
-      "category": "historical",
-      "date": "2024"
+      "category": "historical"
     },
     {
       "src": "/assets/imgs/story-c.jpg",
       "alt": "Historical documentation view",
       "title": "Story Section C",
       "description": "Final section of the graveyard's historical documentation",
-      "category": "historical",
-      "date": "2024"
+      "category": "historical"
     },
     {
       "src": "/assets/imgs/sign-and-gate.png",
       "alt": "Entrance sign and gate to Templecurraheen Graveyard",
       "title": "Entrance Sign and Gate",
       "description": "The official entrance sign and gate welcoming visitors to the historic graveyard",
-      "category": "general",
-      "date": "2024"
+      "category": "general"
     },
     {
       "src": "/assets/imgs/gate.png",
       "alt": "Historic gate entrance",
       "title": "Graveyard Gate",
       "description": "The traditional gate providing access to the cemetery grounds",
-      "category": "general",
-      "date": "2024"
+      "category": "general"
     },
     {
       "src": "/assets/imgs/front-sign.png",
       "alt": "Front entrance sign",
       "title": "Cemetery Entrance Sign",
       "description": "The front signage marking the entrance to Templecurraheen Graveyard",
-      "category": "general",
-      "date": "2024"
+      "category": "general"
     },
 
     {
@@ -70,40 +62,35 @@
       "alt": "Open grass area in the graveyard",
       "title": "Graveyard Grounds",
       "description": "Open grassy areas between burial sections",
-      "category": "general",
-      "date": "2024"
+      "category": "general"
     },
     {
       "src": "/assets/imgs/grave-side.png",
       "alt": "Side view of grave area",
       "title": "Grave Section View",
       "description": "Side perspective of one of the burial sections",
-      "category": "headstones",
-      "date": "2024"
+      "category": "headstones"
     },
     {
       "src": "/assets/imgs/general-grave-01.png",
       "alt": "General view of graves",
       "title": "General Grave View",
       "description": "Overview of typical grave markers and layout in the cemetery",
-      "category": "headstones",
-      "date": "2024"
+      "category": "headstones"
     },
     {
       "src": "/assets/imgs/behind-seat.png",
       "alt": "View from behind the memorial seat",
       "title": "Memorial Seat View",
       "description": "Perspective from behind the memorial seating area",
-      "category": "general",
-      "date": "2024"
+      "category": "general"
     },
     {
       "src": "/assets/imgs/mike-finn.jpg",
       "alt": "Michael Finn standing next to his plot in Templecurraheen Graveyard",
       "title": "Michael Finn",
       "description": "Michael standing next to his plot in Templecurraheen",
-      "category": "general",
-      "date": "2024"
+      "category": "general"
     }
   ]
 }
