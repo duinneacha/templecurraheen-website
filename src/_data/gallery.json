@@ -64,14 +64,7 @@
       "category": "general",
       "date": "2024"
     },
-    {
-      "src": "/assets/imgs/grass-and-tree.png",
-      "alt": "Grassy area with trees in the cemetery",
-      "title": "Natural Setting",
-      "description": "The peaceful natural environment within the graveyard grounds",
-      "category": "general",
-      "date": "2024"
-    },
+
     {
       "src": "/assets/imgs/grass-area.png",
       "alt": "Open grass area in the graveyard",
@@ -101,6 +94,14 @@
       "alt": "View from behind the memorial seat",
       "title": "Memorial Seat View",
       "description": "Perspective from behind the memorial seating area",
+      "category": "general",
+      "date": "2024"
+    },
+    {
+      "src": "/assets/imgs/mike-finn.jpg",
+      "alt": "Michael Finn standing next to his plot in Templecurraheen Graveyard",
+      "title": "Michael Finn",
+      "description": "Michael standing next to his plot in Templecurraheen",
       "category": "general",
       "date": "2024"
     }
