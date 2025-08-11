@@ -69,7 +69,7 @@ module.exports = function(eleventyConfig) {
   });
   
   return {
-    // pathPrefix: "/templecurraheen-website/", // Commented out for local development
+    pathPrefix: "/templecurraheen-website/",
     dir: {
       input: "src",
       output: "_site",

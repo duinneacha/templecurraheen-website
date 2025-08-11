@@ -1,0 +1,6 @@
+warning: in the working copy of 'eleventy.config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/_data/gallery.json', LF will be replaced by CRLF the next time Git touches it
+eleventy.config.js
+src/_data/gallery.json
+src/_layouts/history.njk
+src/history/full-historical-inquiry.md
