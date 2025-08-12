@@ -74,3 +74,4 @@ Crucially, the graveyard itself demonstrated resilience, continuing as an active
 While Templecurraheen has faced challenges, including historical neglect and contemporary issues like fly-tipping, it has recently undergone a significant transformation thanks to dedicated community-led restoration efforts. These efforts, which meticulously record inscriptions and preserve the site's unique archaeological features, align with evolving best practices in heritage conservation. The collaboration between passionate local volunteers and statutory bodies like Cork County Council and the National Monuments Service represents an effective model for safeguarding Ireland's vast and dispersed archaeological heritage, ensuring that sites like Templecurraheen continue to tell their rich historical story for generations to come.
 
 
+
