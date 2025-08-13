@@ -14,6 +14,7 @@ description: "Complete listing of burial records from Templecurraheen Graveyard"
         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 sm:mb-0">
             <button onclick="sortAlphabetical()" class="btn btn-secondary w-full sm:w-auto">Sort A-Z</button>
             <button onclick="sortByDate()" class="btn btn-secondary w-full sm:w-auto">Sort by Date</button>
+            <button onclick="sortByRow()" class="btn btn-secondary w-full sm:w-auto">Sort by Row</button>
         </div>
         <div class="mt-3 sm:mt-0 sm:flex-grow">
             <input type="text" id="searchInput" placeholder="Search by name..." 
@@ -22,65 +23,84 @@ description: "Complete listing of burial records from Templecurraheen Graveyard"
     </div>
 </div>
 
-<div id="burialList" class="space-y-4">
-    {% for burial in burialList %}
-    <div class="burial-card" 
-         data-name="{{ burial.names | lower }}" 
-         data-date="{{ burial.deathDate }}"
-         data-location="{{ burial.location | lower }}">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            <!-- Name and Basic Info -->
-            <div class="lg:col-span-2">
-                <h3 class="mobile-heading font-serif mb-2 text-stone-800">
+<!-- Burial List Table -->
+<div class="overflow-x-auto">
+    <table class="w-full border-collapse">
+        <thead class="bg-stone-100 dark:bg-gray-800">
+            <tr>
+                <th class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white">Name</th>
+                <th class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white">Date</th>
+                <th class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white">Age</th>
+                <th class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white">Row</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for burial in burialList %}
+            <tr class="burial-row hover:bg-stone-50 dark:hover:bg-gray-700 cursor-pointer transition-colors" 
+                data-name="{{ burial.names | lower }}" 
+                data-date="{{ burial.deathDate }}"
+                data-location="{{ burial.location | lower }}"
+                data-code="{{ burial.code }}"
+                data-age="{{ burial.age }}"
+                data-inscription="{{ burial.inscription }}"
+                onclick="openBurialModal(this)">
+                <td class="p-3 border-b border-stone-200 dark:border-gray-600 text-stone-800 dark:text-white font-medium">
                     {{ burial.names }}
-                </h3>
-                
-                <div class="mobile-text text-stone-600 space-y-1">
+                </td>
+                <td class="p-3 border-b border-stone-200 dark:border-gray-600 text-stone-600 dark:text-gray-300">
                     {% if burial.deathDate and burial.deathDate != 'Awaited' %}
-                    <p><strong>Death Date:</strong> {{ burial.deathDate }}</p>
+                        {{ burial.deathDate }}
+                    {% else %}
+                        <span class="text-stone-400">Unknown</span>
                     {% endif %}
-                    
+                </td>
+                <td class="p-3 border-b border-stone-200 dark:border-gray-600 text-stone-600 dark:text-gray-300">
                     {% if burial.age and burial.age != 'Unknown' %}
-                    <p><strong>Age:</strong> {{ burial.age }}</p>
+                        {{ burial.age }}
+                    {% else %}
+                        <span class="text-stone-400">Unknown</span>
                     {% endif %}
-                    
-                    {% if burial.location %}
-                    <p><strong>Grave Location:</strong> {{ burial.location }}</p>
-                    {% endif %}
-                    
+                </td>
+                <td class="p-3 border-b border-stone-200 dark:border-gray-600 text-stone-600 dark:text-gray-300">
                     {% if burial.row %}
-                    <p><strong>Row:</strong> {{ burial.row }}</p>
+                        {{ burial.row }}
+                    {% else %}
+                        <span class="text-stone-400">-</span>
                     {% endif %}
-                </div>
-            </div>
-            
-            <!-- Code and Additional Info -->
-            <div>
-                {% if burial.code %}
-                <div class="inline-block px-3 py-1 bg-stone-100 text-stone-700 text-sm rounded-md mb-2">
-                    Record: {{ burial.code }}
-                </div>
-                {% endif %}
-                
-                {% if burial.inscription and burial.inscription.length > 0 %}
-                <div class="mt-2">
-                    <p class="text-xs text-stone-500 mb-1">Inscription:</p>
-                    <p class="text-sm text-stone-600 italic">{{ burial.inscription | truncate(100) }}</p>
-                </div>
-                {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Burial Modal -->
+<div id="burialModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <!-- Modal Header -->
+        <div class="flex justify-between items-center p-6 border-b border-stone-200 dark:border-gray-600">
+            <h2 id="modalTitle" class="text-2xl font-serif text-stone-800 dark:text-white"></h2>
+            <button onclick="closeBurialModal()" 
+                    class="text-stone-400 hover:text-stone-600 dark:text-gray-400 dark:hover:text-gray-200 text-2xl font-bold">
+                ×
+            </button>
+        </div>
+        
+        <!-- Modal Content -->
+        <div class="p-6">
+            <div id="modalContent" class="space-y-4">
+                <!-- Content will be populated by JavaScript -->
             </div>
         </div>
     </div>
-    {% endfor %}
 </div>
 
-<div class="mt-12 bg-stone-100 rounded-lg p-6">
+<div class="mt-12 bg-stone-100 dark:bg-gray-800 rounded-lg p-6">
     <h2 class="text-xl font-serif mb-4">About These Records</h2>
-    <p class="text-stone-600 mb-4">
+    <p class="text-stone-600 dark:text-gray-300 mb-4">
         This burial list represents ongoing research into the historic Templecurraheen Graveyard. Records include information from headstone inscriptions, parish records, and local historical documentation.
     </p>
-    <div class="grid md:grid-cols-2 gap-4 text-sm text-stone-600">
+    <div class="grid md:grid-cols-2 gap-4 text-sm text-stone-600 dark:text-gray-300">
         <div>
             <h3 class="font-semibold mb-2">Record Information</h3>
             <ul class="space-y-1">
@@ -97,7 +117,7 @@ description: "Complete listing of burial records from Templecurraheen Graveyard"
                 <li>• Found errors or omissions?</li>
             </ul>
             <p class="mt-2">
-                <a href="/about/" class="text-stone-700 hover:text-stone-900 underline">Contact us to contribute</a>
+                <a href="/about/" class="text-stone-700 hover:text-stone-900 dark:text-purple-400 dark:hover:text-purple-300 underline">Contact us to contribute</a>
             </p>
         </div>
     </div>
@@ -105,24 +125,24 @@ description: "Complete listing of burial records from Templecurraheen Graveyard"
 
 <script>
 function sortAlphabetical() {
-    const container = document.getElementById('burialList');
-    const items = Array.from(container.children);
+    const tbody = document.querySelector('tbody');
+    const rows = Array.from(tbody.children);
     
-    items.sort((a, b) => {
+    rows.sort((a, b) => {
         const nameA = a.dataset.name;
         const nameB = b.dataset.name;
         return nameA.localeCompare(nameB);
     });
     
-    container.innerHTML = '';
-    items.forEach(item => container.appendChild(item));
+    tbody.innerHTML = '';
+    rows.forEach(row => tbody.appendChild(row));
 }
 
 function sortByDate() {
-    const container = document.getElementById('burialList');
-    const items = Array.from(container.children);
+    const tbody = document.querySelector('tbody');
+    const rows = Array.from(tbody.children);
     
-    items.sort((a, b) => {
+    rows.sort((a, b) => {
         const dateA = a.dataset.date || '';
         const dateB = b.dataset.date || '';
         
@@ -139,25 +159,127 @@ function sortByDate() {
         return parseDate(dateA) - parseDate(dateB);
     });
     
-    container.innerHTML = '';
-    items.forEach(item => container.appendChild(item));
+    tbody.innerHTML = '';
+    rows.forEach(row => tbody.appendChild(row));
+}
+
+function sortByRow() {
+    const tbody = document.querySelector('tbody');
+    const rows = Array.from(tbody.children);
+    
+    rows.sort((a, b) => {
+        const cellsA = a.querySelectorAll('td');
+        const cellsB = b.querySelectorAll('td');
+        const rowA = cellsA[3] ? cellsA[3].textContent.trim() : '';
+        const rowB = cellsB[3] ? cellsB[3].textContent.trim() : '';
+        
+        // Handle empty or dash values
+        if (rowA === '-' || rowA === '') rowA = '999'; // Put empty rows at the end
+        if (rowB === '-' || rowB === '') rowB = '999';
+        
+        // Try to parse as numbers first, then fall back to string comparison
+        const numA = parseInt(rowA);
+        const numB = parseInt(rowB);
+        
+        if (!isNaN(numA) && !isNaN(numB)) {
+            return numA - numB;
+        } else {
+            return rowA.localeCompare(rowB);
+        }
+    });
+    
+    tbody.innerHTML = '';
+    rows.forEach(row => tbody.appendChild(row));
 }
 
 // Search functionality
 document.getElementById('searchInput').addEventListener('input', function(e) {
     const searchTerm = e.target.value.toLowerCase();
-    const items = document.querySelectorAll('.burial-card');
+    const rows = document.querySelectorAll('.burial-row');
     
-    items.forEach(item => {
-        const name = item.dataset.name;
-        const location = item.dataset.location;
-        const text = item.textContent.toLowerCase();
+    rows.forEach(row => {
+        const name = row.dataset.name;
+        const location = row.dataset.location;
+        const text = row.textContent.toLowerCase();
         
         if (name.includes(searchTerm) || location.includes(searchTerm) || text.includes(searchTerm)) {
-            item.style.display = 'block';
+            row.style.display = 'table-row';
         } else {
-            item.style.display = 'none';
+            row.style.display = 'none';
         }
     });
+});
+
+// Modal functions
+function openBurialModal(row) {
+    const modal = document.getElementById('burialModal');
+    const title = document.getElementById('modalTitle');
+    const content = document.getElementById('modalContent');
+    
+    // Get data from the row
+    const name = row.querySelector('td:first-child').textContent.trim();
+    const date = row.dataset.date;
+    const age = row.dataset.age;
+    const location = row.dataset.location;
+    const code = row.dataset.code;
+    const inscription = row.dataset.inscription;
+    
+    // Get row from the table structure
+    const cells = row.querySelectorAll('td');
+    const rowValue = cells[3] ? cells[3].textContent.trim() : '';
+    
+    // Set title
+    title.textContent = name;
+    
+    // Build content
+    let contentHTML = '';
+    
+    if (date && date !== 'Awaited') {
+        contentHTML += `<div><strong>Death Date:</strong> ${date}</div>`;
+    }
+    
+    if (age && age !== 'Unknown') {
+        contentHTML += `<div><strong>Age:</strong> ${age}</div>`;
+    }
+    
+    if (location) {
+        contentHTML += `<div><strong>Grave Location:</strong> ${location}</div>`;
+    }
+    
+    if (rowValue && rowValue !== '-') {
+        contentHTML += `<div><strong>Row:</strong> ${rowValue}</div>`;
+    }
+    
+    if (code) {
+        contentHTML += `<div><strong>Record Code:</strong> ${code}</div>`;
+    }
+    
+    if (inscription && inscription.length > 0) {
+        contentHTML += `<div class="mt-4"><strong>Inscription:</strong><br><span class="italic text-stone-600 dark:text-gray-300">${inscription}</span></div>`;
+    }
+    
+    content.innerHTML = contentHTML;
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeBurialModal() {
+    const modal = document.getElementById('burialModal');
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside
+document.getElementById('burialModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeBurialModal();
+    }
+});
+
+// Close modal with escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeBurialModal();
+    }
 });
 </script>
