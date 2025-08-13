@@ -22,7 +22,14 @@ description: "Historical and contemporary photographs of Templecurraheen Graveya
     {% for image in gallery.images %}
     <div class="masonry-item gallery-item" data-category="{{ image.category }}" data-title="{{ image.title | lower }}">
         <div class="aspect-w-4 aspect-h-3">
-            <img src="{{ image.src | url }}" alt="{{ image.alt }}" class="w-full h-40 sm:h-48 object-cover" loading="lazy">
+            <img src="{{ image.src | url }}" 
+                 alt="{{ image.alt }}" 
+                 class="w-full h-40 sm:h-48 object-cover cursor-pointer hover:opacity-90 transition-opacity" 
+                 loading="lazy"
+                 data-title="{{ image.title }}"
+                 data-description="{{ image.description }}"
+                 data-date="{{ image.date }}"
+                 onclick="openLightbox(this)">
         </div>
         <div class="p-4">
             <h3 class="font-medium text-stone-800 dark:text-white mb-2">{{ image.title }}</h3>
@@ -42,13 +49,29 @@ description: "Historical and contemporary photographs of Templecurraheen Graveya
     {% endfor %}
 </div>
 
-<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-75 hidden z-50" onclick="closeLightbox()">
-    <div class="flex items-center justify-center h-full p-4">
-        <div class="max-w-4xl max-h-full">
-            <img id="lightboxImage" src="" alt="" class="max-w-full max-h-full rounded-lg">
-            <div id="lightboxCaption" class="text-white text-center mt-4"></div>
+<!-- Enhanced Lightbox Modal -->
+<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden z-50 flex items-center justify-center p-4" onclick="closeLightbox()">
+    <div class="relative max-w-6xl max-h-full w-full h-full flex flex-col">
+        <!-- Close Button -->
+        <button onclick="closeLightbox()" 
+                class="absolute top-4 right-4 z-10 text-white hover:text-gray-300 transition-colors bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center text-2xl font-bold">
+            ×
+        </button>
+        
+        <!-- Image Container - Reduced max height to leave room for caption -->
+        <div class="flex-1 flex items-center justify-center min-h-0">
+            <img id="lightboxImage" 
+                 src="" 
+                 alt="" 
+                 class="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl">
         </div>
-        <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-2xl hover:text-gray-300">×</button>
+        
+        <!-- Caption Container - Always visible at bottom -->
+        <div id="lightboxCaption" class="bg-black bg-opacity-75 text-white p-6 rounded-lg mt-4 max-w-full min-h-[120px] flex flex-col justify-center">
+            <h3 id="lightboxTitle" class="text-xl font-serif mb-2"></h3>
+            <p id="lightboxDescription" class="text-gray-200 mb-2 leading-relaxed"></p>
+            <p id="lightboxDate" class="text-sm text-gray-400"></p>
+        </div>
     </div>
 </div>
 
@@ -92,23 +115,41 @@ function filterImages(category) {
     });
 }
 
-// Lightbox functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('.gallery-item img');
-    images.forEach(img => {
-        img.addEventListener('click', function() {
-            openLightbox(this.src, this.alt);
-        });
-        img.style.cursor = 'pointer';
-    });
-});
-
-function openLightbox(src, alt) {
-    document.getElementById('lightboxImage').src = src;
-    document.getElementById('lightboxImage').alt = alt;
-    document.getElementById('lightboxCaption').textContent = alt;
-    document.getElementById('lightbox').classList.remove('hidden');
+// Enhanced Lightbox functionality
+function openLightbox(imgElement) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxDescription = document.getElementById('lightboxDescription');
+    const lightboxDate = document.getElementById('lightboxDate');
+    
+    // Set image
+    lightboxImage.src = imgElement.src;
+    lightboxImage.alt = imgElement.alt;
+    
+    // Set title
+    const title = imgElement.dataset.title;
+    lightboxTitle.textContent = title || '';
+    
+    // Set description
+    const description = imgElement.dataset.description;
+    lightboxDescription.textContent = description || '';
+    
+    // Set date
+    const date = imgElement.dataset.date;
+    if (date) {
+        lightboxDate.textContent = date;
+        lightboxDate.style.display = 'block';
+    } else {
+        lightboxDate.style.display = 'none';
+    }
+    
+    // Show lightbox
+    lightbox.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
+    
+    // Focus for keyboard navigation
+    lightbox.focus();
 }
 
 function closeLightbox() {
@@ -121,5 +162,14 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeLightbox();
     }
+});
+
+// Prevent lightbox from closing when clicking on the image or caption
+document.getElementById('lightboxImage').addEventListener('click', function(e) {
+    e.stopPropagation();
+});
+
+document.getElementById('lightboxCaption').addEventListener('click', function(e) {
+    e.stopPropagation();
 });
 </script>
