@@ -1,6 +1,13 @@
 {
   "images": [
     {
+      "src": "/assets/imgs/famine-grave.jpg",
+      "alt": "Famine grave in Templecurraheen Graveyard",
+      "title": "Famine grave",
+      "description": "Story to be added",
+      "category": "historical"
+    },
+    {
       "src": "/assets/imgs/myrtle-tree.jpg",
       "alt": "Myrtle tree in Templecurraheen Graveyard",
       "title": "Myrthe tree",
@@ -97,6 +104,27 @@
       "alt": "John and Margaret Jeffers headstone",
       "title": "John and Margaret Jeffers",
       "description": "John and Margaret Jeffers",
+      "category": "headstones"
+    },
+    {
+      "src": "/assets/imgs/drone-high.jpg",
+      "alt": "Aerial view of Templecurraheen Graveyard",
+      "title": "Aerial Drone View",
+      "description": "High altitude drone photograph showing the complete layout of Templecurraheen Graveyard and surrounding countryside",
+      "category": "general"
+    },
+    {
+      "src": "/assets/imgs/entrance-shot.jpg",
+      "alt": "Entrance view of Templecurraheen Graveyard",
+      "title": "Graveyard Entrance",
+      "description": "Ground-level view of the entrance to Templecurraheen Graveyard showing the entrance path and surrounding landscape",
+      "category": "general"
+    },
+    {
+      "src": "/assets/imgs/james-cotter.jpg",
+      "alt": "James Cotter",
+      "title": "James Cotter",
+      "description": "Story to be added",
       "category": "headstones"
     }
   ]

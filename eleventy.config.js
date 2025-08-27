@@ -63,6 +63,18 @@ module.exports = function(eleventyConfig) {
     return str.substring(0, length) + '...';
   });
   
+  // Add stringify filter for JSON data
+  eleventyConfig.addFilter("stringify", function(obj) {
+    return JSON.stringify(obj);
+  });
+  
+  // Add slug filter for creating URL-friendly strings
+  eleventyConfig.addFilter("slug", function(str) {
+    return str.toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+  });
+  
   // Image optimization helper
   eleventyConfig.addShortcode("image", function(src, alt, className = "") {
     return `<img src="${src}" alt="${alt}" class="${className}" loading="lazy">`;

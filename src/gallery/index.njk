@@ -4,6 +4,101 @@ title: "Photo Gallery"
 description: "Historical and contemporary photographs of Templecurraheen Graveyard"
 ---
 
+<style>
+.poem-container {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.stanza {
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    padding-left: 12px;
+    margin-bottom: 16px;
+}
+
+.stanza-number {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    display: inline-block;
+    min-width: 20px;
+}
+
+.poem-line {
+    margin-bottom: 4px;
+    text-indent: 20px;
+}
+
+.stanza-1 .poem-line:first-child {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.stanza-4 .poem-line {
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+}
+
+.stanza-7 .poem-line {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.stanza-9 .poem-line {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Custom scrollbar for poem container */
+.poem-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.poem-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.poem-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.poem-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.poem-preview {
+    display: none !important;
+}
+
+/* Lightbox poem styling */
+#lightbox .poem-container {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+#lightbox .stanza {
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    padding-left: 12px;
+    margin-bottom: 16px;
+}
+
+#lightbox .stanza-number {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    display: inline-block;
+    min-width: 20px;
+}
+
+#lightbox .poem-line {
+    margin-bottom: 4px;
+    text-indent: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+</style>
+
 <div class="mb-8">
     <h1 class="text-3xl font-serif mb-4">Photo Gallery</h1>
     <p class="text-stone-600 dark:text-gray-300 mb-6">
@@ -29,11 +124,32 @@ description: "Historical and contemporary photographs of Templecurraheen Graveya
                  data-title="{{ image.title }}"
                  data-description="{{ image.description }}"
                  data-date="{{ image.date }}"
+                 {% if image.customContent %}
+                 data-poem-author="{{ image.customContent.author }}"
+                 data-poem-stanzas="{{ image.customContent.stanzas | stringify | safe }}"
+                 {% endif %}
                  onclick="openLightbox(this)">
         </div>
         <div class="p-4">
             <h3 class="font-medium text-stone-800 dark:text-white mb-2">{{ image.title }}</h3>
-            {% if image.description %}
+            {% if image.customContent and image.customContent.type == 'poem' %}
+            <p class="text-sm text-stone-600 dark:text-gray-300 mb-2 italic">A poem by {{ image.customContent.author }}</p>
+            <div class="poem-preview hidden" id="poem-{{ image.title | slug }}">
+                <div class="poem-container text-xs">
+                    <p class="text-sm text-gray-400 mb-2 italic">A poem by {{ image.customContent.author }}</p>
+                    {% for stanza in image.customContent.stanzas %}
+                    <div class="stanza stanza-{{ stanza.number }} mb-2">
+                        <span class="stanza-number text-xs text-gray-500 mr-1">{{ stanza.number }}</span>
+                        {% for line in stanza.text.split('\n') %}
+                        {% if line.trim() %}
+                        <div class="poem-line text-xs leading-tight">{{ line }}</div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% elif image.description %}
             <p class="text-sm text-stone-600 dark:text-gray-300 mb-2">{{ image.description }}</p>
             {% endif %}
             {% if image.date %}
@@ -69,7 +185,7 @@ description: "Historical and contemporary photographs of Templecurraheen Graveya
         <!-- Caption Container - Always visible at bottom -->
         <div id="lightboxCaption" class="bg-black bg-opacity-75 text-white p-6 rounded-lg mt-4 max-w-full min-h-[120px] flex flex-col justify-center">
             <h3 id="lightboxTitle" class="text-xl font-serif mb-2"></h3>
-            <p id="lightboxDescription" class="text-gray-200 mb-2 leading-relaxed"></p>
+            <div id="lightboxContent" class="text-gray-200 mb-2 leading-relaxed"></div>
             <p id="lightboxDate" class="text-sm text-gray-400"></p>
         </div>
     </div>
@@ -120,7 +236,7 @@ function openLightbox(imgElement) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxTitle = document.getElementById('lightboxTitle');
-    const lightboxDescription = document.getElementById('lightboxDescription');
+    const lightboxContent = document.getElementById('lightboxContent');
     const lightboxDate = document.getElementById('lightboxDate');
     
     // Set image
@@ -131,9 +247,50 @@ function openLightbox(imgElement) {
     const title = imgElement.dataset.title;
     lightboxTitle.textContent = title || '';
     
-    // Set description
-    const description = imgElement.dataset.description;
-    lightboxDescription.textContent = description || '';
+    // Debug: Log what we're looking for
+    console.log('Opening lightbox for:', title);
+    
+    // Check for poem data
+    const poemAuthor = imgElement.dataset.poemAuthor;
+    const poemStanzas = imgElement.dataset.poemStanzas;
+    
+    console.log('Poem author:', poemAuthor);
+    console.log('Poem stanzas:', poemStanzas);
+    
+    if (poemAuthor && poemStanzas) {
+        try {
+            const stanzas = JSON.parse(poemStanzas);
+            console.log('Parsed stanzas:', stanzas);
+            
+            let poemHTML = `<div class="poem-container">`;
+            poemHTML += `<p class="text-sm text-gray-400 mb-4 italic">A poem by ${poemAuthor}</p>`;
+            
+            stanzas.forEach((stanza, index) => {
+                poemHTML += `<div class="stanza stanza-${stanza.number} mb-4">`;
+                poemHTML += `<span class="stanza-number text-xs text-gray-500 mr-2">${stanza.number}</span>`;
+                const lines = stanza.text.split('\n');
+                lines.forEach(line => {
+                    if (line.trim()) {
+                        poemHTML += `<div class="poem-line text-sm leading-relaxed">${line}</div>`;
+                    }
+                });
+                poemHTML += `</div>`;
+            });
+            
+            poemHTML += `</div>`;
+            lightboxContent.innerHTML = poemHTML;
+            console.log('Poem HTML added to lightbox');
+        } catch (e) {
+            console.error("Error parsing poem stanzas:", e);
+            const description = imgElement.dataset.description;
+            lightboxContent.textContent = description || '';
+        }
+    } else {
+        console.log('No poem data found, using description');
+        // Fallback to description
+        const description = imgElement.dataset.description;
+        lightboxContent.textContent = description || '';
+    }
     
     // Set date
     const date = imgElement.dataset.date;
