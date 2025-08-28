@@ -30,7 +30,7 @@
                     <li><a href="/templecurraheen-website/" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">Home</a></li>
                     <li><a href="/templecurraheen-website/burials/" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">Burial List</a></li>
                     <li><a href="/templecurraheen-website/gallery/" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">Gallery</a></li>
-                    <li><a href="/templecurraheen-website/history/" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">History</a></li>
+                    <li><a href="/templecurraheen-website/stories/" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">Stories</a></li>
                     <li><a href="/templecurraheen-website/about/" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">About</a></li>
                 </ul>
             </div>
@@ -41,7 +41,7 @@
                     <li><a href="/templecurraheen-website/" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">Home</a></li>
                     <li><a href="/templecurraheen-website/burials/" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">Burial List</a></li>
                     <li><a href="/templecurraheen-website/gallery/" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">Gallery</a></li>
-                    <li><a href="/templecurraheen-website/history/" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">History</a></li>
+                    <li><a href="/templecurraheen-website/stories/" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">Stories</a></li>
                     <li><a href="/templecurraheen-website/about/" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">About</a></li>
                 </ul>
             </div>
@@ -50,6 +50,101 @@
     
     <main class="flex-grow container mx-auto px-4 py-6 sm:py-8">
         
+<style>
+.poem-container {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.stanza {
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    padding-left: 12px;
+    margin-bottom: 16px;
+}
+
+.stanza-number {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    display: inline-block;
+    min-width: 20px;
+}
+
+.poem-line {
+    margin-bottom: 4px;
+    text-indent: 20px;
+}
+
+.stanza-1 .poem-line:first-child {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.stanza-4 .poem-line {
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+}
+
+.stanza-7 .poem-line {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.stanza-9 .poem-line {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Custom scrollbar for poem container */
+.poem-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.poem-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.poem-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.poem-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.poem-preview {
+    display: none !important;
+}
+
+/* Lightbox poem styling */
+#lightbox .poem-container {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+#lightbox .stanza {
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    padding-left: 12px;
+    margin-bottom: 16px;
+}
+
+#lightbox .stanza-number {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    display: inline-block;
+    min-width: 20px;
+}
+
+#lightbox .poem-line {
+    margin-bottom: 4px;
+    text-indent: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+</style>
+
 <div class="mb-8">
     <h1 class="text-3xl font-serif mb-4">Photo Gallery</h1>
     <p class="text-stone-600 dark:text-gray-300 mb-6">
@@ -66,6 +161,28 @@
 
 <div id="galleryGrid" class="gallery-grid">
     
+    <div class="masonry-item gallery-item" data-category="historical" data-title="famine grave">
+        <div class="aspect-w-4 aspect-h-3">
+            <img src="/templecurraheen-website/assets/imgs/famine-grave.jpg" 
+                 alt="Famine grave in Templecurraheen Graveyard" 
+                 class="w-full h-40 sm:h-48 object-cover cursor-pointer hover:opacity-90 transition-opacity" 
+                 loading="lazy"
+                 data-title="Famine grave"
+                 data-description="Story to be added"
+                 data-date=""
+                 
+                 onclick="openLightbox(this)">
+        </div>
+        <div class="p-4">
+            <h3 class="font-medium text-stone-800 dark:text-white mb-2">Famine grave</h3>
+            
+            <p class="text-sm text-stone-600 dark:text-gray-300 mb-2">Story to be added</p>
+            
+            
+            
+        </div>
+    </div>
+    
     <div class="masonry-item gallery-item" data-category="general" data-title="myrthe tree">
         <div class="aspect-w-4 aspect-h-3">
             <img src="/templecurraheen-website/assets/imgs/myrtle-tree.jpg" 
@@ -75,6 +192,7 @@
                  data-title="Myrthe tree"
                  data-description="Found in graveyards due to their symbolism of love, immortality and remembrance. The myrtle is evergreen symbolising immortality and the continuation of life beyond physical death. This aligns with the idea of remembering and honouring the deceased."
                  data-date=""
+                 
                  onclick="openLightbox(this)">
         </div>
         <div class="p-4">
@@ -96,6 +214,7 @@
                  data-title="Graveyard Banner View"
                  data-description="Wide panoramic view showcasing the peaceful setting of the cemetery"
                  data-date=""
+                 
                  onclick="openLightbox(this)">
         </div>
         <div class="p-4">
@@ -117,6 +236,7 @@
                  data-title="Story Section A"
                  data-description="Part of the graveyard&#39;s historical narrative documentation"
                  data-date=""
+                 
                  onclick="openLightbox(this)">
         </div>
         <div class="p-4">
@@ -138,6 +258,7 @@
                  data-title="Story Section B"
                  data-description="Continuation of the graveyard&#39;s historical narrative"
                  data-date=""
+                 
                  onclick="openLightbox(this)">
         </div>
         <div class="p-4">
@@ -159,6 +280,7 @@
                  data-title="Story Section C"
                  data-description="Final section of the graveyard&#39;s historical documentation"
                  data-date=""
+                 
                  onclick="openLightbox(this)">
         </div>
         <div class="p-4">
@@ -180,6 +302,7 @@
                  data-title="Entrance Sign and Gate"
                  data-description="The official entrance sign and gate welcoming visitors to the historic graveyard"
                  data-date=""
+                 
                  onclick="openLightbox(this)">
         </div>
         <div class="p-4">
@@ -201,6 +324,7 @@
                  data-title="Graveyard Gate"
                  data-description="The traditional gate providing access to the cemetery grounds"
                  data-date=""
+                 
                  onclick="openLightbox(this)">
         </div>
         <div class="p-4">
@@ -222,6 +346,7 @@
                  data-title="Cemetery Entrance Sign"
                  data-description="The front signage marking the entrance to Templecurraheen Graveyard"
                  data-date=""
+                 
                  onclick="openLightbox(this)">
         </div>
         <div class="p-4">
@@ -243,6 +368,7 @@
                  data-title="Graveyard Grounds"
                  data-description="Open grassy areas between burial sections"
                  data-date=""
+                 
                  onclick="openLightbox(this)">
         </div>
         <div class="p-4">
@@ -264,6 +390,7 @@
                  data-title="Grave Section View"
                  data-description="Side perspective of one of the burial sections"
                  data-date=""
+                 
                  onclick="openLightbox(this)">
         </div>
         <div class="p-4">
@@ -285,6 +412,7 @@
                  data-title="General Grave View"
                  data-description="Overview of typical grave markers and layout in the cemetery"
                  data-date=""
+                 
                  onclick="openLightbox(this)">
         </div>
         <div class="p-4">
@@ -306,6 +434,7 @@
                  data-title="Memorial Seat View"
                  data-description="Perspective from behind the memorial seating area"
                  data-date=""
+                 
                  onclick="openLightbox(this)">
         </div>
         <div class="p-4">
@@ -327,6 +456,7 @@
                  data-title="Michael Finn"
                  data-description="Michael standing next to his plot in Templecurraheen"
                  data-date=""
+                 
                  onclick="openLightbox(this)">
         </div>
         <div class="p-4">
@@ -348,12 +478,79 @@
                  data-title="John and Margaret Jeffers"
                  data-description="John and Margaret Jeffers"
                  data-date=""
+                 
                  onclick="openLightbox(this)">
         </div>
         <div class="p-4">
             <h3 class="font-medium text-stone-800 dark:text-white mb-2">John and Margaret Jeffers</h3>
             
             <p class="text-sm text-stone-600 dark:text-gray-300 mb-2">John and Margaret Jeffers</p>
+            
+            
+            
+        </div>
+    </div>
+    
+    <div class="masonry-item gallery-item" data-category="general" data-title="aerial drone view">
+        <div class="aspect-w-4 aspect-h-3">
+            <img src="/templecurraheen-website/assets/imgs/drone-high.jpg" 
+                 alt="Aerial view of Templecurraheen Graveyard" 
+                 class="w-full h-40 sm:h-48 object-cover cursor-pointer hover:opacity-90 transition-opacity" 
+                 loading="lazy"
+                 data-title="Aerial Drone View"
+                 data-description="High altitude drone photograph showing the complete layout of Templecurraheen Graveyard and surrounding countryside"
+                 data-date=""
+                 
+                 onclick="openLightbox(this)">
+        </div>
+        <div class="p-4">
+            <h3 class="font-medium text-stone-800 dark:text-white mb-2">Aerial Drone View</h3>
+            
+            <p class="text-sm text-stone-600 dark:text-gray-300 mb-2">High altitude drone photograph showing the complete layout of Templecurraheen Graveyard and surrounding countryside</p>
+            
+            
+            
+        </div>
+    </div>
+    
+    <div class="masonry-item gallery-item" data-category="general" data-title="graveyard entrance">
+        <div class="aspect-w-4 aspect-h-3">
+            <img src="/templecurraheen-website/assets/imgs/entrance-shot.jpg" 
+                 alt="Entrance view of Templecurraheen Graveyard" 
+                 class="w-full h-40 sm:h-48 object-cover cursor-pointer hover:opacity-90 transition-opacity" 
+                 loading="lazy"
+                 data-title="Graveyard Entrance"
+                 data-description="Ground-level view of the entrance to Templecurraheen Graveyard showing the entrance path and surrounding landscape"
+                 data-date=""
+                 
+                 onclick="openLightbox(this)">
+        </div>
+        <div class="p-4">
+            <h3 class="font-medium text-stone-800 dark:text-white mb-2">Graveyard Entrance</h3>
+            
+            <p class="text-sm text-stone-600 dark:text-gray-300 mb-2">Ground-level view of the entrance to Templecurraheen Graveyard showing the entrance path and surrounding landscape</p>
+            
+            
+            
+        </div>
+    </div>
+    
+    <div class="masonry-item gallery-item" data-category="headstones" data-title="james cotter">
+        <div class="aspect-w-4 aspect-h-3">
+            <img src="/templecurraheen-website/assets/imgs/james-cotter.jpg" 
+                 alt="James Cotter" 
+                 class="w-full h-40 sm:h-48 object-cover cursor-pointer hover:opacity-90 transition-opacity" 
+                 loading="lazy"
+                 data-title="James Cotter"
+                 data-description="Story to be added"
+                 data-date=""
+                 
+                 onclick="openLightbox(this)">
+        </div>
+        <div class="p-4">
+            <h3 class="font-medium text-stone-800 dark:text-white mb-2">James Cotter</h3>
+            
+            <p class="text-sm text-stone-600 dark:text-gray-300 mb-2">Story to be added</p>
             
             
             
@@ -382,7 +579,7 @@
         <!-- Caption Container - Always visible at bottom -->
         <div id="lightboxCaption" class="bg-black bg-opacity-75 text-white p-6 rounded-lg mt-4 max-w-full min-h-[120px] flex flex-col justify-center">
             <h3 id="lightboxTitle" class="text-xl font-serif mb-2"></h3>
-            <p id="lightboxDescription" class="text-gray-200 mb-2 leading-relaxed"></p>
+            <div id="lightboxContent" class="text-gray-200 mb-2 leading-relaxed"></div>
             <p id="lightboxDate" class="text-sm text-gray-400"></p>
         </div>
     </div>
@@ -433,7 +630,7 @@ function openLightbox(imgElement) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxTitle = document.getElementById('lightboxTitle');
-    const lightboxDescription = document.getElementById('lightboxDescription');
+    const lightboxContent = document.getElementById('lightboxContent');
     const lightboxDate = document.getElementById('lightboxDate');
     
     // Set image
@@ -444,9 +641,50 @@ function openLightbox(imgElement) {
     const title = imgElement.dataset.title;
     lightboxTitle.textContent = title || '';
     
-    // Set description
-    const description = imgElement.dataset.description;
-    lightboxDescription.textContent = description || '';
+    // Debug: Log what we're looking for
+    console.log('Opening lightbox for:', title);
+    
+    // Check for poem data
+    const poemAuthor = imgElement.dataset.poemAuthor;
+    const poemStanzas = imgElement.dataset.poemStanzas;
+    
+    console.log('Poem author:', poemAuthor);
+    console.log('Poem stanzas:', poemStanzas);
+    
+    if (poemAuthor && poemStanzas) {
+        try {
+            const stanzas = JSON.parse(poemStanzas);
+            console.log('Parsed stanzas:', stanzas);
+            
+            let poemHTML = `<div class="poem-container">`;
+            poemHTML += `<p class="text-sm text-gray-400 mb-4 italic">A poem by ${poemAuthor}</p>`;
+            
+            stanzas.forEach((stanza, index) => {
+                poemHTML += `<div class="stanza stanza-${stanza.number} mb-4">`;
+                poemHTML += `<span class="stanza-number text-xs text-gray-500 mr-2">${stanza.number}</span>`;
+                const lines = stanza.text.split('\n');
+                lines.forEach(line => {
+                    if (line.trim()) {
+                        poemHTML += `<div class="poem-line text-sm leading-relaxed">${line}</div>`;
+                    }
+                });
+                poemHTML += `</div>`;
+            });
+            
+            poemHTML += `</div>`;
+            lightboxContent.innerHTML = poemHTML;
+            console.log('Poem HTML added to lightbox');
+        } catch (e) {
+            console.error("Error parsing poem stanzas:", e);
+            const description = imgElement.dataset.description;
+            lightboxContent.textContent = description || '';
+        }
+    } else {
+        console.log('No poem data found, using description');
+        // Fallback to description
+        const description = imgElement.dataset.description;
+        lightboxContent.textContent = description || '';
+    }
     
     // Set date
     const date = imgElement.dataset.date;
