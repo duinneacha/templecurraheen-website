@@ -1,0 +1,111 @@
+---
+layout: base.njk
+title: "Stories"
+description: "Community stories, memories, and historical accounts from Templecurraheen Graveyard"
+---
+
+<nav class="text-sm text-stone-600 mb-6">
+    <a href="{{ '/' | url }}" class="hover:text-stone-800 transition-colors">Home</a> 
+    <span class="mx-2">›</span> 
+    <span class="text-stone-800">Stories</span>
+</nav>
+
+<div class="max-w-4xl mx-auto">
+    <header class="mb-8">
+        <h1 class="text-3xl font-serif mb-4">Stories from Templecurraheen</h1>
+        <p class="text-lg text-stone-600 dark:text-gray-300 leading-relaxed">
+            Every grave has a story. Every family has memories. Every visitor brings their own connection to this sacred place.
+        </p>
+    </header>
+
+    <!-- Contribution Message -->
+    <div class="bg-primary-50 dark:bg-gray-800 border border-primary-200 dark:border-gray-600 rounded-lg p-6 mb-12">
+        <h2 class="text-xl font-serif mb-4 text-primary-800 dark:text-purple-300">Share Your Story</h2>
+        <p class="text-stone-700 dark:text-gray-300 mb-4">
+            Do you have a family story connected to Templecurraheen? Perhaps you remember tales passed down through generations, 
+            or you've discovered something fascinating about the people buried here. We'd love to hear from you!
+        </p>
+        <p class="text-stone-700 dark:text-gray-300 mb-4">
+            Your contributions help keep these memories alive for future generations. Whether it's a poem written about the graveyard, 
+            a family legend, historical research you've uncovered, or simply a personal reflection about this special place - 
+            every story matters.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+            <a href="mailto:contact@example.com?subject=Templecurraheen Story Contribution" 
+               class="btn btn-primary text-center">
+                Email Your Story
+            </a>
+            <a href="https://github.com/duinneacha/templecurraheen-website/issues" 
+               class="btn btn-secondary text-center">
+                Submit via GitHub
+            </a>
+        </div>
+    </div>
+
+    <!-- Stories List -->
+    <div class="space-y-12">
+        
+        <!-- First Story: The Main History -->
+        <article class="border-b border-stone-200 dark:border-gray-600 pb-8">
+            <header class="mb-6">
+                <h2 class="text-2xl font-serif mb-2">
+                    <a href="{{ '/stories/the-story-of-templecurraheen-graveyard/' | url }}" 
+                       class="text-stone-800 dark:text-white hover:text-primary-700 dark:hover:text-purple-300 transition-colors">
+                        The Story of Templecurraheen Graveyard
+                    </a>
+                </h2>
+                <p class="text-stone-600 dark:text-gray-400 text-sm">
+                    A comprehensive historical overview
+                </p>
+            </header>
+            <div class="prose prose-stone dark:prose-invert max-w-none">
+                <p class="text-stone-700 dark:text-gray-300">
+                    Hello there. You're looking at the history of our graveyard, Templecurraheen. I've walked these grounds many times, 
+                    and every step tells a story of Carrigtwohill's past. From its ancient origins to the present day, 
+                    this place holds a special spot in the heart of our community...
+                </p>
+                <p class="mt-4">
+                    <a href="{{ '/stories/the-story-of-templecurraheen-graveyard/' | url }}" 
+                       class="text-primary-700 hover:text-primary-900 dark:text-purple-400 dark:hover:text-purple-300 font-medium">
+                        Read the full story →
+                    </a>
+                </p>
+            </div>
+        </article>
+
+        <!-- Second Story: Massacre at Gortroe -->
+        <article class="border-b border-stone-200 dark:border-gray-600 pb-8">
+            <header class="mb-6">
+                <h2 class="text-2xl font-serif mb-2">
+                    <a href="{{ '/stories/massacre-at-gortroe/' | url }}" 
+                       class="text-stone-800 dark:text-white hover:text-primary-700 dark:hover:text-purple-300 transition-colors">
+                        Massacre at Gortroe, Bartlemy, Co. Cork
+                    </a>
+                </h2>
+                <p class="text-stone-600 dark:text-gray-400 text-sm">
+                    18th December 1834 - The Tithe War tragedy
+                </p>
+            </header>
+            <div class="prose prose-stone dark:prose-invert max-w-none">
+                <p class="text-stone-700 dark:text-gray-300">
+                    The worst incident of the Tithe War occurred in the parish of Gortroe/Bartlemy, near Rathcormac on 18th December 1834. 
+                    When Rev Archdeacon Ryder JP sought military support for tithe collection, a confrontation with 200 tenant farmers 
+                    resulted in twelve deaths, including two brothers from Carrigtwohill buried at Templecurraheen...
+                </p>
+                <p class="mt-4">
+                    <a href="{{ '/stories/massacre-at-gortroe/' | url }}" 
+                       class="text-primary-700 hover:text-primary-900 dark:text-purple-400 dark:hover:text-purple-300 font-medium">
+                        Read the full story →
+                    </a>
+                </p>
+            </div>
+        </article>
+
+        <!-- Placeholder for future stories -->
+        <div class="text-center py-8 text-stone-500 dark:text-gray-400">
+            <p class="italic">More stories will appear here as the community shares their memories and discoveries.</p>
+            <p class="mt-2 text-sm">Be the first to contribute by sharing your connection to Templecurraheen!</p>
+        </div>
+
+    </div>
+</div>
