@@ -82,12 +82,35 @@ function loadBurialData() {
     const burials = lines.slice(1).map((line, index) => {
       const columns = parseCSVLine(line);
       
-      // Extract required fields
+      // Extract all available fields
+      const graveCode = columns[headerMap['grave_code']] ? columns[headerMap['grave_code']].trim() : '';
       const rowCode = columns[headerMap['row_code']] ? columns[headerMap['row_code']].trim().toUpperCase() : '';
+      const plotCode = columns[headerMap['plot_code']] ? columns[headerMap['plot_code']].trim() : '';
       const lastName = columns[headerMap['last_name']] ? columns[headerMap['last_name']].trim() : '';
       const firstName = columns[headerMap['first_name']] ? columns[headerMap['first_name']].trim() : '';
       const deathDate = columns[headerMap['death_date']] ? columns[headerMap['death_date']].trim() : '';
+      let age = columns[headerMap['age']] ? columns[headerMap['age']].trim() : '';
+      // Remove unnecessary decimal points (e.g., "61.0" -> "61", "75.0 years" -> "75 years")
+      if (age) {
+        // Handle cases like "61.0" or "75.0 years"
+        age = age.replace(/(\d+)\.0(\s|$|years?)/g, '$1$2').trim();
+        // Handle standalone decimal numbers like "61.0" (with nothing after)
+        if (age.match(/^\d+\.0$/)) {
+          age = age.replace(/\.0$/, '');
+        }
+      }
+      const namesOnHeadstone = columns[headerMap['names_on_headstone']] ? columns[headerMap['names_on_headstone']].trim() : '';
       const fileName = columns[headerMap['file_name']] ? columns[headerMap['file_name']].trim() : '';
+      const stoneInscription = columns[headerMap['stone_inscription']] ? columns[headerMap['stone_inscription']].trim() : '';
+      const stoneDesign = columns[headerMap['stone_design']] ? columns[headerMap['stone_design']].trim() : '';
+      const headstoneShape = columns[headerMap['headstone_shape']] ? columns[headerMap['headstone_shape']].trim() : '';
+      const burialDate = columns[headerMap['Burial_Date']] ? columns[headerMap['Burial_Date']].trim() : '';
+      const months = columns[headerMap['Months']] ? columns[headerMap['Months']].trim() : '';
+      const status = columns[headerMap['Status']] ? columns[headerMap['Status']].trim() : '';
+      const occupation = columns[headerMap['Occupation']] ? columns[headerMap['Occupation']].trim() : '';
+      const address = columns[headerMap['Address']] ? columns[headerMap['Address']].trim() : '';
+      const witness = columns[headerMap['Witness']] ? columns[headerMap['Witness']].trim() : '';
+      const comments = columns[headerMap['Comments']] ? columns[headerMap['Comments']].trim() : '';
       
       // Skip entries without at least a last name or first name
       if (!lastName && !firstName) {
@@ -112,13 +135,27 @@ function loadBurialData() {
       const fullName = [firstName, lastName].filter(Boolean).join(' ') || lastName || firstName || 'Unknown';
       
       return {
+        graveCode,
         rowCode,
         rowCodeColor,
+        plotCode,
         lastName,
         firstName,
         fullName,
         deathDate: formattedDate,
+        age,
+        namesOnHeadstone,
         fileName,
+        stoneInscription,
+        stoneDesign,
+        headstoneShape,
+        burialDate,
+        months,
+        status,
+        occupation,
+        address,
+        witness,
+        comments,
         // Keep some fields for backward compatibility with modal
         names: fullName,
         slug: fullName.toLowerCase()

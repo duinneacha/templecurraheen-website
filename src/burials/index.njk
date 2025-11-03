@@ -28,7 +28,7 @@ description: "Complete listing of burial records from Templecurraheen Graveyard"
     <table class="w-full border-collapse">
         <thead class="bg-stone-100 dark:bg-gray-800">
             <tr>
-                <th class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white">Row Code</th>
+                <th class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white">Grave Code</th>
                 <th class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white">Last Name</th>
                 <th class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white">First Name</th>
                 <th class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white">Death Date</th>
@@ -45,12 +45,36 @@ description: "Complete listing of burial records from Templecurraheen Graveyard"
                 data-rowcode="{{ burial.rowCode }}"
                 data-filename="{{ burial.fileName }}"
                 data-fullname="{{ burial.fullName }}"
+                data-gravecode="{{ burial.graveCode }}"
+                data-plotcode="{{ burial.plotCode }}"
+                data-age="{{ burial.age }}"
+                data-namesonheadstone="{{ burial.namesOnHeadstone }}"
+                data-stoneinscription="{{ burial.stoneInscription }}"
+                data-stonedesign="{{ burial.stoneDesign }}"
+                data-headstoneshape="{{ burial.headstoneShape }}"
+                data-burialdate="{{ burial.burialDate }}"
+                data-months="{{ burial.months }}"
+                data-status="{{ burial.status }}"
+                data-occupation="{{ burial.occupation }}"
+                data-address="{{ burial.address }}"
+                data-witness="{{ burial.witness }}"
+                data-comments="{{ burial.comments }}"
                 onclick="openBurialModal(this)">
                 <td class="p-3 border-b border-stone-200 dark:border-gray-600">
-                    {% if burial.rowCode %}
-                        <span class="inline-block px-2 py-1 rounded font-semibold text-stone-800" 
-                              {% if burial.rowCodeColor %}style="background-color: {{ burial.rowCodeColor }};"{% endif %}>
-                            {{ burial.rowCode }}
+                    {% set combinedCode = '' %}
+                    {% if burial.rowCode %}{% set combinedCode = combinedCode + burial.rowCode %}{% endif %}
+                    {% if burial.graveCode %}{% set combinedCode = combinedCode + burial.graveCode %}{% endif %}
+                    {% if burial.plotCode %}{% set combinedCode = combinedCode + burial.plotCode %}{% endif %}
+                    {% if combinedCode %}
+                        <span class="inline-flex items-center">
+                            {% if burial.rowCode %}
+                                <span class="inline-block px-2 py-1 rounded font-semibold text-stone-800" 
+                                      {% if burial.rowCodeColor %}style="background-color: {{ burial.rowCodeColor }};"{% endif %}>
+                                    {{ combinedCode }}
+                                </span>
+                            {% else %}
+                                <span class="text-stone-800 dark:text-white font-medium">{{ combinedCode }}</span>
+                            {% endif %}
                         </span>
                     {% else %}
                         <span class="text-stone-400">-</span>
@@ -237,60 +261,152 @@ function openBurialModal(row) {
     const title = document.getElementById('modalTitle');
     const content = document.getElementById('modalContent');
     
-    // Get data from the row data attributes
+    // Helper function to escape HTML and check if value exists
+    function escapeHtml(text) {
+        if (!text || text.trim() === '' || text.trim() === '-') return null;
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+    
+    // Get all data from the row data attributes
     const cells = row.querySelectorAll('td');
-    const fullName = row.dataset.fullname || 'Unknown';
-    const lastName = cells[1]?.textContent.trim() || '';
-    const firstName = cells[2]?.textContent.trim() || '';
-    const date = row.dataset.date;
-    const rowCode = row.dataset.rowcode;
-    const fileName = row.dataset.filename;
+    const data = {
+        fullName: row.dataset.fullname || 'Unknown',
+        lastName: cells[1]?.textContent.trim() || '',
+        firstName: cells[2]?.textContent.trim() || '',
+        deathDate: row.dataset.date,
+        rowCode: row.dataset.rowcode,
+        fileName: row.dataset.filename,
+        graveCode: row.dataset.gravecode,
+        plotCode: row.dataset.plotcode,
+        age: row.dataset.age,
+        namesOnHeadstone: row.dataset.namesonheadstone,
+        stoneInscription: row.dataset.stoneinscription,
+        stoneDesign: row.dataset.stonedesign,
+        headstoneShape: row.dataset.headstoneshape,
+        burialDate: row.dataset.burialdate,
+        months: row.dataset.months,
+        status: row.dataset.status,
+        occupation: row.dataset.occupation,
+        address: row.dataset.address,
+        witness: row.dataset.witness,
+        comments: row.dataset.comments
+    };
     
     // Set title
-    title.textContent = fullName;
+    title.textContent = data.fullName;
     
     // Build content
     let contentHTML = '<div class="space-y-4">';
     
     // Display image if available (show at top)
-    if (fileName && fileName.trim()) {
-        // Detect pathPrefix from current location
-        // URL: localhost:8080/templecurraheen-website/burials/ -> basePath = /templecurraheen-website
+    if (data.fileName && data.fileName.trim()) {
         const pathParts = window.location.pathname.split('/').filter(p => p);
         const basePath = pathParts.length > 1 ? '/' + pathParts[0] : '';
-        const imagePath = `${basePath}/assets/imgs/graves/${fileName}`;
+        const imagePath = `${basePath}/assets/imgs/graves/${data.fileName}`;
         contentHTML += `
             <div class="mb-4 border-b border-stone-200 dark:border-gray-600 pb-4">
                 <h3 class="text-lg font-semibold mb-2 text-stone-800 dark:text-white">Grave Image</h3>
-                <img src="${imagePath}" alt="Grave image for ${fullName}" 
+                <img src="${imagePath}" alt="Grave image for ${escapeHtml(data.fullName) || 'Unknown'}" 
                      class="w-full max-w-lg mx-auto rounded-lg shadow-lg border border-stone-300 dark:border-gray-600"
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='block'; console.error('Image failed to load:', '${imagePath}');">
-                <p class="text-red-500 text-sm mt-2 hidden">Image not found: ${fileName}<br>Attempted path: ${imagePath}</p>
+                <p class="text-red-500 text-sm mt-2 hidden">Image not found: ${escapeHtml(data.fileName) || ''}<br>Attempted path: ${imagePath}</p>
             </div>
         `;
     }
     
-    // Display all data fields
-    if (rowCode && rowCode.trim()) {
-        contentHTML += `<div class="flex items-center gap-2"><strong>Row Code:</strong> <span class="inline-block px-2 py-1 rounded font-semibold text-stone-800" style="background-color: ${getRowCodeColor(rowCode)};">${rowCode}</span></div>`;
+    // Display all data fields - Basic Information Section
+    contentHTML += '<div class="border-b border-stone-200 dark:border-gray-600 pb-3"><h3 class="text-lg font-semibold mb-2 text-stone-800 dark:text-white">Basic Information</h3>';
+    
+    if (data.rowCode && data.rowCode.trim()) {
+        contentHTML += `<div class="mb-2"><strong>Row Code:</strong> <span class="inline-block px-2 py-1 rounded font-semibold text-stone-800" style="background-color: ${getRowCodeColor(data.rowCode)};">${escapeHtml(data.rowCode)}</span></div>`;
     }
     
-    if (lastName && lastName !== '-') {
-        contentHTML += `<div><strong>Last Name:</strong> ${lastName}</div>`;
+    if (escapeHtml(data.graveCode)) {
+        contentHTML += `<div class="mb-2"><strong>Grave Code:</strong> ${escapeHtml(data.graveCode)}</div>`;
     }
     
-    if (firstName && firstName !== '-') {
-        contentHTML += `<div><strong>First Name:</strong> ${firstName}</div>`;
+    if (escapeHtml(data.plotCode)) {
+        contentHTML += `<div class="mb-2"><strong>Plot Code:</strong> ${escapeHtml(data.plotCode)}</div>`;
     }
     
-    if (fullName && fullName !== 'Unknown') {
-        contentHTML += `<div><strong>Full Name:</strong> ${fullName}</div>`;
+    if (escapeHtml(data.lastName)) {
+        contentHTML += `<div class="mb-2"><strong>Last Name:</strong> ${escapeHtml(data.lastName)}</div>`;
     }
     
-    if (date && date !== 'Awaited' && date !== 'Unknown' && date.trim()) {
-        contentHTML += `<div><strong>Death Date:</strong> ${date}</div>`;
-    } else if (!date || date === '' || date === 'Awaited') {
-        contentHTML += `<div><strong>Death Date:</strong> <span class="text-stone-400">Unknown</span></div>`;
+    if (escapeHtml(data.firstName)) {
+        contentHTML += `<div class="mb-2"><strong>First Name:</strong> ${escapeHtml(data.firstName)}</div>`;
+    }
+    
+    if (data.fullName && data.fullName !== 'Unknown') {
+        contentHTML += `<div class="mb-2"><strong>Full Name:</strong> ${escapeHtml(data.fullName)}</div>`;
+    }
+    
+    if (escapeHtml(data.age)) {
+        contentHTML += `<div class="mb-2"><strong>Age:</strong> ${escapeHtml(data.age)}</div>`;
+    }
+    
+    if (data.deathDate && data.deathDate !== 'Awaited' && data.deathDate !== 'Unknown' && data.deathDate.trim()) {
+        contentHTML += `<div class="mb-2"><strong>Death Date:</strong> ${escapeHtml(data.deathDate)}</div>`;
+    } else {
+        contentHTML += `<div class="mb-2"><strong>Death Date:</strong> <span class="text-stone-400">Unknown</span></div>`;
+    }
+    
+    if (escapeHtml(data.burialDate)) {
+        contentHTML += `<div class="mb-2"><strong>Burial Date:</strong> ${escapeHtml(data.burialDate)}</div>`;
+    }
+    
+    if (escapeHtml(data.months)) {
+        contentHTML += `<div class="mb-2"><strong>Months:</strong> ${escapeHtml(data.months)}</div>`;
+    }
+    
+    if (escapeHtml(data.status)) {
+        contentHTML += `<div class="mb-2"><strong>Status:</strong> ${escapeHtml(data.status)}</div>`;
+    }
+    
+    if (escapeHtml(data.occupation)) {
+        contentHTML += `<div class="mb-2"><strong>Occupation:</strong> ${escapeHtml(data.occupation)}</div>`;
+    }
+    
+    if (escapeHtml(data.address)) {
+        contentHTML += `<div class="mb-2"><strong>Address:</strong> ${escapeHtml(data.address)}</div>`;
+    }
+    
+    if (escapeHtml(data.witness)) {
+        contentHTML += `<div class="mb-2"><strong>Witness:</strong> ${escapeHtml(data.witness)}</div>`;
+    }
+    
+    contentHTML += '</div>';
+    
+    // Headstone Information Section
+    if (escapeHtml(data.namesOnHeadstone) || escapeHtml(data.stoneInscription) || escapeHtml(data.stoneDesign) || escapeHtml(data.headstoneShape)) {
+        contentHTML += '<div class="border-b border-stone-200 dark:border-gray-600 pb-3 mt-4"><h3 class="text-lg font-semibold mb-2 text-stone-800 dark:text-white">Headstone Information</h3>';
+        
+        if (escapeHtml(data.namesOnHeadstone)) {
+            contentHTML += `<div class="mb-2"><strong>Names on Headstone:</strong> ${escapeHtml(data.namesOnHeadstone)}</div>`;
+        }
+        
+        if (escapeHtml(data.stoneInscription)) {
+            contentHTML += `<div class="mb-2"><strong>Stone Inscription:</strong> <span class="italic">${escapeHtml(data.stoneInscription)}</span></div>`;
+        }
+        
+        if (escapeHtml(data.stoneDesign)) {
+            contentHTML += `<div class="mb-2"><strong>Stone Design:</strong> ${escapeHtml(data.stoneDesign)}</div>`;
+        }
+        
+        if (escapeHtml(data.headstoneShape)) {
+            contentHTML += `<div class="mb-2"><strong>Headstone Shape:</strong> ${escapeHtml(data.headstoneShape)}</div>`;
+        }
+        
+        contentHTML += '</div>';
+    }
+    
+    // Comments Section
+    if (escapeHtml(data.comments)) {
+        contentHTML += '<div class="mt-4"><h3 class="text-lg font-semibold mb-2 text-stone-800 dark:text-white">Additional Notes</h3>';
+        contentHTML += `<div class="mb-2 text-stone-700 dark:text-gray-300 whitespace-pre-wrap">${escapeHtml(data.comments)}</div>`;
+        contentHTML += '</div>';
     }
     
     contentHTML += '</div>';
