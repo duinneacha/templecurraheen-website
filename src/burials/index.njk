@@ -9,29 +9,151 @@ description: "Complete listing of burial records from Templecurraheen Graveyard"
     <p class="text-stone-600 mb-6">
         Our database contains {{ burialList.length }} documented burials from the historic Templecurraheen Graveyard. Records are continuously updated as new information becomes available through ongoing research and community contributions.
     </p>
-    
-    <div class="mobile-controls mb-6">
+</div>
+
+<!-- Sticky Search and Sort Controls -->
+<div class="sticky top-0 z-40 bg-white dark:bg-gray-900 py-4 mb-6 border-b border-stone-200 dark:border-gray-700 shadow-sm">
+    <div class="mobile-controls">
         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 sm:mb-0">
-            <button onclick="sortAlphabetical()" class="btn btn-secondary w-full sm:w-auto">Sort A-Z</button>
-            <button onclick="sortByDate()" class="btn btn-secondary w-full sm:w-auto">Sort by Date</button>
-            <button onclick="sortByRow()" class="btn btn-secondary w-full sm:w-auto">Sort by Row</button>
+            <button onclick="sortAlphabetical()" id="sortAlphabeticalBtn" class="btn btn-secondary w-full sm:w-auto">Sort A-Z</button>
+            <button onclick="sortByDate()" id="sortDateBtn" class="btn btn-secondary w-full sm:w-auto">Sort by Date</button>
+            <button onclick="sortByRow()" id="sortRowBtn" class="btn btn-secondary w-full sm:w-auto">Sort by Row</button>
         </div>
-        <div class="mt-3 sm:mt-0 sm:flex-grow">
-            <input type="text" id="searchInput" placeholder="Search by name..." 
-                   class="w-full px-3 sm:px-4 py-2 border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-stone-500 text-sm sm:text-base">
+        <div class="mt-3 sm:mt-0 sm:flex-grow relative">
+            <input type="text" id="searchInput" placeholder="Search all fields..." 
+                   class="w-full px-3 sm:px-4 py-2 pr-10 border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-stone-500 text-sm sm:text-base bg-white dark:bg-gray-800 dark:text-white dark:border-gray-600">
+            <button id="clearSearchBtn" onclick="clearSearch()" class="absolute right-2 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 dark:text-gray-400 dark:hover:text-gray-200 hidden" aria-label="Clear search">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
         </div>
+    </div>
+    <!-- Results Count -->
+    <div id="resultsCount" class="mt-3 text-sm text-stone-600 dark:text-gray-400">
+        Showing {{ burialList.length }} of {{ burialList.length }} results
     </div>
 </div>
 
-<!-- Burial List Table -->
-<div class="overflow-x-auto">
+<!-- No Results Message -->
+<div id="noResultsMessage" class="hidden text-center py-12 bg-stone-50 dark:bg-gray-800 rounded-lg border border-stone-200 dark:border-gray-700 mb-6">
+    <svg class="w-16 h-16 mx-auto text-stone-400 dark:text-gray-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    </svg>
+    <h3 class="text-xl font-semibold text-stone-800 dark:text-white mb-2">No results found</h3>
+    <p class="text-stone-600 dark:text-gray-400 mb-2">Try adjusting your search terms or filters.</p>
+    <p class="text-sm text-stone-500 dark:text-gray-500">Search across names, dates, occupations, addresses, and more.</p>
+</div>
+
+<!-- Mobile Card Layout -->
+<div id="mobileCardView" class="md:hidden space-y-3">
+    {% for burial in burialList %}
+    {% set combinedCode = '' %}
+    {% if burial.rowCode %}{% set combinedCode = combinedCode + burial.rowCode %}{% endif %}
+    {% if burial.graveCode %}{% set combinedCode = combinedCode + burial.graveCode %}{% endif %}
+    {% if burial.plotCode %}{% set combinedCode = combinedCode + burial.plotCode %}{% endif %}
+    <div class="burial-row burial-card bg-white dark:bg-gray-800 border border-stone-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer p-4"
+         data-name="{{ burial.fullName | lower }}" 
+         data-date="{{ burial.deathDate }}"
+         data-lastname="{{ burial.lastName | lower }}"
+         data-firstname="{{ burial.firstName | lower }}"
+         data-rowcode="{{ burial.rowCode }}"
+         data-filename="{{ burial.fileName }}"
+         data-fullname="{{ burial.fullName }}"
+         data-gravecode="{{ burial.graveCode }}"
+         data-plotcode="{{ burial.plotCode }}"
+         data-age="{{ burial.age }}"
+         data-namesonheadstone="{{ burial.namesOnHeadstone }}"
+         data-stoneinscription="{{ burial.stoneInscription }}"
+         data-stonedesign="{{ burial.stoneDesign }}"
+         data-headstoneshape="{{ burial.headstoneShape }}"
+         data-burialdate="{{ burial.burialDate }}"
+         data-months="{{ burial.months }}"
+         data-status="{{ burial.status }}"
+         data-occupation="{{ burial.occupation }}"
+         data-address="{{ burial.address }}"
+         data-witness="{{ burial.witness }}"
+         data-comments="{{ burial.comments }}"
+         onclick="openBurialModal(this)">
+        <div class="flex items-start justify-between mb-2">
+            <div class="flex-1">
+                {% if combinedCode %}
+                    <div class="mb-2">
+                        {% if burial.rowCode %}
+                            <span class="inline-block px-2 py-1 rounded text-xs font-semibold text-stone-800" 
+                                  {% if burial.rowCodeColor %}style="background-color: {{ burial.rowCodeColor }};"{% endif %}>
+                                {{ combinedCode }}
+                            </span>
+                        {% else %}
+                            <span class="text-xs text-stone-600 dark:text-gray-400 font-medium">{{ combinedCode }}</span>
+                        {% endif %}
+                    </div>
+                {% endif %}
+                <h3 class="text-lg font-semibold text-stone-800 dark:text-white mb-1">
+                    {% if burial.firstName and burial.lastName %}
+                        {{ burial.firstName }} {{ burial.lastName }}
+                    {% elsif burial.lastName %}
+                        {{ burial.lastName }}
+                    {% elsif burial.firstName %}
+                        {{ burial.firstName }}
+                    {% else %}
+                        <span class="text-stone-400">Unknown</span>
+                    {% endif %}
+                </h3>
+            </div>
+            {% if burial.fileName %}
+                <div class="ml-3 flex-shrink-0">
+                    <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+            {% endif %}
+        </div>
+        <div class="text-sm text-stone-600 dark:text-gray-400">
+            {% if burial.deathDate and burial.deathDate != 'Awaited' %}
+                <span class="inline-flex items-center">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    {{ burial.deathDate }}
+                </span>
+            {% else %}
+                <span class="text-stone-400">Death date unknown</span>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Desktop Table Layout -->
+<div id="desktopTableView" class="hidden md:block overflow-x-auto">
     <table class="w-full border-collapse">
         <thead class="bg-stone-100 dark:bg-gray-800">
             <tr>
-                <th class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white">Grave Code</th>
-                <th class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white">Last Name</th>
-                <th class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white">First Name</th>
-                <th class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white">Death Date</th>
+                <th onclick="sortByColumn('gravecode')" class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white cursor-pointer hover:bg-stone-200 dark:hover:bg-gray-700 transition-colors select-none">
+                    <div class="flex items-center gap-2">
+                        <span>Grave Code</span>
+                        <span class="sort-indicator" data-column="gravecode"></span>
+                    </div>
+                </th>
+                <th onclick="sortByColumn('lastname')" class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white cursor-pointer hover:bg-stone-200 dark:hover:bg-gray-700 transition-colors select-none">
+                    <div class="flex items-center gap-2">
+                        <span>Last Name</span>
+                        <span class="sort-indicator" data-column="lastname"></span>
+                    </div>
+                </th>
+                <th onclick="sortByColumn('firstname')" class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white cursor-pointer hover:bg-stone-200 dark:hover:bg-gray-700 transition-colors select-none">
+                    <div class="flex items-center gap-2">
+                        <span>First Name</span>
+                        <span class="sort-indicator" data-column="firstname"></span>
+                    </div>
+                </th>
+                <th onclick="sortByColumn('date')" class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white cursor-pointer hover:bg-stone-200 dark:hover:bg-gray-700 transition-colors select-none">
+                    <div class="flex items-center gap-2">
+                        <span>Death Date</span>
+                        <span class="sort-indicator" data-column="date"></span>
+                    </div>
+                </th>
                 <th class="text-left p-3 border-b border-stone-300 dark:border-gray-600 font-semibold text-stone-800 dark:text-white">Image</th>
             </tr>
         </thead>
@@ -166,93 +288,486 @@ description: "Complete listing of burial records from Templecurraheen Graveyard"
 </div>
 
 <script>
-function sortAlphabetical() {
-    const tbody = document.querySelector('tbody');
-    const rows = Array.from(tbody.children);
+// Global state for sorting
+let currentSort = { column: null, direction: 'asc' };
+let totalRows = 0;
+
+// Initialize total rows count and store original HTML
+document.addEventListener('DOMContentLoaded', function() {
+    totalRows = document.querySelectorAll('.burial-row').length;
     
-    rows.sort((a, b) => {
-        // Sort by last name, then first name if last names are equal
+    // Store original HTML for all elements to enable highlighting restoration
+    document.querySelectorAll('.burial-row').forEach(row => {
+        // Store for table rows
+        const cells = row.querySelectorAll('td');
+        cells.forEach((cell, index) => {
+            if (index !== 4) { // Skip image column (5th column, 0-indexed = 4)
+                cell.dataset.originalHTML = cell.innerHTML;
+            }
+        });
+        
+        // Store for card elements
+        if (row.classList.contains('burial-card')) {
+            row.dataset.originalHTML = row.innerHTML;
+        }
+    });
+    
+    updateResultsCount();
+});
+
+// Function to highlight search terms in text
+function highlightText(text, searchTerm) {
+    if (!searchTerm || !text) return text;
+    
+    const escapedTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escapedTerm})`, 'gi');
+    return text.replace(regex, '<mark class="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">$1</mark>');
+}
+
+// Function to update results count
+function updateResultsCount() {
+    const visibleRows = Array.from(document.querySelectorAll('.burial-row')).filter(row => 
+        row.style.display !== 'none'
+    ).length;
+    const searchTerm = document.getElementById('searchInput').value.trim();
+    const resultsCountEl = document.getElementById('resultsCount');
+    const noResultsEl = document.getElementById('noResultsMessage');
+    const mobileView = document.getElementById('mobileCardView');
+    const desktopView = document.getElementById('desktopTableView');
+    
+    if (visibleRows === 0 && searchTerm) {
+        noResultsEl.classList.remove('hidden');
+        if (mobileView) mobileView.classList.add('hidden');
+        if (desktopView) desktopView.classList.add('hidden');
+        resultsCountEl.textContent = 'No results found';
+    } else {
+        noResultsEl.classList.add('hidden');
+        if (mobileView) mobileView.classList.remove('hidden');
+        if (desktopView) desktopView.classList.remove('hidden');
+        if (searchTerm) {
+            resultsCountEl.textContent = `Showing ${visibleRows} of ${totalRows} results`;
+        } else {
+            resultsCountEl.textContent = `Showing ${totalRows} of ${totalRows} results`;
+        }
+    }
+}
+
+// Function to update sort indicators
+function updateSortIndicators(activeColumn, direction) {
+    document.querySelectorAll('.sort-indicator').forEach(indicator => {
+        indicator.textContent = '';
+        indicator.classList.remove('text-stone-600', 'dark:text-gray-300');
+    });
+    
+    if (activeColumn) {
+        const activeIndicator = document.querySelector(`.sort-indicator[data-column="${activeColumn}"]`);
+        if (activeIndicator) {
+            activeIndicator.textContent = direction === 'asc' ? '↑' : '↓';
+            activeIndicator.classList.add('text-stone-600', 'dark:text-gray-300');
+        }
+    }
+    
+    // Update button states
+    document.getElementById('sortAlphabeticalBtn').classList.remove('bg-stone-200', 'dark:bg-gray-700');
+    document.getElementById('sortDateBtn').classList.remove('bg-stone-200', 'dark:bg-gray-700');
+    document.getElementById('sortRowBtn').classList.remove('bg-stone-200', 'dark:bg-gray-700');
+}
+
+function sortAlphabetical() {
+    // Get all visible rows from both views
+    const allRows = Array.from(document.querySelectorAll('.burial-row')).filter(row => row.style.display !== 'none');
+    
+    // Toggle direction if already sorting by name
+    if (currentSort.column === 'name') {
+        currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+    } else {
+        currentSort = { column: 'name', direction: 'asc' };
+    }
+    
+    allRows.sort((a, b) => {
         const lastNameA = a.dataset.lastname || '';
         const lastNameB = b.dataset.lastname || '';
         const firstNameA = a.dataset.firstname || '';
         const firstNameB = b.dataset.firstname || '';
         
-        // Compare last names first
         const lastNameCompare = lastNameA.localeCompare(lastNameB);
         if (lastNameCompare !== 0) {
-            return lastNameCompare;
+            return currentSort.direction === 'asc' ? lastNameCompare : -lastNameCompare;
         }
         
-        // If last names are equal (or both empty), compare first names
-        return firstNameA.localeCompare(firstNameB);
+        const firstNameCompare = firstNameA.localeCompare(firstNameB);
+        return currentSort.direction === 'asc' ? firstNameCompare : -firstNameCompare;
     });
     
-    tbody.innerHTML = '';
-    rows.forEach(row => tbody.appendChild(row));
+    // Reorder in mobile view
+    const mobileView = document.getElementById('mobileCardView');
+    if (mobileView) {
+        const mobileRows = allRows.filter(row => row.classList.contains('burial-card'));
+        mobileRows.forEach(row => mobileView.appendChild(row));
+    }
+    
+    // Reorder in desktop table
+    const tbody = document.querySelector('tbody');
+    if (tbody) {
+        const tableRows = allRows.filter(row => row.tagName === 'TR');
+        const hiddenRows = Array.from(tbody.children).filter(row => row.style.display === 'none');
+        
+        tbody.innerHTML = '';
+        tableRows.forEach(row => tbody.appendChild(row));
+        hiddenRows.forEach(row => tbody.appendChild(row));
+    }
+    
+    updateSortIndicators('name', currentSort.direction);
+    document.getElementById('sortAlphabeticalBtn').classList.add('bg-stone-200', 'dark:bg-gray-700');
+    applySearchHighlighting();
 }
 
 function sortByDate() {
-    const tbody = document.querySelector('tbody');
-    const rows = Array.from(tbody.children);
+    const allRows = Array.from(document.querySelectorAll('.burial-row')).filter(row => row.style.display !== 'none');
     
-    rows.sort((a, b) => {
+    if (currentSort.column === 'date') {
+        currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+    } else {
+        currentSort = { column: 'date', direction: 'asc' };
+    }
+    
+    allRows.sort((a, b) => {
         const dateA = a.dataset.date || '';
         const dateB = b.dataset.date || '';
         
-        // Handle various date formats
         const parseDate = (dateStr) => {
             if (!dateStr || dateStr === 'Awaited' || dateStr === 'Unknown') return new Date(0);
-            
-            // Try to parse different date formats
             const cleaned = dateStr.replace(/[^\d\/\-]/g, '');
             const date = new Date(cleaned);
             return isNaN(date.getTime()) ? new Date(0) : date;
         };
         
-        return parseDate(dateA) - parseDate(dateB);
+        const result = parseDate(dateA) - parseDate(dateB);
+        return currentSort.direction === 'asc' ? result : -result;
     });
     
-    tbody.innerHTML = '';
-    rows.forEach(row => tbody.appendChild(row));
+    // Reorder in mobile view
+    const mobileView = document.getElementById('mobileCardView');
+    if (mobileView) {
+        const mobileRows = allRows.filter(row => row.classList.contains('burial-card'));
+        mobileRows.forEach(row => mobileView.appendChild(row));
+    }
+    
+    // Reorder in desktop table
+    const tbody = document.querySelector('tbody');
+    if (tbody) {
+        const tableRows = allRows.filter(row => row.tagName === 'TR');
+        const hiddenRows = Array.from(tbody.children).filter(row => row.style.display === 'none');
+        
+        tbody.innerHTML = '';
+        tableRows.forEach(row => tbody.appendChild(row));
+        hiddenRows.forEach(row => tbody.appendChild(row));
+    }
+    
+    updateSortIndicators('date', currentSort.direction);
+    document.getElementById('sortDateBtn').classList.add('bg-stone-200', 'dark:bg-gray-700');
+    applySearchHighlighting();
 }
 
 function sortByRow() {
-    const tbody = document.querySelector('tbody');
-    const rows = Array.from(tbody.children);
+    const allRows = Array.from(document.querySelectorAll('.burial-row')).filter(row => row.style.display !== 'none');
     
-    rows.sort((a, b) => {
+    if (currentSort.column === 'row') {
+        currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+    } else {
+        currentSort = { column: 'row', direction: 'asc' };
+    }
+    
+    allRows.sort((a, b) => {
         const rowCodeA = a.dataset.rowcode || '';
         const rowCodeB = b.dataset.rowcode || '';
         
-        // Handle empty values
         if (!rowCodeA) return 1;
         if (!rowCodeB) return -1;
         
-        // Compare row codes alphabetically
-        return rowCodeA.localeCompare(rowCodeB);
+        const result = rowCodeA.localeCompare(rowCodeB);
+        return currentSort.direction === 'asc' ? result : -result;
     });
     
-    tbody.innerHTML = '';
-    rows.forEach(row => tbody.appendChild(row));
+    // Reorder in mobile view
+    const mobileView = document.getElementById('mobileCardView');
+    if (mobileView) {
+        const mobileRows = allRows.filter(row => row.classList.contains('burial-card'));
+        mobileRows.forEach(row => mobileView.appendChild(row));
+    }
+    
+    // Reorder in desktop table
+    const tbody = document.querySelector('tbody');
+    if (tbody) {
+        const tableRows = allRows.filter(row => row.tagName === 'TR');
+        const hiddenRows = Array.from(tbody.children).filter(row => row.style.display === 'none');
+        
+        tbody.innerHTML = '';
+        tableRows.forEach(row => tbody.appendChild(row));
+        hiddenRows.forEach(row => tbody.appendChild(row));
+    }
+    
+    updateSortIndicators('row', currentSort.direction);
+    document.getElementById('sortRowBtn').classList.add('bg-stone-200', 'dark:bg-gray-700');
+    applySearchHighlighting();
 }
 
-// Search functionality
-document.getElementById('searchInput').addEventListener('input', function(e) {
-    const searchTerm = e.target.value.toLowerCase();
+// Column header sorting (desktop only)
+function sortByColumn(column) {
+    const allRows = Array.from(document.querySelectorAll('.burial-row')).filter(row => row.style.display !== 'none');
+    
+    // Toggle direction if already sorting by this column
+    if (currentSort.column === column) {
+        currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+    } else {
+        currentSort = { column: column, direction: 'asc' };
+    }
+    
+    allRows.sort((a, b) => {
+        let valueA, valueB;
+        
+        switch(column) {
+            case 'gravecode':
+                valueA = (a.dataset.rowcode || '') + (a.dataset.gravecode || '') + (a.dataset.plotcode || '');
+                valueB = (b.dataset.rowcode || '') + (b.dataset.gravecode || '') + (b.dataset.plotcode || '');
+                break;
+            case 'lastname':
+                valueA = a.dataset.lastname || '';
+                valueB = b.dataset.lastname || '';
+                break;
+            case 'firstname':
+                valueA = a.dataset.firstname || '';
+                valueB = b.dataset.firstname || '';
+                break;
+            case 'date':
+                const parseDate = (dateStr) => {
+                    if (!dateStr || dateStr === 'Awaited' || dateStr === 'Unknown') return new Date(0);
+                    const cleaned = dateStr.replace(/[^\d\/\-]/g, '');
+                    const date = new Date(cleaned);
+                    return isNaN(date.getTime()) ? new Date(0) : date;
+                };
+                const result = parseDate(a.dataset.date || '') - parseDate(b.dataset.date || '');
+                return currentSort.direction === 'asc' ? result : -result;
+            default:
+                return 0;
+        }
+        
+        if (column === 'date') return 0; // Already handled above
+        
+        const result = valueA.localeCompare(valueB);
+        return currentSort.direction === 'asc' ? result : -result;
+    });
+    
+    // Reorder in mobile view
+    const mobileView = document.getElementById('mobileCardView');
+    if (mobileView) {
+        const mobileRows = allRows.filter(row => row.classList.contains('burial-card'));
+        mobileRows.forEach(row => mobileView.appendChild(row));
+    }
+    
+    // Reorder in desktop table
+    const tbody = document.querySelector('tbody');
+    if (tbody) {
+        const tableRows = allRows.filter(row => row.tagName === 'TR');
+        const hiddenRows = Array.from(tbody.children).filter(row => row.style.display === 'none');
+        
+        tbody.innerHTML = '';
+        tableRows.forEach(row => tbody.appendChild(row));
+        hiddenRows.forEach(row => tbody.appendChild(row));
+    }
+    
+    updateSortIndicators(column, currentSort.direction);
+    
+    // Clear button highlights
+    document.getElementById('sortAlphabeticalBtn').classList.remove('bg-stone-200', 'dark:bg-gray-700');
+    document.getElementById('sortDateBtn').classList.remove('bg-stone-200', 'dark:bg-gray-700');
+    document.getElementById('sortRowBtn').classList.remove('bg-stone-200', 'dark:bg-gray-700');
+    
+    applySearchHighlighting();
+}
+
+// Function to apply search highlighting
+function applySearchHighlighting() {
+    const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
     const rows = document.querySelectorAll('.burial-row');
     
+    if (!searchTerm) {
+        // Remove all highlighting - restore original content from data attribute
+        rows.forEach(row => {
+            // Handle table rows
+            const cells = row.querySelectorAll('td');
+            cells.forEach((cell, index) => {
+                if (index === 4) return; // Skip image column
+                if (cell.dataset.originalHTML) {
+                    cell.innerHTML = cell.dataset.originalHTML;
+                }
+            });
+            
+            // Handle card elements
+            if (row.classList.contains('burial-card')) {
+                if (row.dataset.originalHTML) {
+                    row.innerHTML = row.dataset.originalHTML;
+                }
+            }
+        });
+        return;
+    }
+    
     rows.forEach(row => {
-        const name = row.dataset.name || '';
-        const lastname = row.dataset.lastname || '';
-        const firstname = row.dataset.firstname || '';
-        const text = row.textContent.toLowerCase();
+        if (row.style.display === 'none') return;
         
-        if (name.includes(searchTerm) || lastname.includes(searchTerm) || firstname.includes(searchTerm) || text.includes(searchTerm)) {
+        // Handle table rows
+        if (row.tagName === 'TR') {
+            const cells = row.querySelectorAll('td');
+            cells.forEach((cell, index) => {
+                // Skip image column
+                if (index === 4) return;
+                
+                // Store original HTML if not already stored
+                if (!cell.dataset.originalHTML) {
+                    cell.dataset.originalHTML = cell.innerHTML;
+                }
+                
+                // Get text content and highlight matches
+                const originalText = cell.textContent || '';
+                if (originalText.toLowerCase().includes(searchTerm)) {
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = cell.dataset.originalHTML;
+                    const walker = document.createTreeWalker(
+                        tempDiv,
+                        NodeFilter.SHOW_TEXT,
+                        null,
+                        false
+                    );
+                    let node;
+                    while (node = walker.nextNode()) {
+                        if (node.textContent.toLowerCase().includes(searchTerm)) {
+                            const highlighted = highlightText(node.textContent, searchTerm);
+                            const span = document.createElement('span');
+                            span.innerHTML = highlighted;
+                            node.parentNode.replaceChild(span, node);
+                        }
+                    }
+                    cell.innerHTML = tempDiv.innerHTML;
+                } else {
+                    cell.innerHTML = cell.dataset.originalHTML;
+                }
+            });
+        }
+        
+        // Handle card elements - simpler highlighting for cards
+        if (row.classList.contains('burial-card')) {
+            // Store original HTML if not already stored
+            if (!row.dataset.originalHTML) {
+                row.dataset.originalHTML = row.innerHTML;
+            }
+            
+            // Get all text content
+            const originalText = row.textContent || '';
+            if (originalText.toLowerCase().includes(searchTerm)) {
+                // For cards, we'll highlight text in the visible elements
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = row.dataset.originalHTML;
+                const walker = document.createTreeWalker(
+                    tempDiv,
+                    NodeFilter.SHOW_TEXT,
+                    null,
+                    false
+                );
+                let node;
+                while (node = walker.nextNode()) {
+                    if (node.textContent.toLowerCase().includes(searchTerm)) {
+                        const highlighted = highlightText(node.textContent, searchTerm);
+                        const span = document.createElement('span');
+                        span.innerHTML = highlighted;
+                        node.parentNode.replaceChild(span, node);
+                    }
+                }
+                row.innerHTML = tempDiv.innerHTML;
+            } else {
+                row.innerHTML = row.dataset.originalHTML;
+            }
+        }
+    });
+}
+
+// Clear search function
+function clearSearch() {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('clearSearchBtn').classList.add('hidden');
+    
+    const rows = document.querySelectorAll('.burial-row');
+    rows.forEach(row => {
+        row.style.display = 'table-row';
+    });
+    
+    applySearchHighlighting();
+    updateResultsCount();
+}
+
+// Search functionality - searches across all fields
+document.getElementById('searchInput').addEventListener('input', function(e) {
+    const searchTerm = e.target.value.toLowerCase().trim();
+    const clearBtn = document.getElementById('clearSearchBtn');
+    const rows = document.querySelectorAll('.burial-row');
+    
+    // Show/hide clear button
+    if (searchTerm) {
+        clearBtn.classList.remove('hidden');
+    } else {
+        clearBtn.classList.add('hidden');
+    }
+    
+    // If search is empty, show all rows
+    if (!searchTerm) {
+        rows.forEach(row => {
+            row.style.display = 'table-row';
+        });
+        applySearchHighlighting();
+        updateResultsCount();
+        return;
+    }
+    
+    rows.forEach(row => {
+        // Get all data attributes and visible text content
+        const searchableFields = [
+            row.dataset.name || '',
+            row.dataset.lastname || '',
+            row.dataset.firstname || '',
+            row.dataset.fullname || '',
+            row.dataset.gravecode || '',
+            row.dataset.rowcode || '',
+            row.dataset.plotcode || '',
+            row.dataset.age || '',
+            row.dataset.namesonheadstone || '',
+            row.dataset.stoneinscription || '',
+            row.dataset.stonedesign || '',
+            row.dataset.headstoneshape || '',
+            row.dataset.burialdate || '',
+            row.dataset.date || '',
+            row.dataset.months || '',
+            row.dataset.status || '',
+            row.dataset.occupation || '',
+            row.dataset.address || '',
+            row.dataset.witness || '',
+            row.dataset.comments || '',
+            row.textContent || ''
+        ];
+        
+        // Convert all fields to lowercase and check if any contains the search term
+        const searchableText = searchableFields
+            .map(field => String(field).toLowerCase())
+            .join(' ');
+        
+        if (searchableText.includes(searchTerm)) {
             row.style.display = 'table-row';
         } else {
             row.style.display = 'none';
         }
     });
+    
+    applySearchHighlighting();
+    updateResultsCount();
 });
 
 // Modal functions
