@@ -92,9 +92,9 @@ description: "Complete listing of burial records from Templecurraheen Graveyard"
                 <h3 class="text-lg font-semibold text-stone-800 dark:text-white mb-1">
                     {% if burial.firstName and burial.lastName %}
                         {{ burial.firstName }} {{ burial.lastName }}
-                    {% elsif burial.lastName %}
+                    {% elif burial.lastName %}
                         {{ burial.lastName }}
-                    {% elsif burial.firstName %}
+                    {% elif burial.firstName %}
                         {{ burial.firstName }}
                     {% else %}
                         <span class="text-stone-400">Unknown</span>
