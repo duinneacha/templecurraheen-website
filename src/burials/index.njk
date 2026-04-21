@@ -18,6 +18,7 @@ description: "Complete listing of burial records from Templecurraheen Graveyard"
             <button onclick="sortAlphabetical()" id="sortAlphabeticalBtn" class="btn btn-secondary w-full sm:w-auto">Sort A-Z</button>
             <button onclick="sortByDate()" id="sortDateBtn" class="btn btn-secondary w-full sm:w-auto">Sort by Date</button>
             <button onclick="sortByRow()" id="sortRowBtn" class="btn btn-secondary w-full sm:w-auto">Sort by Row</button>
+            <button onclick="toggleMissingPhotos()" id="missingPhotosBtn" class="btn btn-secondary w-full sm:w-auto" title="Show only records that still need a photo, ordered by row">Missing Photos</button>
         </div>
         <div class="mt-3 sm:mt-0 sm:flex-grow relative">
             <input type="text" id="searchInput" placeholder="Search all fields..." 
@@ -311,6 +312,55 @@ description: "Complete listing of burial records from Templecurraheen Graveyard"
 // Global state for sorting
 let currentSort = { column: null, direction: 'asc' };
 let totalRows = 0;
+let filterMissingPhotos = false;
+
+// Shared visibility rule — combines the missing-photos toggle and the search box
+function rowPassesFilters(row, searchTerm) {
+    if (filterMissingPhotos) {
+        const filename = (row.dataset.filename || '').trim();
+        const rowCode = (row.dataset.rowcode || '').toUpperCase();
+        if (filename) return false;           // already has a photo
+        if (rowCode === 'X') return false;    // register-only; no physical stone to photograph
+    }
+    if (searchTerm) {
+        const searchableText = [
+            row.dataset.name, row.dataset.lastname, row.dataset.firstname,
+            row.dataset.fullname, row.dataset.gravecode, row.dataset.rowcode,
+            row.dataset.plotcode, row.dataset.age, row.dataset.namesonheadstone,
+            row.dataset.stoneinscription, row.dataset.stonedesign, row.dataset.headstoneshape,
+            row.dataset.burialdate, row.dataset.date, row.dataset.months, row.dataset.status,
+            row.dataset.occupation, row.dataset.address, row.dataset.witness, row.dataset.comments,
+            row.textContent
+        ].map(f => String(f || '').toLowerCase()).join(' ');
+        if (!searchableText.includes(searchTerm)) return false;
+    }
+    return true;
+}
+
+function toggleMissingPhotos() {
+    filterMissingPhotos = !filterMissingPhotos;
+    const btn = document.getElementById('missingPhotosBtn');
+    if (filterMissingPhotos) {
+        btn.classList.remove('btn-secondary');
+        btn.classList.add('btn-primary');
+    } else {
+        btn.classList.remove('btn-primary');
+        btn.classList.add('btn-secondary');
+    }
+
+    const searchTerm = (document.getElementById('searchInput').value || '').trim().toLowerCase();
+    document.querySelectorAll('.burial-row').forEach(row => {
+        row.style.display = rowPassesFilters(row, searchTerm) ? 'table-row' : 'none';
+    });
+
+    if (filterMissingPhotos) {
+        currentSort = { column: null, direction: 'asc' };
+        sortByRow();
+    } else {
+        applySearchHighlighting();
+    }
+    updateResultsCount();
+}
 
 // Initialize total rows count and store original HTML
 document.addEventListener('DOMContentLoaded', function() {
@@ -355,7 +405,9 @@ function updateResultsCount() {
     const mobileView = document.getElementById('mobileCardView');
     const desktopView = document.getElementById('desktopTableView');
     
-    if (visibleRows === 0 && searchTerm) {
+    const anyFilterActive = Boolean(searchTerm) || filterMissingPhotos;
+
+    if (visibleRows === 0 && anyFilterActive) {
         noResultsEl.classList.remove('hidden');
         if (mobileView) mobileView.classList.add('hidden');
         if (desktopView) desktopView.classList.add('hidden');
@@ -364,7 +416,7 @@ function updateResultsCount() {
         noResultsEl.classList.add('hidden');
         if (mobileView) mobileView.classList.remove('hidden');
         if (desktopView) desktopView.classList.remove('hidden');
-        if (searchTerm) {
+        if (anyFilterActive) {
             resultsCountEl.textContent = `Showing ${visibleRows} of ${totalRows} results`;
         } else {
             resultsCountEl.textContent = `Showing ${totalRows} of ${totalRows} results`;
@@ -715,77 +767,30 @@ function applySearchHighlighting() {
 function clearSearch() {
     document.getElementById('searchInput').value = '';
     document.getElementById('clearSearchBtn').classList.add('hidden');
-    
-    const rows = document.querySelectorAll('.burial-row');
-    rows.forEach(row => {
-        row.style.display = 'table-row';
+
+    document.querySelectorAll('.burial-row').forEach(row => {
+        row.style.display = rowPassesFilters(row, '') ? 'table-row' : 'none';
     });
-    
+
     applySearchHighlighting();
     updateResultsCount();
 }
 
-// Search functionality - searches across all fields
+// Search functionality - searches across all fields (combined with missing-photos filter)
 document.getElementById('searchInput').addEventListener('input', function(e) {
     const searchTerm = e.target.value.toLowerCase().trim();
     const clearBtn = document.getElementById('clearSearchBtn');
-    const rows = document.querySelectorAll('.burial-row');
-    
-    // Show/hide clear button
+
     if (searchTerm) {
         clearBtn.classList.remove('hidden');
     } else {
         clearBtn.classList.add('hidden');
     }
-    
-    // If search is empty, show all rows
-    if (!searchTerm) {
-        rows.forEach(row => {
-            row.style.display = 'table-row';
-        });
-        applySearchHighlighting();
-        updateResultsCount();
-        return;
-    }
-    
-    rows.forEach(row => {
-        // Get all data attributes and visible text content
-        const searchableFields = [
-            row.dataset.name || '',
-            row.dataset.lastname || '',
-            row.dataset.firstname || '',
-            row.dataset.fullname || '',
-            row.dataset.gravecode || '',
-            row.dataset.rowcode || '',
-            row.dataset.plotcode || '',
-            row.dataset.age || '',
-            row.dataset.namesonheadstone || '',
-            row.dataset.stoneinscription || '',
-            row.dataset.stonedesign || '',
-            row.dataset.headstoneshape || '',
-            row.dataset.burialdate || '',
-            row.dataset.date || '',
-            row.dataset.months || '',
-            row.dataset.status || '',
-            row.dataset.occupation || '',
-            row.dataset.address || '',
-            row.dataset.witness || '',
-            row.dataset.comments || '',
-            row.textContent || ''
-        ];
-        
-        // Convert all fields to lowercase and check if any contains the search term
-        const searchableText = searchableFields
-            .map(field => String(field).toLowerCase())
-            .join(' ');
-        
-        if (searchableText.includes(searchTerm)) {
-            row.style.display = 'table-row';
-        } else {
-            row.style.display = 'none';
-        }
+
+    document.querySelectorAll('.burial-row').forEach(row => {
+        row.style.display = rowPassesFilters(row, searchTerm) ? 'table-row' : 'none';
     });
-    
+
     applySearchHighlighting();
     updateResultsCount();
 });

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk '{print $9, $5}')",
+      "Bash(awk -F',' 'NR>1 {print $9}' assets/list/templecurraheen_stones_and_registers.csv)",
+      "Bash(awk -F',' 'NR>1 && $9 != \"\" {print $9}' assets/list/templecurraheen_stones_and_registers.csv)",
+      "Bash(awk -F',' 'NR==2 || NR==3 || NR==27 || NR==57 {print $1 \"|\" $2 \"|\" $3 \"|\" $9}' assets/list/templecurraheen_stones_and_registers.csv)",
+      "Bash(awk -F',' 'NR==2 || NR==4 || NR==27 || NR==57 {print \"grave_code=\" $1 \", row_code=\" $2 \", plot_code=\" $3 \", file_name=\" $9}' assets/list/templecurraheen_stones_and_registers.csv)"
+    ]
+  }
+}
