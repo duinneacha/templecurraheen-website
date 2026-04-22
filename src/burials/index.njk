@@ -350,13 +350,16 @@ function toggleMissingPhotos() {
 
     const searchTerm = (document.getElementById('searchInput').value || '').trim().toLowerCase();
     document.querySelectorAll('.burial-row').forEach(row => {
-        row.style.display = rowPassesFilters(row, searchTerm) ? 'table-row' : 'none';
+        row.style.display = rowPassesFilters(row, searchTerm) ? '' : 'none';
     });
 
-    if (filterMissingPhotos) {
-        currentSort = { column: null, direction: 'asc' };
-        sortByRow();
-    } else {
+    // Re-sort so previously-hidden rows are re-integrated in proper row order
+    // (rather than left parked at the end of the tbody). Reset currentSort first
+    // so sortByRow initializes to 'asc' instead of toggling direction.
+    currentSort = { column: null, direction: 'asc' };
+    sortByRow();
+
+    if (!filterMissingPhotos) {
         applySearchHighlighting();
     }
     updateResultsCount();
@@ -769,7 +772,7 @@ function clearSearch() {
     document.getElementById('clearSearchBtn').classList.add('hidden');
 
     document.querySelectorAll('.burial-row').forEach(row => {
-        row.style.display = rowPassesFilters(row, '') ? 'table-row' : 'none';
+        row.style.display = rowPassesFilters(row, '') ? '' : 'none';
     });
 
     applySearchHighlighting();
@@ -788,7 +791,7 @@ document.getElementById('searchInput').addEventListener('input', function(e) {
     }
 
     document.querySelectorAll('.burial-row').forEach(row => {
-        row.style.display = rowPassesFilters(row, searchTerm) ? 'table-row' : 'none';
+        row.style.display = rowPassesFilters(row, searchTerm) ? '' : 'none';
     });
 
     applySearchHighlighting();
