@@ -1,0 +1,133 @@
+Match_ID,Record_Type,Row_Code,Grave_Code,Plot_Code,Last_Name,First_Name,Death_Date,Death_Year,Age,Burial_Date,Status,Occupation,Address,Witness,Comments,Names_on_Headstone,File_Name,Stone_Inscription,Stone_Design,Headstone_Shape,Matched_With_Grave_Code,Matched_With_Row_Code,Matched_With_Death_Year,Matched_With_Age,Year_Match,Age_Match,Year_Difference,Age_Difference
+1,Register,X,501, ,Higgins,William,18-Jul-37,1937,42.0,23-Jul-37,Bachelor,Naval Crew,"Clash Road, Riverstown",Hannah - Mother,,,,,,,16,C,,,N/A,N/A,,
+1,Stone,C,16,,Higgins,William,,,,,,,,,,Higgins William,,,,,501,X,1937,42.0,N/A,N/A,,
+2,Register,X,501, ,Higgins,William,18-Jul-37,1937,42.0,23-Jul-37,Bachelor,Naval Crew,"Clash Road, Riverstown",Hannah - Mother,,,,,,,16,C,1916,25 years,No,No,21,17.0
+2,Stone,C,16,,Higgins,William,1916-06-10 00:00:00,1916,25 years,,,,,,,"Higgins, Clash Road, Little Island",,Erected by his loving children in memory of Wm Higgins & of their brothers David 31/5/l1914 (48) and James 3-9-1896 (20) & their nephew Michael 19/8/1907 (12),VII,,501,X,1937,42.0,No,No,21,17.0
+3,Register,X,501, ,Higgins,William,18-Jul-37,1937,42.0,23-Jul-37,Bachelor,Naval Crew,"Clash Road, Riverstown",Hannah - Mother,,,,,,,54,H,1808,51 years,No,No,129,9.0
+3,Stone,H,54,,Higgins,William,16-4-1808 ,1808,51 years,,,,,,,Higgins William,,Erected by John Higgins in memory of his father.  Lrequiem in pace,,,501,X,1937,42.0,No,No,129,9.0
+4,Register,X,5010, ,Barry,Michael,08-Sep-38,1938,75.0,10-Sep-38,Married,Farmer,"Lackenbehy, Carrigtwohill",Margaret Barry,Widow,,,,,,110,N,1978,81 years,No,No,40,6.0
+4,Stone,N,110,b,Barry,Michael,1978,1978,81 years,,,,,,,Barry Michael (1897-1978)Condonstown Dungourney,n110.jpg,,,,5010,X,1938,75.0,No,No,40,6.0
+5,Register,X,5010, ,Barry,Michael,08-Sep-38,1938,75.0,10-Sep-38,Married,Farmer,"Lackenbehy, Carrigtwohill",Margaret Barry,Widow,,,,,,110,N,1928,96 years,No,No,10,21.0
+5,Stone,N,110,b,Barry,Michael,1928,1928,96 years,,,,,,,Barry Michael (1832-1928) Clash Leamlara,n110.jpg,,,,5010,X,1938,75.0,No,No,10,21.0
+6,Register,X,5010, ,Barry,Michael,08-Sep-38,1938,75.0,10-Sep-38,Married,Farmer,"Lackenbehy, Carrigtwohill",Margaret Barry,Widow,,,,,,111,N,1826,19 years,No,No,112,56.0
+6,Stone,N,111,,Barry,Michael,17/4/1826,1826,19 years,,,,,,,Barry Michael,n111.jpg,Erected by Elizabeth in memory of her father Michael Barry and his daughter Noreen,,,5010,X,1938,75.0,No,No,112,56.0
+7,Register,X,5010, ,Barry,Michael,08-Sep-38,1938,75.0,10-Sep-38,Married,Farmer,"Lackenbehy, Carrigtwohill",Margaret Barry,Widow,,,,,,140,R,1817,19 years,No,No,121,56.0
+7,Stone,R,140,b,Barry,Michael,16/8/1817,1817,19 years,,,,,,,Barry Michael,,E/B John & Anne Barry in memory of Michael ,,,5010,X,1938,75.0,No,No,121,56.0
+8,Register,X,5014, ,Higgins,John,10-Nov-38,1938,70.0,12-Nov-38,Bachelor,Labourer,"Slatty Hill, Carrigtwohill",William Rae,District Hospital Midleton,,,,,,3,B,1845,,No,N/A,93,
+8,Stone,B,3,,Higgins,John,1845,1845,,,,,,,,"Higgins John, (Broken railing surround)",,E'ed by John Higgins of Fanick in memory of his wife Elizabeth   Remember DEATH and fear the Lord.,III,Tall rectangular stone with two circles at top and oval raised centre,5014,X,1938,70.0,No,N/A,93,
+9,Register,X,5014, ,Higgins,John,10-Nov-38,1938,70.0,12-Nov-38,Bachelor,Labourer,"Slatty Hill, Carrigtwohill",William Rae,District Hospital Midleton,,,,,,23,D,1834,47 years,No,No,104,23.0
+9,Stone,D,23,b,Higgins,John,20-3-1834,1834,47 years,,,,,,,"Higgins John,          1786",,Ereted by Mary Higgins in memory of her husband who parted this life March 1834. May RIP,VI With cross emboldened,3 ft app sunken in ground forward tilt,5014,X,1938,70.0,No,No,104,23.0
+10,Register,X,5016, ,Buckley,Michael,29-Mar-39,1939,71.0,25-Mar-39,Bachelor,Labourer,Clash,William Rae,District Hospital Midleton,,,,,,123,O,1806,25 years,No,No,133,46.0
+10,Stone,O,123,,Buckley,Michael,5-12-1806,1806,25 years,,,,,,,Buckley Michael Father & Family,0123.jpg,,VI app 6 ft tall- concrete,,5016,X,1939,71.0,No,No,133,46.0
+11,Register,X,5016, ,Buckley,Michael,29-Mar-39,1939,71.0,25-Mar-39,Bachelor,Labourer,Clash,William Rae,District Hospital Midleton,,,,,,124,O,1806,25 years,No,No,133,46.0
+11,Stone,O,124,b,Buckley,Michael,5/12/1806,1806,25 years,,,,,,,Buckley Michael,,Erected by Darby Buckley in memory of his son Michael aged 25 years. To be the burial place of himself and the rest of his family having departed 5/12/1806,,,5016,X,1939,71.0,No,No,133,46.0
+12,Register,X,5016, ,Buckley,Michael,29-Mar-39,1939,71.0,25-Mar-39,Bachelor,Labourer,Clash,William Rae,District Hospital Midleton,,,,,,125,O,1927,,No,N/A,12,
+12,Stone,O,125,,Buckley,Michael,1927-05-15 00:00:00,1927,,,,,,,,Buckley Michael ,,"Son Edmond who died 8-10-1932 (69), Jermiah Buckley died 17-4-1940 (88)",, pedelstal,5016,X,1939,71.0,No,N/A,12,
+13,Register,X,5036, ,Higgins,John,,,61.0,21-Aug-41,,,,,,,,,,,3,B,1845,,N/A,N/A,,
+13,Stone,B,3,,Higgins,John,1845,1845,,,,,,,,"Higgins John, (Broken railing surround)",,E'ed by John Higgins of Fanick in memory of his wife Elizabeth   Remember DEATH and fear the Lord.,III,Tall rectangular stone with two circles at top and oval raised centre,5036,X,,61.0,N/A,N/A,,
+14,Register,X,5036, ,Higgins,John,,,61.0,21-Aug-41,,,,,,,,,,,23,D,1834,47 years,N/A,No,,14.0
+14,Stone,D,23,b,Higgins,John,20-3-1834,1834,47 years,,,,,,,"Higgins John,          1786",,Ereted by Mary Higgins in memory of her husband who parted this life March 1834. May RIP,VI With cross emboldened,3 ft app sunken in ground forward tilt,5036,X,,61.0,N/A,No,,14.0
+15,Register,X,5038, ,Grandon,William,02-Sep-41,1941,75.0,04-Sep-41,Married,Farmer,"Ballynoe, Carrigtwohill",Wife Catherine Grandon,,,,,,,28,F,1941,Unknown,Yes,N/A,0,
+15,Stone,F,28,c,Grandon,William,1941-09-02 00:00:00,1941,Unknown,,,,,,,"Grandon William, Terrysland",,His wife Catherine 29-12-1969 Their daughter Elsie 19-8-1945 & all other members of family RIP,Rectangular with triangle top,App 5 ft stnading on  double pedestal  - grey in colour,5038,X,1941,75.0,Yes,N/A,0,
+16,Register,X,5041, ,Buckley,Jeremiah,,,71.0,25-Mar-42,,,,,,,,,,,125,O,1940,88 years ,N/A,No,,17.0
+16,Stone,O,125,,Buckley,Jeremiah,1940-04-17 00:00:00,1940,88 years ,,,,,,,Buckley Jeremiah,,,,,5041,X,,71.0,N/A,No,,17.0
+17,Register,X,5042, ,Finn,Margaret,26-Apr-42,1942,72.0,28-Apr-42,Widow,Farmer,"Tibbotstown, Carrigtohill",Son Denis Finn,,,,,,,17,C,1942,Unknown,Yes,N/A,0,
+17,Stone,C,17,,Finn,Margaret,1942-04-21 00:00:00,1942,Unknown,,,,,,,"Finn John & Margaret, Tibbotstown",,  In loving memory of his wife Margaret 21-4-1942,Low black marble with 2 ˩ = uprights,            Complete concrete kerbing surround of this trijple grave,5042,X,1942,72.0,Yes,N/A,0,
+18,Register,X,5044, ,Donovan,David,12-May-42,1942,60.0,14-May-42,Bachelor,Labourer,Leamlara,William Rae,Midleton District Hospital Cobh,,,,,,10,C,1800,40 years,No,No,142,20.0
+18,Stone,C,10,,Donovan,David,5-3-1800,1800,40 years,,,,,,,Donovan David,,Erected by Mary Donovan in memory of her Father David Donovan 5th March 1800 aged 40 yers,       ΙI,Standing alone just East  of  Coppingers Tomb,5044,X,1942,60.0,No,No,142,20.0
+19,Register,X,5048, ,Burke,Patrick,,,,17-May-42,,,Carrigtwohill,,,,,,,,-2,A,1943,,N/A,N/A,,
+19,Stone,A,-2,,Burke,Patrick,1943-05-23 00:00:00,1943,,,,,,,,Burke Thomas Carrigtwohill,a-2.jpg,"His wife Mgt (Nee Lyons) His son Patrick 23/4/1888 - 23/5/1943 &"" Killarney"". His daughter Mary Fitzgerald (nee burke) 23/4/1881 - 16/3/1952  Cousin Nora Leary Tim O'Leary'72",Black Marble,,5048,X,,,N/A,N/A,,
+20,Register,X,5060, ,Linehan,John,13-Aug-44,1944,82.0,04-Aug-44,Married,Farmer,"Ballyregan, Carrigtwohill",Wife Anne signed her mark,Something wrong with date,,,,,,24,E,1944,,Yes,N/A,0,
+20,Stone,E,24,,Linehan,John,1944-08-30 00:00:00,1944,,,,,,,,Linehan,,,,,5060,X,1944,82.0,Yes,N/A,0,
+21,Register,X,5060, ,Linehan,John,13-Aug-44,1944,82.0,04-Aug-44,Married,Farmer,"Ballyregan, Carrigtwohill",Wife Anne signed her mark,Something wrong with date,,,,,,161,U,1924,72 years ,No,No,20,10.0
+21,Stone,U,161,,Linehan,John,1924-10-11 00:00:00,1924,72 years ,,,,,,,Linehan John (Tomb),,Erected by John Linehan of A. In memory of his beloved father John,Flat Slab on ground,,5060,X,1944,82.0,No,No,20,10.0
+22,Register,X,5089, ,Hyde,William,24-Apr-51,1951,61.0,05-Aug-51,Married,Farmer,Barryscourt,,Bon Secoure,,,,,,69,J,1951,,Yes,N/A,0,
+22,Stone,J,69,,Hyde,William,1951-09-24 00:00:00,1951,,,,,,,,Hyde Philip (Barryscourt) (Footstone),,,,,5089,X,1951,61.0,Yes,N/A,0,
+23,Register,X,5092, ,Jeffers,Elizabeth,16-Jan-52,1952,68.0,22-Jan-52,Widow,Widow of James Gardiner,"19 Midleton St, Cobh",Daughter Abina O'Rourke Midleton St,Cove (Cobh) - 2 omitted,,,,,,2,B,1962,,No,N/A,10,
+23,Stone,B,2,,Jeffers,Elizabeth,1962-01-19 00:00:00,1962,,,,,,,, Jeffers Elizabeth ,,his wife Margaret died 17th May 1986.,,Granite kerbing surrounding this double grave,5092,X,1952,68.0,No,N/A,10,
+24,Register,X,5094, ,Mulcahy,Patrick,,,67.0,27-May-52,,,Barryscourt,,,,,,,,1,B,1905,86 years,N/A,No,,19.0
+24,Stone,B,1,,Mulcahy,Patrick,1905-08-18 00:00:00,1905,86 years,,,,,,,Patrick Mulcahy Oatencake/Nora Wallace,,Erected by Nora Wallace in memory of her father.,VIII concrete with pointed top,Sunken circle at top of stone with Embossed Cross within,5094,X,,67.0,N/A,No,,19.0
+25,Register,X,5098, ,Cotter,Richard,,,82.0,12-Jan-53,,,,,,,,,,,4,B,1952,,N/A,N/A,,
+25,Stone,B,4,,Cotter,Richard,1952-12-19 00:00:00,1952,,,,,,,,"Cotter, ARDNAGEEHY ",,Erected by Mr Cotter in memory of his wife Lizzie their son James 3/l8/1947 (39) The above Richard died 19th Dec 1952 (90) their son Simon died 16 Oct 1953 (50)  Located mid-way down 1st row on right,Once off type stone,Tall rectangular stone with Λ  top highly decorated Concrete kerbing around this double grave),5098,X,,82.0,N/A,N/A,,
+26,Register,X,5098, ,Cotter,Richard,,,82.0,12-Jan-53,,,,,,,,,,,4,B,1925,,N/A,N/A,,
+26,Stone,B,4,,Cotter,Richard,1925-02-27 00:00:00,1925,,,,,,,,"Cotter, ARDNAGEEHY ",,Erected by Mr Cotter in memory of his wife Lizzie their son James 3/l8/1947 (39) The above Richard died 19th Dec 1952 (90) their son Simon died 16 Oct 1953 (50)  Located mid-way down 1st row on right,Once off type stone,Tall rectangular stone with Λ  top highly decorated Concrete kerbing around this double grave),5098,X,,82.0,N/A,N/A,,
+27,Register,X,50103, ,Cotter,Simon,,,51.0,18-Oct-53,,,Carrigtwohill,,,,,,,,4,B,1953,,N/A,N/A,,
+27,Stone,B,4,,Cotter,Simon,1953-10-16 00:00:00,1953,,,,,,,,"Cotter, ARDNAGEEHY ",,Erected by Mr Cotter in memory of his wife Lizzie their son James 3/l8/1947 (39) The above Richard died 19th Dec 1952 (90) their son Simon died 16 Oct 1953 (50)  Located mid-way down 1st row on right,Once off type stone,Tall rectangular stone with Λ  top highly decorated Concrete kerbing around this double grave),50103,X,,51.0,N/A,N/A,,
+28,Register,X,50103, ,Cotter,Simon,,,51.0,18-Oct-53,,,Carrigtwohill,,,,,,,,92,L,1897,26 years,N/A,No,,25.0
+28,Stone,L,92,,Cotter,Simon,20/8/1897,1897,26 years,,,,,,,"Simon Cotter& Mgt Ardnageehy, W'hill",,"In loving memory of his wife,, his son Simon 28-8-1897 (26) & his daughter hanora 11-6-1883 aged 35. Roger Cotter Carhue 24-6-1993 The above 181719-16 ", XIII Tall & impressive,,50103,X,,51.0,N/A,No,,25.0
+29,Register,X,50108, ,Higgins,John,18-Dec-54,1954,75.0,20-Dec-54,Widower,Labourer,"Clash Road, Little Island",Daughter Mary Kinery,,,,,,,3,B,1845,,No,N/A,109,
+29,Stone,B,3,,Higgins,John,1845,1845,,,,,,,,"Higgins John, (Broken railing surround)",,E'ed by John Higgins of Fanick in memory of his wife Elizabeth   Remember DEATH and fear the Lord.,III,Tall rectangular stone with two circles at top and oval raised centre,50108,X,1954,75.0,No,N/A,109,
+30,Register,X,50108, ,Higgins,John,18-Dec-54,1954,75.0,20-Dec-54,Widower,Labourer,"Clash Road, Little Island",Daughter Mary Kinery,,,,,,,23,D,1834,47 years,No,No,120,28.0
+30,Stone,D,23,b,Higgins,John,20-3-1834,1834,47 years,,,,,,,"Higgins John,          1786",,Ereted by Mary Higgins in memory of her husband who parted this life March 1834. May RIP,VI With cross emboldened,3 ft app sunken in ground forward tilt,50108,X,1954,75.0,No,No,120,28.0
+31,Register,X,50110, ,O'Connell,William,26-Dec-54,1954,65.0,23-Dec-55,Single,Pensioner,Ballyregan,Sister Norah O'Connell,,,,,,,139,R,1927,,No,N/A,27,
+31,Stone,R,139,,O'Connell,William,1927-06-27 00:00:00,1927,,,,,,,,O'Connell Wm,r139.jpg,,,Footstone,50110,X,1954,65.0,No,N/A,27,
+32,Register,X,50110, ,O'Connell,William,26-Dec-54,1954,65.0,23-Dec-55,Single,Pensioner,Ballyregan,Sister Norah O'Connell,,,,,,,139,R,1955,,No,N/A,1,
+32,Stone,R,139,,O'Connell,William,1955-12-28 00:00:00,1955,,,,,,,,O'Connell Wm - his son ,r139.jpg,,,Footstone,50110,X,1954,65.0,No,N/A,1,
+33,Register,X,50126, ,Kelleher,William,27-Feb-05,1905,80.0,01-Mar-58,Widower,Post Office Official,Leamlara,Patrick Barrett - Our Lady of Lourdes,,,,,,,51,H,1826,60 years,No,No,79,20.0
+33,Stone,H,51,,Kelleher,William,15-8-1826,1826,60 years,,,,,,,William Kelleher,,,,,50126,X,1905,80.0,No,No,79,20.0
+34,Register,X,50127, ,Stanley,Christopher,10-Jul-58,1958,51.0,12-Jul-58,Married,Bus Conductor,"43 Belmont Park, Ballinlough Rd, Cork",Bon Secoure - Cororor's Report,,,,,,,24,E,1958,49 years,Yes,No,0,2.0
+34,Stone,E,24,d,Stanley,Christopher,1958-07-10 00:00:00,1958,49 years,,,,,,, Stanley Christopher Ballinlough,,erected by his loving wife and family.,,Foot stone inscription,50127,X,1958,51.0,Yes,No,0,2.0
+35,Register,X,50132, ,Hayes,Timothy,13-May-60,1960,62.0,15-May-60,Marrier,Labourer,Glounthaune,Inmate - St Finbarr's Hospital,,,,,,,108,M,1960,,Yes,N/A,0,
+35,Stone,M,108,b,Hayes,Timothy,1960-05-13 00:00:00,1960,,,,,,,,Hayes,m108.jpg,,,,50132,X,1960,62.0,Yes,N/A,0,
+36,Register,X,50136, ,Sheridan,Richard,08-Jun-61,1961,91.0,20-Jun-61,Widower,Old Age Pensioner,"Annmount, Glounthaune",Daughter - Kitty Sheridan,,,,,,,86,L,1961,,Yes,N/A,0,
+36,Stone,L,86,b,Sheridan,Richard,1961-06-18 00:00:00,1961,,,,,,,,Sheridan Richard,,,,,50136,X,1961,91.0,Yes,N/A,0,
+37,Register,X,50139, ,Foley,James,14-Nov-61,1961,67.0,16-Nov-61,Married,Retired Labourer,"Barryscourt, Carrigtwohill",Granddaughter - Kitty Foley,,,,,,,64,I,1961,64,Yes,No,0,3.0
+37,Stone,I,64,,Foley,James,1961,1961,64,,,,,,,James Foley (1897-1961),,,,,50139,X,1961,67.0,Yes,No,0,3.0
+38,Register,X,50141, ,Barry,John,14-Feb-62,1962,75.0,16-Feb-62,Married,Farmer,"Clash, Leamlara",,,,,,,,110,N,1962,75 years,Yes,Yes,0,0.0
+38,Stone,N,110,b,Barry,John,1962,1962,75 years,,,,,,,Barry John (1887-1962),n110.jpg,,,,50141,X,1962,75.0,Yes,Yes,0,0.0
+39,Register,X,50142, ,Howard,Margaret,06-Mar-63,1963,71.0,08-Mar-62,Single,House Worker,"Ballyannon, Midleton",Niece - Noreen Barry,,,,,,,58,I,1825,,No,N/A,138,
+39,Stone,I,58,,Howard,Margaret,7/1/1825,1825,,,,,,,,Howard Thoma,,,,,50142,X,1963,71.0,No,N/A,138,
+40,Register,X,50143, ,Sheehan,Mary,23-Feb-63,1963,73.0,05-Feb-63,Married,House Keeper,"Railway Cottages, Rushbrook, Cobh",Inmate - Mercy Hospital,,,,,,,47,G,1801,41 years,No,No,162,32.0
+40,Stone,G,47,,Sheehan,Mary,6-4-1801,1801,41 years,,,,,,,John & Mary Sheehan ,,Erected by John Sheehan in memory ff his wife Mary Sheehan alias Higgins who dept 6-4-1801,,,50143,X,1963,73.0,No,No,162,32.0
+41,Register,X,50150, ,Higgins,David,29-Apr-65,1965,60.0,02-May-65,Marrier,CIE Pensioner,"13 St Lappan's Place, Little Island",,North Infermary,,,,,,16,C,1914,48 years,No,No,51,12.0
+41,Stone,C,16,,Higgins,David,1914-05-31 00:00:00,1914,48 years,,,,,,,Aged 48 years,,Erected by his loving children in memory of Wm Higgins & of their brothers David 31/5/l1914 (48) and James 3-9-1896 (20) & their nephew Michael 19/8/1907 (12),VII,,50150,X,1965,60.0,No,No,51,12.0
+42,Register,X,50156, ,Mulcahy,Abina,07-Apr-68,1968,61.0,09-Apr-68,Married,Farmer's Wife,"[Shanbally ….], Knockraha",Inmate - St Finbarr's Hospital,,,,,,,30,F,1968,61,Yes,Yes,0,0.0
+42,Stone,F,30,,Mulcahy,Abina,1968-04-07 00:00:00,1968,61,,,,,,,"Mulcahy Abina, Shanballyrea Knockraha",,In loving memory of Abina & her husband Micahel 5-4-1981 Aged 79 years RIP,V ,,50156,X,1968,61.0,Yes,Yes,0,0.0
+43,Register,X,50159, ,Kidney,Timothy,,,69.0,06-May-70,,,"Ballyannon, Midleton",,,,,,,,167,V,,,N/A,N/A,,
+43,Stone,V,167,,Kidney,Timothy,,,,,,,,,,Kidney Timothy,,"Erectedby David Kidney, Ballyannin",,Located back row of graveyard - nxst to Collins grave,50159,X,,69.0,N/A,N/A,,
+44,Register,X,50163, ,Buckley,Bridget,31-Oct-71,1971,79.0,02-Nov-71,Single,Farmer,"The Bungalow, Carrigtwohill",,Our Lady of Lourdes Midleton,,,,,,125,O,1886,38 years,No,No,85,41.0
+44,Stone,O,125,,Buckley,Bridget,4/8/1886,1886,38 years,,,,,,,Buckley Bridget Ballyanna,,Ere'd by Ml Buckley in memory of his beloved wife  as a tribute of respect to an afectionate wife,XIII  Grey concrete stone,Elaborate stone with pillar uprights curved outline &,50163,X,1971,79.0,No,No,85,41.0
+45,Register,X,50172, ,Linehan,Denis,,,,28-Feb-74,,,"Ballyregan, Carrigtwohill",,,,,,,,24,E,1787,,N/A,N/A,,
+45,Stone,E,24,,Linehan,Denis,10/3/1787,1787,,,,,,,,Linehan,,,,,50172,X,,,N/A,N/A,,
+46,Register,X,50172, ,Linehan,Denis,,,,28-Feb-74,,,"Ballyregan, Carrigtwohill",,,,,,,,24,E,1974,,N/A,N/A,,
+46,Stone,E,24,,Linehan,Denis,1974-02-26 00:00:00,1974,,,,,,,,Linehan,,,,,50172,X,,,N/A,N/A,,
+47,Register,X,50173, ,Higgins,Michael,,,78.0,24-Oct-74,,,"Pigon Hill, Knockraha",,,,,,,,16,C,1907,12 years,N/A,No,,66.0
+47,Stone,C,16,,Higgins,Michael,1907-08-19 00:00:00,1907,12 years,,,,,,,"Nephew, aged 12 years",,Erected by his loving children in memory of Wm Higgins & of their brothers David 31/5/l1914 (48) and James 3-9-1896 (20) & their nephew Michael 19/8/1907 (12),VII,,50173,X,,78.0,N/A,No,,66.0
+48,Register,X,50173, ,Higgins,Michael,,,78.0,24-Oct-74,,,"Pigon Hill, Knockraha",,,,,,,,102,M,,,N/A,N/A,,
+48,Stone,M,102,,Higgins,Michael,,,,,,,,,,Higgins Michael & Mary,,,,,50173,X,,78.0,N/A,N/A,,
+49,Register,X,50175, ,Finn,Michael,,,76.0,21-Mar-76,,,"Ballinbrittick, Carrigtwohill",,,,,,,,67,I,1976,,N/A,N/A,,
+49,Stone,I,67,,Finn,Michael,1976-03-19 00:00:00,1976,,,,,,,,Finn Michael,,Erected by Dan Finn of Ballinbrittig in memory of his father Ml Finn May he rest in pece. Also his grndson Ml Finn (died 19-3-1976) and his wife Mary (Willis) (died 16-8-2001), I - app 6 ft tall,(Interred in Mitchelstown),50175,X,,76.0,N/A,N/A,,
+50,Register,X,50175, ,Finn,Michael,,,76.0,21-Mar-76,,,"Ballinbrittick, Carrigtwohill",,,,,,,,67,I,1887,70 years ,N/A,No,,6.0
+50,Stone,I,67,,Finn,Michael,6-4-1887,1887,70 years ,,,,,,,Finn Michael,,Erected by Dan Finn of Ballinbrittig in memory of his father Ml Finn May he rest in pece. Also his grndson Ml Finn (died 19-3-1976) and his wife Mary (Willis) (died 16-8-2001), I - app 6 ft tall,(Interred in Mitchelstown),50175,X,,76.0,N/A,No,,6.0
+51,Register,X,50177, ,Higgins,Ellen,,,79.0,20-Apr-76,,,"Clash Rd, Little Island",,,,,,,,59,I,1834,60 years,N/A,No,,19.0
+51,Stone,I,59,,Higgins,Ellen,1/11/1834,1834,60 years,,,,,,,Higgins Daniel & Ellen,,Erected by Ellen Higgins of Tullagreine to mark her own burial place and in memory of her father Daniel Higgins who died 24th June 1820 aged 81 years and of her mother Mary Verling who died in 1824 aged 71 years.,,,50177,X,,79.0,N/A,No,,19.0
+52,Register,X,50179, ,Higgins,Mary,,,61.0,23-Feb-77,,,Little Island,,,,,,,,102,M,,,N/A,N/A,,
+52,Stone,M,102,,Higgins,Mary,,,,,,,,,,Higgins Michael & Mary,,,,,50179,X,,61.0,N/A,N/A,,
+53,Register,X,50182, ,Buckley,Michael,,,60.0,20-Sep-77,,,"Corbally, Lisgould",,,,,,,,123,O,1806,25 years,N/A,No,,35.0
+53,Stone,O,123,,Buckley,Michael,5-12-1806,1806,25 years,,,,,,,Buckley Michael Father & Family,0123.jpg,,VI app 6 ft tall- concrete,,50182,X,,60.0,N/A,No,,35.0
+54,Register,X,50182, ,Buckley,Michael,,,60.0,20-Sep-77,,,"Corbally, Lisgould",,,,,,,,124,O,1806,25 years,N/A,No,,35.0
+54,Stone,O,124,b,Buckley,Michael,5/12/1806,1806,25 years,,,,,,,Buckley Michael,,Erected by Darby Buckley in memory of his son Michael aged 25 years. To be the burial place of himself and the rest of his family having departed 5/12/1806,,,50182,X,,60.0,N/A,No,,35.0
+55,Register,X,50182, ,Buckley,Michael,,,60.0,20-Sep-77,,,"Corbally, Lisgould",,,,,,,,125,O,1927,,N/A,N/A,,
+55,Stone,O,125,,Buckley,Michael,1927-05-15 00:00:00,1927,,,,,,,,Buckley Michael ,,"Son Edmond who died 8-10-1932 (69), Jermiah Buckley died 17-4-1940 (88)",, pedelstal,50182,X,,60.0,N/A,N/A,,
+56,Register,X,50183, ,Barry,Michael,,,64.0,17-Apr-78,,,"Condonstown, Dungorney",,,,,,,,110,N,1978,81 years,N/A,No,,17.0
+56,Stone,N,110,b,Barry,Michael,1978,1978,81 years,,,,,,,Barry Michael (1897-1978)Condonstown Dungourney,n110.jpg,,,,50183,X,,64.0,N/A,No,,17.0
+57,Register,X,50183, ,Barry,Michael,,,64.0,17-Apr-78,,,"Condonstown, Dungorney",,,,,,,,110,N,1928,96 years,N/A,No,,32.0
+57,Stone,N,110,b,Barry,Michael,1928,1928,96 years,,,,,,,Barry Michael (1832-1928) Clash Leamlara,n110.jpg,,,,50183,X,,64.0,N/A,No,,32.0
+58,Register,X,50183, ,Barry,Michael,,,64.0,17-Apr-78,,,"Condonstown, Dungorney",,,,,,,,111,N,1826,19 years,N/A,No,,45.0
+58,Stone,N,111,,Barry,Michael,17/4/1826,1826,19 years,,,,,,,Barry Michael,n111.jpg,Erected by Elizabeth in memory of her father Michael Barry and his daughter Noreen,,,50183,X,,64.0,N/A,No,,45.0
+59,Register,X,50183, ,Barry,Michael,,,64.0,17-Apr-78,,,"Condonstown, Dungorney",,,,,,,,140,R,1817,19 years,N/A,No,,45.0
+59,Stone,R,140,b,Barry,Michael,16/8/1817,1817,19 years,,,,,,,Barry Michael,,E/B John & Anne Barry in memory of Michael ,,,50183,X,,64.0,N/A,No,,45.0
+60,Register,X,50185, ,Savage,David,,,80.0,14-Feb-79,,,"Ballinakilla, Carrigtwohill",,,,,,,,6,B,1978,81 years,N/A,Yes,,1.0
+60,Stone,B,6,e,Savage,David,1978-06-15 00:00:00,1978,81 years,,,,,,,"Savage David Ballinakilla, Carrigtwohill",savage.jpg,,,Black marble with triangular top and two oblong uprights,50185,X,,80.0,N/A,Yes,,1.0
+61,Register,X,50186, ,Sheridan,Michael,,,,21-Oct-79,,,"Cobh Junction, Glounthaune",,,,,,,,86,L,1979,,N/A,N/A,,
+61,Stone,L,86,b,Sheridan,Michael,1979-08-27 00:00:00,1979,,,,,,,,Sheridan Michael,,,,,50186,X,,,N/A,N/A,,
+62,Register,X,50187, ,Cotter,Simon,,,68.0,,,,"Ballivistale, Glanmire",,,,,,,,4,B,1953,,N/A,N/A,,
+62,Stone,B,4,,Cotter,Simon,1953-10-16 00:00:00,1953,,,,,,,,"Cotter, ARDNAGEEHY ",,Erected by Mr Cotter in memory of his wife Lizzie their son James 3/l8/1947 (39) The above Richard died 19th Dec 1952 (90) their son Simon died 16 Oct 1953 (50)  Located mid-way down 1st row on right,Once off type stone,Tall rectangular stone with Λ  top highly decorated Concrete kerbing around this double grave),50187,X,,68.0,N/A,N/A,,
+63,Register,X,50187, ,Cotter,Simon,,,68.0,,,,"Ballivistale, Glanmire",,,,,,,,92,L,1897,26 years,N/A,No,,42.0
+63,Stone,L,92,,Cotter,Simon,20/8/1897,1897,26 years,,,,,,,"Simon Cotter& Mgt Ardnageehy, W'hill",,"In loving memory of his wife,, his son Simon 28-8-1897 (26) & his daughter hanora 11-6-1883 aged 35. Roger Cotter Carhue 24-6-1993 The above 181719-16 ", XIII Tall & impressive,,50187,X,,68.0,N/A,No,,42.0
+64,Register,X,50190, ,Mulcahy,Michael,,,81.0,07-Apr-81,,,"Ballyrea, Knockraha",,,,,,,,30,F,1981,79,N/A,No,,2.0
+64,Stone,F,30,,Mulcahy,Michael,1981-04-05 00:00:00,1981,79,,,,,,,"Mulcahy Abina, Shanballyrea Knockraha",,In loving memory of Abina & her husband Micahel 5-4-1981 Aged 79 years RIP,V ,,50190,X,,81.0,N/A,No,,2.0
+65,Register,X,50191, ,Hayes,Patrick,,,29.0,09-Jun-81,,,"Hohnstown, Glounthaune",,,,,,,,108,M,1981,29 years,N/A,Yes,,0.0
+65,Stone,M,108,b,Hayes,Patrick,1981-06-09 00:00:00,1981,29 years,,,,,,,Hayes,m108.jpg,,,,50191,X,,29.0,N/A,Yes,,0.0
+66,Register,X,50194, ,Sheehan,Mary,,,71.0,26-Dec-82,,,Glounthaune,,,,,,,,47,G,1801,41 years,N/A,No,,30.0
+66,Stone,G,47,,Sheehan,Mary,6-4-1801,1801,41 years,,,,,,,John & Mary Sheehan ,,Erected by John Sheehan in memory ff his wife Mary Sheehan alias Higgins who dept 6-4-1801,,,50194,X,,71.0,N/A,No,,30.0

@@ -1,0 +1,262 @@
+Code	Row	Grave Location	DOB/Death	Names on headstone	Age	Inscription on Headstone     	
+			                                                                                                                                                                                                                                                                                                        			                                                         	
+A001	A	A1 (anchor)	18/08/1905	Patrick Mulcahy Oatencake	86 years	Erected by Nora Wallace in memory of her father.	
+A002	A	A.-1 (to right)	Awaited	Finn	Unknown		
+A003	A	A.1b(to left)		 Burke Thomas Carrigtwohill		His wife Mgt (Nee Lyons) His son Patrick 23/4/1888 - 23/5/1943                                      &" Killarney"   ˅ 	
+A004	A	A.1c	13/04/1931	 Shanahan Michael, Ballymahon	69 years	Aged 69 years and his wife Mary nee Barry) of Lackenbehy 13/4/1931 Aged 75 years RIP	
+A005	B	B.-1	21/06/1931	 Finn John. Tibbitstown	Unknown	In loving memory of John Finn & his  his wife Margaret 21-4-1942 	
+A006	B	B2	03/10/1927	Jeffers John		In loving memory of James Jeffers Carrigtwohill wife Elizabeth 19-1-1962 their son Robert (Bob)1984	
+A007	B	B2 also	19/01/1962	 Jeffers Elizabeth 		his wife Margaret died 17th May 1986.	
+A008	B	B3	1845	 Higgins John, (Broken railing surround)		E'ed by John Higgins of Fanick in memory of his wife Elizabeth   Remember DEATH and fear the Lord.	
+A009	B	B4	27/02/1925	 Cotter Lizzie , ARDNAGEEHY 	58 years	Erected by Mr Cotter in memory of his wife Lizzie their son James 3/l8/1947 (39) The above Richard died 19th Dec 1952 (90) their son Simon died 16 Oct 1953 (50)  Located mid-way down 1st row on right	
+A010	B	B5	18/08/1919	 Connolly Mary, Ballinakilla			
+A011	B	B6	1920	 O'Mahony Bridget (Timber Surround)	****	  In loving memory of Bridget O'Mahony who died April 1920, James O'Mahony died 1st September 1963, Maura O'Mahony 24 April 1988	
+A012	B	B6 also	25-8-1822	 O'Mahony Elizabeth			
+A013	B	B6e	08/12/1930	Savage JOHN Ballincurrig	Unknown		
+A015	B	"    "     "	15/06/1978	 Savage David Ballinakilla, Carrigtwohill	81 years		
+A016	B	"    "    "	21/01/1996	Savage Mary his wife Mary			
+A017	B	"    "    "	22/12/1991	 Savage Shiela, Ballincurrig & her brother			
+A018	B	"    "    "	12/05/1993	 Savage William			
+A019	B	B.6d	****	 Mulcahy Mr. (No name given)	Unknown	Erected by John & Patrick Mulcahy of Garranes & Ballinakilla in memory of their beloved father	
+A020	B	B6c	20/12/1991	Manley Thomas Joseph (Joe), Ballinakilla, Carrigtwohill	Unknown		
+A021	B	B.6c also	16/10/1997	Wm (Bill) died in London interred here	Unknown		
+A022	B	B.6b	1947	 Coughlan Joanna 	24 years	Erected by Elizabeth Coughlan in memory of her daughter Joanna who died. R In P.	
+A023	B	B.6b also	15/02/1941	 O'Keeffe Mary, Carrigtwohill	27 years		
+A024	B	B7	1848	 O'Connell Jeremiah Ballinbrittig	82	Erected by Maurice O'Connell in memory of his father  his mother Ellen & daughters Anasasia & Ellen RIP	
+A025	B	8B	1840	 Murphy William, Killacloyne 	57	Erected by Ellen Murphy in memory of her husband. May he rest in peace Amen	
+A026	B			                                 Daughter Murphy	57 Years	Erected by Richard Murphy In memory of his father Wm Murphy who departed this life Dec 2nd 1768 	
+A027	C	C 9 also	1768	Mary Donovan (Boston)			
+A028	C	C10	5-3-1800	 Donovan David	40 years	Erected by Mary Donovan in memory of her Father David Donovan 5th March 1800 aged 40 yers	
+A029	C	C 10 also	20-7-1811	 Donovan Joanna	45 years	Also her sister Johanna died 20th July 1811 aged 45 years.	
+A030	C	C.11	4-3-1832	 Donovan Ml & Mary (1817) - 68 years	65 years	Ansty Donovan in memory of her father Ml Donoan of Tibbetstown & her moher Mary (1817)  68 years	
+A031	C	C1??	1757	Sunken in earth - unable to read		Erected by Michael Maurice Higgins	
+A032	C	C 12		 Daly Timothy			
+A033	C	C13		 Hartnett Michael			
+A034	C	C14	29-4-1824	 Collins Catherine Tibbotstown	70 YEARS	Erected by John Collins of Tibets Town in memory of his beloved wife & son	
+A035	C	C.14 also	20-4-1829	 Collins Patrick	30 years		
+A036	C	C 15	16-12-1839	 Buckley Patrick, Clash	25	Erected by Thomas Buckley in memory of his beloved son  May his soul rest in Peace. Amen	
+A037	C	C 16	10/06/1916	Higgins, Clash Road, Little Island	25 years	Erected by his loving children in memory of Wm Higgins & of their brothers David 31/5/l1914 (48) and	
+A038	C	C 16 also		Bros David (40) James (20) & nephew Ml	l     12 years	James 3-9-1896 (20) & their nephew Michael 19/8/1907 (12)	
+A039	C	C 17	24/01/1957	 Wood Nora, Little Island	43	(Myrtle Hill Tivoli also)  no further inscription.  Double grave with concrete kerbing surround.	
+A040	C	C17b	09/05/1914	 O'Neill- Cashman Thomas Francis	25 years	lErected to the memory of our dear and only child Thomas Francis of Wlndsor Hill.  Sacred Heart of Jesus 	
+A041	C	C17b  also	14/05/1927	 Cashman Mary & Ned Cashman 1-3-1934	Unknown	have mercy on him.  Mother of Sorrows pray for him.	
+A042	D	                                                                                               	1798	 Aherne Michael Dave & Joe		Near top right-hand corner of graveyard.	
+A043	D	 D20b	1766	 Mead Williame (Broken in 3)	54	"O Lord have mercy on the soul of .....  ( Laying flat on ground hopefully)	
+A044	D	D19 	20-Mar-44	Aherne Tomas & sister JANE	Unknown	Also their brother Michael interred in Midleton.	
+A045	D	20D	9-8-1832	Aherne Thomas	71	Erected by John Collins in memory of his father.  May he rest in peace.  Amen	
+A046	D	21D		Manning  Wilbur's Tomb			
+A047	D	D.20b	15-11-1779	 Manning Thomas	No age	Foot stone - In memory of Christoper Stanley Ballinlough 10-7-1958 (69) May he RIP	
+A048	D	Also D.20b	10/07/1958	 Stanley Christopher Ballinlough	49 years	erected by his loving wife and family.	
+A049	D	D.22b	20-3-1834	 Higgins John,          1786	47 years	Ereted by Mary Higgins in memory of her husband who parted this life March 1834. May RIP	
+A050	D	22 D		 Coppinger Michael's Tomb, Barrysccourt	18		
+A051	D	23 D	21-4-1832	 O' Neal Mary	67 years	Ml O'Neal in memory of his mother and hi sister Mary Quinlan 3-11-1851 Aged 55 years	
+A052	E	E24c		Stone marker only.	Unknown	Very low - 2 ft app.	
+A053	E	E24b		Stone marker with no name again		Very low - 2 ft app.	
+A054	E	E.24	1946	Linehan			
+A055	E	E.25	1964	Flynn			
+A056	E	E.26c		very sunken small stone			
+A057	E	E.26b	1820	Mahony John			
+A058	E	E 26	                                                                                                 	Fitzgerald Maurice			
+A059	E	F 27	                                                                                                 	Fennessy			
+A060	F	F. 28	21-12-1829	 Fennesy John  & wife Mary Mrs	80 years	Ereted by John Fennessy to mark he burial place - him and wife. May his soul rest in peace Amen	
+A061	F	F.28b	1801	Thomas Grandon	50 years	Erected by John Grandon in memory of his father.  Requim........	
+A062	F	F.28c	02/09/1941	Grandon William, Terrysland	Unknown	His wife Catherine 29-12-1969 Their daughter Elsie 19-8-1945 & all other members of family RIP	
+A063	F	F.28	21-6-1786	 Fennessy John & Juley  (1786)	56 & 49		
+A064	F	F.29		 Mulcahy John & Mrg Forrest B'vatta	Unknown		
+A065	F	F. 30	07/04/1968	 Mulcahy Abina, Shanballyrea Knockraha	61	In loving memory of Abina & her husband Micahel 5-4-1981 Aged 79 years RIP	
+A066	F	F.31	1803 &1808	Warren Wm & Danny (L eamlara)	70 & 84	Also Elllen daughter Nov 1825 -20 years of age	
+A067	F	F.31b		Canavan			
+A068	F	F.31c	12-3-1807	 Ahern Ml, Elizabeth & Family		 top.     E'd by Ml Ahern & wife Elizabeth in memory of his family & his own burial place	
+A069	F	F31d	14-4-1860	 Ahern David/Daniel ?? .	Unknown	E'd by Eliz & Abbey inmemory of their beloved Father & also their beloved Mother Hanora who	
+A070	F	Also F31d	20-6-1846	 Ahern Hanora	56 years	Also their eloved brother Michael (46) Their beloved brother Michael (1846) Aged 36 years also their  	
+A071	F	Also F31d	1-4-1846	Ahern Michael & Mary	36 & 30 years	sister Mary (1835)-30 years.  May they rest in peace.	
+A072	F	F31e	28-8-1761	 Ahern John	27 years		
+A073	F	F.32	11-1-1825	Carroll Marca (Murphy) 	54 years	  (beside Bush at fool of little grave stuck in tree  R.I.P.	
+A074	F	F.33 Also	28-9-1831	Carroll Margaret	32 years	Erected by Tom Carroll Little Island in memory of his wife & daughter. Rest in Peace	
+A075	F	G*47	6-4-1801	John Sheehan	41 years	Erected by wife Mary Shehan. Also also alias Higgins  Higgins	
+A076	F	F. 36	10/03/1944	 Ahern Tom & Jane (sister)	not given	In loving memory of.........  Also their brother Michael interred in Midleton.	
+A077	F	F.37					
+A078	F	F. 38					
+A079	F	F. 39					
+A080	F	F. 40					
+A081	F	F. 40b 	6-4-1887	Finn Michael	70 years 	Erected by Dan Lfinn of Ballinbrittig in memory of his father Ml Finn May he rest in pece	
+A082	F	 Also F40c				In loving memory of Ml (Boss)  Finn - "grandson" 19-3-1976 & his wife Moll (Willis)l 16-8-2001	
+A083	G	G/.41	1809	 Murnane Mary			
+A084	G	41 G					
+A085	G	42 G					
+A086	G	G 43 					
+A087	G	G.43 Also					
+A088	G	G.44					
+A089	G	H.45 					
+A090	G	g.46					
+A091	G	G.47	6-4-1801	John & Mary Sheehan 	41 years	Erected by John Sheehan in memory ff his wife Mary Sheehan alias Higgins who dept 6-4-1801	
+A092	G	G48 	1-5-1814	 Bray Abigail	37 years	Wm Bray in memory of his beloved wife Abigail Bray. May she rest inpeace.	
+A093	G	G.48b		 Bray Fanny plus her  ↓		Erected by Patrick Cotter in memory of..........	
+A094	G	     "		Cotter Siblings May Ptrk Moss John & Nicholas			
+A095	H	H.49		Murphy Family Grave	57 years	Erected by Richard Murphy In memory of his father Wm Murphy who departed this life Dec 2nd 1768 	                                                                                                                                               
+A096	H	H.50 	1830	Fouhy	90 years	Erected bu jos brpther klWilia & his son Jeremiah Fouhey	
+A097	H	H.51 	15-8-1826	William Kelleher	60 years		
+A098	H	H.52	16-8-1777	 Flyng Phillip	60 years		
+A099	H	H.53	March 1799	 Flin Margaret& their 5 children	69 years	Requiem in peace. lAean	
+A100	H	H.54	16-4-1808 	William Higgins	51 years	Erected by John Higgins in memory of his father.  Lrequiem in pace	
+A101	H	H.55	22 -3- 1814	 Higgins Mary Elizabeth	22 years	Erected by her husband Ltom Higgins	
+A102	H	H.56		Three pieces of stone or Aherne			
+A103	H	H 56 	14-4-1860	 Aherne David & Honora. See also G31d	60 & 56 years	Ereted by Elizabeth & Abbey Aherne in memory of their beloved father  and mother  Their sister	
+A104	I	I.57		Comil..... James			
+A105	I	I.58					
+A106	I	I 61 also	1-4-1846	Michael & Mary	36, 30 years	Hanora also their beloved brother Michael April 1846 (36) also their sister Mary. May they rest in P	
+A107	I	I.57	28-9-1831	Margaret Carroll	   32 years                                                                                                                           		
+A108	I	I.58					
+A109	I	I.59	26-8-1878	David Higgins	60 years	Erected by Darby John Higgins.	
+A110	I	I.61		Moressy			
+A111	I	I.61b	26-9-1784	 Higgins "Lahino" 	60  years	This stone is erected by David Higgins in memory of his Father.	
+A112	I	I 63	26-9-1784	Michael Higgins	Unknown	Ereacted by David Higgins in memory of his father Ml Higgins	
+A113	I	I.61c		Kidney 's Sons John &  JAMES 5/7/1899	14, 23	Erected by James Kidney of Belvelly in memory  sons John 14 and James 23	
+A114	I	I 62	22-3-1706	Elenora Nagle	43 years	This is the burial place of..Effected by her in  memory of her hubasnd Eamond Burke. May he RIP a	
+A115	I	I 63	24-2-1819	Mary Burke alias Moore	32 years	;Erected by Wm Bourke in memory of his much lamented wife. May her soul rest in peace.	
+A116	I	I 64	1897-1961	James Foley	64		
+A117	I	I.65	1961	Foley 			
+A118	I	I.66		Flynn Patrick			
+A119	I	I 67		Kelleher			
+A120	I	I 68		                                             			
+A121	I	J.69					
+A122	I	j.70	1815	James Coun.....(?) & Family	Unknown	Unable to read further down as stone submerged in earth	
+A123	I	J.71					
+A124	I	j.72					
+A125	I	j.73	1770, 1780	David Clancy & Mary Clancy	82 - 51 years	Here lieth the body of DC.  Here is his son Cornelious died 21 years.	
+A126	I	J.74	Nov 1834	Elen( Mulcahy) Higgins	74 years	E'ted  James Higgins, Carrigtwohil & his son Ml to make the burial plae & in memory of his beloved wife.	
+A127	I	J.75	1-11-1834	Higgins Ellen ( Mulcahy)	-----	Erected by James Higgins & his son Michael to mark their burial plae and inmemory of his 	
+A128	K	K.76					
+A129	K	K.77					
+A130	K	k 78	30-3-1808	Moresy Maurice	33 years	"Oh Lord have mercy on the soul of "Maurico"  Moresy.	(Stone deeply submerged)
+A131	K	k 79					
+A132	K	k 80	9-3-1890	Patrick Coffey Midleton	?5 years	Erected by the sorowing family in affection & rememberance of Patrick Coffey.  R.I.P.	
+A133	K	k 81	12-8-1845	Denis Howard, Woodstock	103 years	Erected by Edmond Howard inmemory of his father. May he rest in peace. Amen	
+A134	K	k 82	09/04/1950	Patrick Howard & Mary (wife) 25-6-1936	57  years	In loving memory of Patrick Howard of Killena who died Easter Sunday & his wife Mary.	
+A135	K	K.83		Coppingers Tomb			
+A136	K	Also K..83(2nd side)	31-11-1834	June (McMahon) Coppinger, Clenagh	74 years	To the memory of the beloved mother the last suriving female of the ancient familyof the	
+A137	K	k 84	1788	Dellay Edmund	27 years		
+A138	K	k 85	1786	Barry James			
+A139	K	k 86	15-1-1803	Barry Catherine		Erected by Edmond Barry	
+A140	L	L.89	1769	Halley			
+A141	L	L.88	1814	James Meade			
+A142	L	L.87	15-2-1800	Keran In (Innocent posibly)			
+A143	L	L.86b		Sheridan		Mary's husband DanielFitzgerals (interred in Carigtwohill) 17/12/1872 Grandson Thos Fitzgerald	
+A144	M	M.108b		Hayes			
+A145	M	L109		O'Mahony David, Little Island			
+A146	M	L110	4-3-1844	Barry Patrick & Ellen (1812)	36 years		
+A147	M	Also L.111	1962	Barry John,Clash Leamlars			
+A148	M	Also L.111	1978	Barry Michael			
+A149	M	L111	1806	Barry Patrick & Ellen (1812)	48 years		
+A150	M	L.112	1802	Barry Michael			
+A151	M	L.112b	1820	Laurence, Bartlemy			
+A152	M	L.113		Mullina Mary        			
+A153	L	L 91	1790	William Canavan 		Erected by Wm Canavan in memory of his father and for the burial plae of his family.	
+A154	L	L 92	20-3-1776	 Mrs David Coleman	60 years	Lord have merch onher soul	
+A155	L	L 93	24-5-1893	Simon Cotter& Mgt Ardnageehy, W'hill	99 & 66 years	In loving memory of his wife,, his son Simon 28-8-1897 (26) 	
+A156	L	L 94				& his daughter hanora 11-6-1883 aged 35. Roger Cotter Carhue 24-6-1993 The above 181719-16	
+A157	L	L 95					
+A158	L	L96					
+A159	L	l 97					
+A160	L	L 98					
+A161	M	M 99					
+A162	M	M 100					
+A163	M	M 101	19-1-1800	Cornelius Field & wife Mary Field	60 & 45 years	Erected by their sons W & Jer Field. May the Lord have mercy on their souls.	
+A164	M	M 102					
+A165	M	M 103					
+A166	M	M 104					
+A167	M	M 105					
+A168	M	M 106					
+A169	M	M 107					
+A170	M	M 108					
+A171	M	M.108b		Hayes		HIS DAUGHTER Mary Fitzgerals (nee burke) 23/4/1881 - 16/3/1952  Cousin Nora Leary Tim O'Leary'72	
+A172	N	N 109	15-6-1881	Jeremiah Fielding	66 years	Erected by Honora Fielding to the memory of her beloved husband	
+A173	N	N 110 ?? 	6-9-1814	Johanna Meade	43 years	Erected by Mrs MaryTennant of Rathcormac in memory of her Aunt. "Lord have mercy on her soul.	
+A174	N	N 111					
+A175	N	N 112					
+A176	N	N 113					
+A177	N	N 114					
+A178	O	O 115	28-11-1760	John O'Neill, the Reverant	61	Here lieth the body of R.J.N. " ITF of Castle Lyons.  Pemoroe NII Carmil"   (???)	
+A179	O	O 117					
+A180	O	O 118					
+A181	O	O 119		Daniel Collins			
+A182	O	0.12					
+A183	O	O 121					
+A184	O	O 122					
+A185	O	0.`123	5-12-1806	Michael Buckley, Father & family	25 years	The Lord have mercy on his soul	
+A186	O	O 124b	31-7-1814	Buckley Daniel, Coneen & Clyduff	56 years	Erec'd in memory olDan B. Cloneen by his sons JohnlWm & Jermiah Buckley also brother (58)  	
+A187	O	O 125					
+A188	O	O.125 also  	4-8-1886	Bridget Buckley Ballyannon	38 years	Ere'd by Ml Buckley in memory of his beloved wife  as a tribute of respect to an afectionate wife	
+A189	O	O126	15/05/1927	Michael Buckley, Catherine 22-12-1931	No age given	Son Edmond who died 8-10-1932 (69), Jermiah Buckley died 17-4-1940 (88)	
+A190	O	O  127					
+A191	O	O.128	9-8-1771	John Riordan	50 years	This stone was erectwed by Michael Riordan in memory of his father	
+A192	O	O 129	1-11-1885	Honora Riordan,Ballyvatta & Q'town	70 years	Erected by Denis Riordan in memory of his wife and of his beloved son John --	
+A193	O	O 130	1805	Anne/Dan (Daly) Riordan	46 years	Erected by William Riordan	
+A194	O	O 131	1814	Coleman Cornelius			
+A195	O	O 132		Guinry John			
+A196	O	O.123Possibly					
+A197	O	Also O/123 Poss	31-7-1814	Daniel Buckley,Cloneen	56 years	Erected in memory of DB by his sons John & Dulcey	
+A198	O	also	20-?-1858	Buckley 	58 years	May their souls rest in peace.	
+A199	O	O.125 also	15/05/1927	Michael Buckley		 & loving mother & of her husband Michael Also her daughter Catherine (23-12-l931). Her son	
+A200	O		08/10/1932	Edmond Buckley	69 years	Edmond (8-10-1932)& Jeremiah Buckley (17-4-1942) Aged 88 years	
+A201	O	O.224 possibly					
+A202	P	P 226	25-7-1801	Patrick Buckley	21 years	O Lord have mercuy on his soul. Amen.	
+A203	P	P. 135		John Barry	Unknown		
+A204	P	P.133					
+A205	P	                                                                                                     	04/01/1903	Hanorah Collins	47 years	In loving memory of Hanorah the beloved wife of John Collins ( front side)	
+A206	P	P.134	03/07/1902	Mary Collins	52 years	Also his sister Mary .  Erected by J.W. Collins of Carren James.	
+A207	P	P.136	25-2-1802	Ann Riordan alias Daly	29 years	Stone is ect'd by Wm Riordan in memory of his wife.  Also his father & mother who are interred here	
+A208	P	P.137	1854-1944	May Clohessy, Midleton	90	Also Michael 1889-1949 & Chrispopher 1881-1965 .  Ellen (Lena) 1891-1926	
+A209	P	P.227		Patrick Hegarty, Dundullorck	Unknown		
+A210	P	P 227		John Barry	Unknown		
+A211	P	P.228		Leaning forward so couldn't read			
+A212	P	Also P.228		O'Connell 			
+A213	P	Also P.228	July 1728	William Connell	Unknown	Unreadable	
+A214	P	Also P.228	27/06/1927	Wm O'Connell, 	    "		
+A215	P	Also P.228	14/02/1935	 Kathleen O'Connell	"		
+A216	P	P.229		O'Connell 			
+A217	Q	Q.138	28/12/1955	William & John (Jacko) 4-8-1986			
+A218	Q	Q.139					
+A219	Q	Q.140					
+A220	Q	?					
+A221	Q	?					
+A222	Q	?					
+A223	Q	?					
+A224	R	R.141					
+A225	R	R.141 also	14-8-1834	Mary Donovan	84 years	E'ted by Micahel Twomey in memory of his mother Mary Donovan Also her beloved dughter 	
+A226	R	R.142	6-2-1834	Mary Twomey	17 years	Requim in paxe	
+A227	R	                                                                         					
+A228	R	R.144					
+A229	R	R.145					
+A230	R	R.146					
+A231	R	R.147					
+A232	R	R.148					
+A233	R	R.149					
+A234	R	R.151 out of sequence					
+A235	S	S150					
+A236	S	S.151	9-?-1858	Nan O'Neill	`60 years	Erected by Patrick O'Neill in the memory of his wife.	
+A237	S	S.152		Wm & John Twomey & Family	Unknown	The burial place of:......	
+A238	S	S.153					
+A239	S	S.154	March ??	"Thomashina" O'Donovan	Unknown	Erecte by John O@Donovan in memory of his mother.	
+A240	S	S.155					
+A241	S	S.156					
+A242	S	S.157 					
+A243	S	S.158					
+A244	T	T 159					
+A245	T	T 160		Michael Thomas Twomey			
+A246	T	T 161	16-8-1835	Thomas Burke, Carrigane	19 years		
+A247	T	T 162					
+A248	T		1870	Patrick Daly, Graun	70 Years		
+A249	T	T 163					
+A250	T	T 164					
+A251	T	T 152 Straddles S to T	April 1824	William Sullivan, Carriglusk	Not given	In memory of their father who departed this life 1824 & Mary March 1859 (61)	
+A252	T	U.165 					
+A253	T	U.166					
+A254	U	U 165					
+A255	U	U 166	12-12-1876	Tom Collins	87	Erected by Hannah Collins in memory of her father and her brother.	
+A256	U	U 167	29-7-1886	Tom Collins	33 years		
+A257	U	U 168	April 1860	Margaret Mulcahy	67	Erected by Thomas Mulcahy in memory of his beloved mother.  May she R. In P.	
+A258	U	U 169	17-7-1838	David Kidney Ballyannin	98 years	Erected by David Kidney in memory of his father Thomas Kidney	
+A259	U	U 170	2-2-1839	Hanora Kidney	96	& his mother Hanora Kidney.  May their souls rest in peace.	
+A260	U	U 171		Kidney			
+A261	U		11-10-1824	 John Lenihan's Tomb Atidheton	72 years 	Erected by John Linehan of A. In memory of his beloved father John	
