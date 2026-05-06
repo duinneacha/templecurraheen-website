@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ '/css/styles.css' | url }}">
 </head>
 <body class="min-h-screen flex flex-col">
-    <header class="sticky top-0 z-40 bg-primary-800 text-white shadow-lg dark:bg-gray-800 dark:shadow-purple-500/20">
+    <header class="sticky top-0 z-50 bg-primary-800 text-white shadow-lg dark:bg-gray-800 dark:shadow-purple-500/20">
         <nav class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <h1 class="text-xl md:text-2xl font-serif font-bold">
@@ -64,16 +64,31 @@
     </footer>
 
     <script>
+        // Keep --nav-height in sync with the real header height so sticky
+        // sub-bars (e.g. the burial filter bar) can sit just below it.
+        const header = document.querySelector('header');
+        function updateNavHeight() {
+            if (!header) return;
+            document.documentElement.style.setProperty('--nav-height', header.offsetHeight + 'px');
+        }
+        updateNavHeight();
+        window.addEventListener('resize', updateNavHeight);
+        if (header && 'ResizeObserver' in window) {
+            new ResizeObserver(updateNavHeight).observe(header);
+        }
+
         // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
+            updateNavHeight();
         });
-        
+
         // Close mobile menu when clicking on a link
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', function() {
                 document.getElementById('mobile-menu').classList.add('hidden');
+                updateNavHeight();
             });
         });
     </script>
