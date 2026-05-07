@@ -13,16 +13,70 @@ description: "Complete listing of burial records from Templecurraheen Graveyard"
 
 <!-- Sticky Search and Sort Controls -->
 <div class="sticky top-[var(--nav-height,4rem)] z-30 bg-white dark:bg-gray-900 py-4 mb-6 border-b border-stone-200 dark:border-gray-700 shadow-sm">
-    <div class="mobile-controls">
-        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 sm:mb-0">
-            <button onclick="sortAlphabetical()" id="sortAlphabeticalBtn" class="btn btn-secondary w-full sm:w-auto">Sort A-Z</button>
-            <button onclick="sortByDate()" id="sortDateBtn" class="btn btn-secondary w-full sm:w-auto">Sort by Date</button>
-            <button onclick="sortByRow()" id="sortRowBtn" class="btn btn-secondary w-full sm:w-auto">Sort by Row</button>
-            <button onclick="toggleMissingPhotos()" id="missingPhotosBtn" class="btn btn-secondary w-full sm:w-auto" title="Show only records that still need a photo, ordered by row">Missing Photos</button>
+
+    <!-- Mobile compact toolbar (< md) -->
+    <div class="md:hidden">
+        <div class="flex items-center gap-2">
+            <div class="relative flex-1 min-w-0">
+                <input type="text" id="searchInputMobile" placeholder="Search&hellip;" aria-label="Search burials"
+                       class="w-full px-3 py-2 pr-9 border border-stone-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-stone-500 bg-white dark:bg-gray-800 dark:text-white dark:border-gray-600">
+                <button id="clearSearchBtnMobile" onclick="clearSearch()" aria-label="Clear search"
+                        class="absolute right-2 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 dark:text-gray-400 dark:hover:text-gray-200 hidden">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="relative shrink-0">
+                <select id="sortSelectMobile" onchange="applySort(this.value)" aria-label="Sort burials"
+                        class="btn btn-secondary appearance-none pl-3 pr-7 py-2 text-sm cursor-pointer">
+                    <option value="">Sort</option>
+                    <option value="az">A&ndash;Z</option>
+                    <option value="za">Z&ndash;A</option>
+                    <option value="date_old">Date (oldest)</option>
+                    <option value="date_new">Date (newest)</option>
+                    <option value="row">By row</option>
+                </select>
+                <svg class="pointer-events-none absolute right-1.5 top-1/2 -translate-y-1/2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </div>
+            <button id="filterBtnMobile" onclick="toggleFilterPanel()"
+                    class="btn btn-secondary relative px-3 py-2 shrink-0"
+                    aria-label="Filters" aria-expanded="false" aria-controls="filterPanelMobile">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h18l-7 9v6l-4 2v-8L3 4z"></path>
+                </svg>
+                <span id="filterActiveDot" class="hidden absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-accent-500 ring-2 ring-white dark:ring-gray-900"></span>
+            </button>
         </div>
-        <div class="mt-3 sm:mt-0 sm:flex-grow relative">
-            <input type="text" id="searchInput" placeholder="Search all fields..." 
-                   class="w-full px-3 sm:px-4 py-2 pr-10 border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-stone-500 text-sm sm:text-base bg-white dark:bg-gray-800 dark:text-white dark:border-gray-600">
+
+        <!-- Filter panel (mobile) -->
+        <div id="filterPanelMobile" role="dialog" aria-label="Filters"
+             class="hidden mt-2 p-3 rounded-md border border-stone-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-md">
+            <ul class="space-y-2">
+                <li>
+                    <label class="flex items-center gap-2 text-sm text-stone-700 dark:text-gray-200 cursor-pointer">
+                        <input type="checkbox" id="missingPhotosToggle" onchange="setMissingPhotos(this.checked)"
+                               class="w-4 h-4 rounded border-stone-300 text-primary-700 focus:ring-primary-500">
+                        <span>Show only graves missing a photo</span>
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Desktop controls (>= md) -->
+    <div class="hidden md:flex md:flex-row gap-4">
+        <div class="flex flex-row gap-4">
+            <button onclick="sortAlphabetical()" id="sortAlphabeticalBtn" class="btn btn-secondary">Sort A-Z</button>
+            <button onclick="sortByDate()" id="sortDateBtn" class="btn btn-secondary">Sort by Date</button>
+            <button onclick="sortByRow()" id="sortRowBtn" class="btn btn-secondary">Sort by Row</button>
+            <button onclick="toggleMissingPhotos()" id="missingPhotosBtn" class="btn btn-secondary" title="Show only records that still need a photo, ordered by row">Missing Photos</button>
+        </div>
+        <div class="flex-grow relative">
+            <input type="text" id="searchInput" placeholder="Search all fields..."
+                   class="w-full px-4 py-2 pr-10 border border-stone-300 rounded-md focus:outline-none focus:ring-2 focus:ring-stone-500 text-base bg-white dark:bg-gray-800 dark:text-white dark:border-gray-600">
             <button id="clearSearchBtn" onclick="clearSearch()" class="absolute right-2 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 dark:text-gray-400 dark:hover:text-gray-200 hidden" aria-label="Clear search">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -30,6 +84,7 @@ description: "Complete listing of burial records from Templecurraheen Graveyard"
             </button>
         </div>
     </div>
+
     <!-- Results Count -->
     <div id="resultsCount" class="mt-3 text-sm text-stone-600 dark:text-gray-400">
         Showing {{ burialList.length }} of {{ burialList.length }} results
@@ -337,18 +392,24 @@ function rowPassesFilters(row, searchTerm) {
     return true;
 }
 
-function toggleMissingPhotos() {
-    filterMissingPhotos = !filterMissingPhotos;
-    const btn = document.getElementById('missingPhotosBtn');
-    if (filterMissingPhotos) {
-        btn.classList.remove('btn-secondary');
-        btn.classList.add('btn-primary');
-    } else {
-        btn.classList.remove('btn-primary');
-        btn.classList.add('btn-secondary');
-    }
+// Idempotent setter — used by the desktop button, the mobile filter checkbox,
+// and the on-load URL-state bootstrap. Updates every UI surface that reflects
+// this state so they stay in sync regardless of who flipped it.
+function setMissingPhotos(active) {
+    active = !!active;
+    filterMissingPhotos = active;
 
-    const searchTerm = (document.getElementById('searchInput').value || '').trim().toLowerCase();
+    const btn = document.getElementById('missingPhotosBtn');
+    if (btn) {
+        btn.classList.toggle('btn-primary', active);
+        btn.classList.toggle('btn-secondary', !active);
+    }
+    const toggle = document.getElementById('missingPhotosToggle');
+    if (toggle) toggle.checked = active;
+    const dot = document.getElementById('filterActiveDot');
+    if (dot) dot.classList.toggle('hidden', !active);
+
+    const searchTerm = currentSearchTerm();
     document.querySelectorAll('.burial-row').forEach(row => {
         row.style.display = rowPassesFilters(row, searchTerm) ? '' : 'none';
     });
@@ -359,16 +420,19 @@ function toggleMissingPhotos() {
     currentSort = { column: null, direction: 'asc' };
     sortByRow();
 
-    if (!filterMissingPhotos) {
-        applySearchHighlighting();
-    }
+    if (!active) applySearchHighlighting();
     updateResultsCount();
+    writeUrlState({ missing: active ? '1' : null });
+}
+
+function toggleMissingPhotos() {
+    setMissingPhotos(!filterMissingPhotos);
 }
 
 // Initialize total rows count and store original HTML
 document.addEventListener('DOMContentLoaded', function() {
     totalRows = document.querySelectorAll('.burial-row').length;
-    
+
     // Store original HTML for all elements to enable highlighting restoration
     document.querySelectorAll('.burial-row').forEach(row => {
         // Store for table rows
@@ -378,14 +442,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 cell.dataset.originalHTML = cell.innerHTML;
             }
         });
-        
+
         // Store for card elements
         if (row.classList.contains('burial-card')) {
             row.dataset.originalHTML = row.innerHTML;
         }
     });
-    
+
     updateResultsCount();
+    initToolbar();
 });
 
 // Function to highlight search terms in text
@@ -448,12 +513,15 @@ function updateSortIndicators(activeColumn, direction) {
     document.getElementById('sortRowBtn').classList.remove('bg-stone-200', 'dark:bg-gray-700');
 }
 
-function sortAlphabetical() {
+function sortAlphabetical(forcedDirection) {
     // Get all visible rows from both views
     const allRows = Array.from(document.querySelectorAll('.burial-row')).filter(row => row.style.display !== 'none');
-    
-    // Toggle direction if already sorting by name
-    if (currentSort.column === 'name') {
+
+    // Explicit direction wins (used by the mobile sort dropdown / URL state);
+    // otherwise toggle if already on this column, else start asc.
+    if (forcedDirection) {
+        currentSort = { column: 'name', direction: forcedDirection };
+    } else if (currentSort.column === 'name') {
         currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
     } else {
         currentSort = { column: 'name', direction: 'asc' };
@@ -495,12 +563,15 @@ function sortAlphabetical() {
     updateSortIndicators('name', currentSort.direction);
     document.getElementById('sortAlphabeticalBtn').classList.add('bg-stone-200', 'dark:bg-gray-700');
     applySearchHighlighting();
+    afterToolbarSort();
 }
 
-function sortByDate() {
+function sortByDate(forcedDirection) {
     const allRows = Array.from(document.querySelectorAll('.burial-row')).filter(row => row.style.display !== 'none');
-    
-    if (currentSort.column === 'date') {
+
+    if (forcedDirection) {
+        currentSort = { column: 'date', direction: forcedDirection };
+    } else if (currentSort.column === 'date') {
         currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
     } else {
         currentSort = { column: 'date', direction: 'asc' };
@@ -542,12 +613,15 @@ function sortByDate() {
     updateSortIndicators('date', currentSort.direction);
     document.getElementById('sortDateBtn').classList.add('bg-stone-200', 'dark:bg-gray-700');
     applySearchHighlighting();
+    afterToolbarSort();
 }
 
-function sortByRow() {
+function sortByRow(forcedDirection) {
     const allRows = Array.from(document.querySelectorAll('.burial-row')).filter(row => row.style.display !== 'none');
-    
-    if (currentSort.column === 'row') {
+
+    if (forcedDirection) {
+        currentSort = { column: 'row', direction: forcedDirection };
+    } else if (currentSort.column === 'row') {
         currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
     } else {
         currentSort = { column: 'row', direction: 'asc' };
@@ -585,6 +659,7 @@ function sortByRow() {
     updateSortIndicators('row', currentSort.direction);
     document.getElementById('sortRowBtn').classList.add('bg-stone-200', 'dark:bg-gray-700');
     applySearchHighlighting();
+    afterToolbarSort();
 }
 
 // Column header sorting (desktop only)
@@ -766,10 +841,23 @@ function applySearchHighlighting() {
     });
 }
 
+// Reads from either search input — they're kept in sync, so either is authoritative.
+function currentSearchTerm() {
+    const desktopInput = document.getElementById('searchInput');
+    const mobileInput = document.getElementById('searchInputMobile');
+    return ((desktopInput && desktopInput.value) || (mobileInput && mobileInput.value) || '').trim().toLowerCase();
+}
+
 // Clear search function
 function clearSearch() {
-    document.getElementById('searchInput').value = '';
-    document.getElementById('clearSearchBtn').classList.add('hidden');
+    const desktopInput = document.getElementById('searchInput');
+    const mobileInput = document.getElementById('searchInputMobile');
+    if (desktopInput) desktopInput.value = '';
+    if (mobileInput) mobileInput.value = '';
+    const dBtn = document.getElementById('clearSearchBtn');
+    const mBtn = document.getElementById('clearSearchBtnMobile');
+    if (dBtn) dBtn.classList.add('hidden');
+    if (mBtn) mBtn.classList.add('hidden');
 
     document.querySelectorAll('.burial-row').forEach(row => {
         row.style.display = rowPassesFilters(row, '') ? '' : 'none';
@@ -777,18 +865,25 @@ function clearSearch() {
 
     applySearchHighlighting();
     updateResultsCount();
+    writeUrlState({ q: null });
 }
 
-// Search functionality - searches across all fields (combined with missing-photos filter)
-document.getElementById('searchInput').addEventListener('input', function(e) {
-    const searchTerm = e.target.value.toLowerCase().trim();
-    const clearBtn = document.getElementById('clearSearchBtn');
+// Search functionality — shared handler bound to both desktop and mobile inputs.
+// Mirrors the typed value into the other input so they stay in sync.
+let _searchUrlDebounce = null;
+function handleSearchInput(e) {
+    const raw = e.target.value;
+    const searchTerm = raw.toLowerCase().trim();
 
-    if (searchTerm) {
-        clearBtn.classList.remove('hidden');
-    } else {
-        clearBtn.classList.add('hidden');
-    }
+    const desktopInput = document.getElementById('searchInput');
+    const mobileInput = document.getElementById('searchInputMobile');
+    if (desktopInput && desktopInput !== e.target) desktopInput.value = raw;
+    if (mobileInput && mobileInput !== e.target) mobileInput.value = raw;
+
+    const dBtn = document.getElementById('clearSearchBtn');
+    const mBtn = document.getElementById('clearSearchBtnMobile');
+    if (dBtn) dBtn.classList.toggle('hidden', !searchTerm);
+    if (mBtn) mBtn.classList.toggle('hidden', !searchTerm);
 
     document.querySelectorAll('.burial-row').forEach(row => {
         row.style.display = rowPassesFilters(row, searchTerm) ? '' : 'none';
@@ -796,7 +891,17 @@ document.getElementById('searchInput').addEventListener('input', function(e) {
 
     applySearchHighlighting();
     updateResultsCount();
-});
+
+    // Debounce URL writes so we don't thrash history on every keystroke.
+    clearTimeout(_searchUrlDebounce);
+    _searchUrlDebounce = setTimeout(() => {
+        writeUrlState({ q: searchTerm || null });
+    }, 250);
+}
+
+document.getElementById('searchInput').addEventListener('input', handleSearchInput);
+const _mobileSearchInput = document.getElementById('searchInputMobile');
+if (_mobileSearchInput) _mobileSearchInput.addEventListener('input', handleSearchInput);
 
 // Modal functions - Global state for navigation
 let currentBurialIndex = -1;
@@ -1115,13 +1220,15 @@ document.getElementById('burialModal').addEventListener('click', function(e) {
 document.addEventListener('keydown', function(e) {
     const modal = document.getElementById('burialModal');
     const isModalOpen = !modal.classList.contains('hidden');
-    
+
     if (e.key === 'Escape' && isModalOpen) {
         closeBurialModal();
+    } else if (e.key === 'Escape' && isFilterPanelOpen()) {
+        setFilterPanelOpen(false);
     } else if (isModalOpen && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
         // Prevent default scrolling behavior
         e.preventDefault();
-        
+
         if (e.key === 'ArrowLeft') {
             navigateBurial(-1);
         } else if (e.key === 'ArrowRight') {
@@ -1129,4 +1236,145 @@ document.addEventListener('keydown', function(e) {
         }
     }
 });
+
+// =====================================================================
+// Mobile toolbar: sort dispatch, filter panel, and URL-state contract.
+// URL params: ?sort=az|za|date_old|date_new|row  ?missing=1  ?q=<string>
+// =====================================================================
+
+// Maps the (column, direction) pair currently in `currentSort` to one of the
+// five toolbar modes, or null for column-header sorts that aren't bookmarkable.
+function currentSortMode() {
+    const c = currentSort.column;
+    const d = currentSort.direction;
+    if (c === 'name') return d === 'asc' ? 'az' : 'za';
+    if (c === 'date') return d === 'asc' ? 'date_old' : 'date_new';
+    if (c === 'row') return 'row';
+    return null;
+}
+
+function syncMobileSortSelect() {
+    const select = document.getElementById('sortSelectMobile');
+    if (!select) return;
+    select.value = currentSortMode() || '';
+}
+
+// Called at the end of every toolbar-driven sort (sortAlphabetical/Date/Row).
+// Keeps the mobile select and the URL in step with whatever just happened.
+function afterToolbarSort() {
+    syncMobileSortSelect();
+    writeUrlState({ sort: currentSortMode() });
+}
+
+// Dispatched from the mobile <select> — explicit-direction equivalents of the
+// desktop sort buttons. Empty value (placeholder) is a no-op.
+function applySort(mode) {
+    switch (mode) {
+        case 'az':       sortAlphabetical('asc');  break;
+        case 'za':       sortAlphabetical('desc'); break;
+        case 'date_old': sortByDate('asc');        break;
+        case 'date_new': sortByDate('desc');       break;
+        case 'row':      sortByRow('asc');         break;
+        // default: do nothing
+    }
+}
+
+// ---- Filter panel ---------------------------------------------------
+
+function isFilterPanelOpen() {
+    const panel = document.getElementById('filterPanelMobile');
+    return !!panel && !panel.classList.contains('hidden');
+}
+
+function setFilterPanelOpen(open) {
+    const panel = document.getElementById('filterPanelMobile');
+    const btn = document.getElementById('filterBtnMobile');
+    if (!panel || !btn) return;
+    panel.classList.toggle('hidden', !open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+        const firstControl = panel.querySelector('input, button, select, textarea, [tabindex]');
+        if (firstControl) firstControl.focus();
+    } else {
+        btn.focus();
+    }
+}
+
+function toggleFilterPanel() {
+    setFilterPanelOpen(!isFilterPanelOpen());
+}
+
+// Outside-tap dismissal for the filter panel.
+document.addEventListener('click', function(e) {
+    if (!isFilterPanelOpen()) return;
+    const panel = document.getElementById('filterPanelMobile');
+    const btn = document.getElementById('filterBtnMobile');
+    if (panel.contains(e.target) || (btn && btn.contains(e.target))) return;
+    setFilterPanelOpen(false);
+});
+
+// ---- URL state ------------------------------------------------------
+
+let _skipUrlWrites = false;
+
+function readUrlState() {
+    const params = new URLSearchParams(window.location.search);
+    const sort = params.get('sort');
+    const validSorts = ['az', 'za', 'date_old', 'date_new', 'row'];
+    return {
+        sort: validSorts.includes(sort) ? sort : null,
+        missing: params.get('missing') === '1',
+        q: params.get('q') || ''
+    };
+}
+
+function writeUrlState(patch) {
+    if (_skipUrlWrites) return;
+    const params = new URLSearchParams(window.location.search);
+    Object.keys(patch).forEach(k => {
+        const v = patch[k];
+        if (v === null || v === undefined || v === '' || v === false) {
+            params.delete(k);
+        } else {
+            params.set(k, v);
+        }
+    });
+    const qs = params.toString();
+    const newUrl = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
+    window.history.replaceState(null, '', newUrl);
+}
+
+function initToolbar() {
+    const state = readUrlState();
+    _skipUrlWrites = true;
+    try {
+        if (state.q) {
+            const desktopInput = document.getElementById('searchInput');
+            const mobileInput = document.getElementById('searchInputMobile');
+            if (desktopInput) desktopInput.value = state.q;
+            if (mobileInput) mobileInput.value = state.q;
+            const dBtn = document.getElementById('clearSearchBtn');
+            const mBtn = document.getElementById('clearSearchBtnMobile');
+            if (dBtn) dBtn.classList.remove('hidden');
+            if (mBtn) mBtn.classList.remove('hidden');
+        }
+        // Only call setMissingPhotos when actually turning the filter on — calling
+        // it with `false` would force a sortByRow on every default load and surprise
+        // users who didn't ask for any sort.
+        if (state.missing) {
+            setMissingPhotos(true);
+        } else if (state.q) {
+            // Search-only path: apply visibility + highlight without disturbing order.
+            const term = state.q.toLowerCase();
+            document.querySelectorAll('.burial-row').forEach(row => {
+                row.style.display = rowPassesFilters(row, term) ? '' : 'none';
+            });
+            applySearchHighlighting();
+            updateResultsCount();
+        }
+        if (state.sort) applySort(state.sort);
+    } finally {
+        _skipUrlWrites = false;
+    }
+}
 </script>
