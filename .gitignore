@@ -3,3 +3,9 @@ _site/
 .DS_Store
 *.log
 .env
+
+# ingest_and_rebuild.py byproducts
+scripts/backups/
+scripts/ingest_reports/
+scripts/__pycache__/
+assets/list/templecurraheen_stones_and_registers.DRYRUN_*.csv
