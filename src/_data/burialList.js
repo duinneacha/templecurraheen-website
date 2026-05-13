@@ -111,7 +111,18 @@ function loadBurialData() {
       const address = columns[headerMap['Address']] ? columns[headerMap['Address']].trim() : '';
       const witness = columns[headerMap['Witness']] ? columns[headerMap['Witness']].trim() : '';
       const comments = columns[headerMap['Comments']] ? columns[headerMap['Comments']].trim() : '';
-      
+      const registerPageRaw = columns[headerMap['register_page']] ? columns[headerMap['register_page']].trim() : '';
+
+      let registerPage = null;
+      let registerImage = '';
+      if (registerPageRaw) {
+        const p = parseInt(registerPageRaw, 10);
+        if (Number.isFinite(p) && p >= 1 && p <= 16) {
+          registerPage = p;
+          registerImage = `tc_register_${Math.floor(p / 2) + 1}_of_9.png`;
+        }
+      }
+
       // Skip entries without at least a last name or first name
       if (!lastName && !firstName) {
         return null;
@@ -156,6 +167,8 @@ function loadBurialData() {
         address,
         witness,
         comments,
+        registerPage,
+        registerImage,
         // Keep some fields for backward compatibility with modal
         names: fullName,
         slug: fullName.toLowerCase()

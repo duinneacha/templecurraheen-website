@@ -130,6 +130,8 @@ description: "Complete listing of burial records from Templecurraheen Graveyard"
          data-address="{{ burial.address }}"
          data-witness="{{ burial.witness }}"
          data-comments="{{ burial.comments }}"
+         data-registerpage="{{ burial.registerPage }}"
+         data-registerimage="{{ burial.registerImage }}"
          onclick="openBurialModal(this)">
         <div class="flex items-start justify-between mb-2">
             <div class="flex-1">
@@ -237,6 +239,8 @@ description: "Complete listing of burial records from Templecurraheen Graveyard"
                 data-address="{{ burial.address }}"
                 data-witness="{{ burial.witness }}"
                 data-comments="{{ burial.comments }}"
+                data-registerpage="{{ burial.registerPage }}"
+                data-registerimage="{{ burial.registerImage }}"
                 onclick="openBurialModal(this)">
                 <td class="p-3 border-b border-stone-200 dark:border-gray-600">
                     {% set combinedCode = '' %}
@@ -1012,7 +1016,9 @@ function openBurialModal(row, updateIndex = true) {
         occupation: row.dataset.occupation,
         address: row.dataset.address,
         witness: row.dataset.witness,
-        comments: row.dataset.comments
+        comments: row.dataset.comments,
+        registerPage: row.dataset.registerpage,
+        registerImage: row.dataset.registerimage
     };
     
     // Set title
@@ -1021,12 +1027,17 @@ function openBurialModal(row, updateIndex = true) {
     // Build content
     let contentHTML = '<div class="space-y-4">';
     
-    // Display image section (always show, with placeholder if no image)
+    // Display image section (with placeholder if no image — but skip the
+    // placeholder entirely for register-only records, where the register page
+    // image is the meaningful image)
+    const hasGravePhoto = data.fileName && data.fileName.trim();
+    const showGraveSection = hasGravePhoto || !data.registerImage;
+    if (showGraveSection) {
     contentHTML += `
         <div class="mb-4 border-b border-stone-200 dark:border-gray-600 pb-4">
             <h3 class="text-lg font-semibold mb-2 text-stone-800 dark:text-white">Grave Image</h3>
     `;
-    
+
     if (data.fileName && data.fileName.trim()) {
         // Show actual image if available
         const pathParts = window.location.pathname.split('/').filter(p => p);
@@ -1063,7 +1074,32 @@ function openBurialModal(row, updateIndex = true) {
     }
     
     contentHTML += '</div>';
-    
+    } // end showGraveSection
+
+    if (data.registerImage) {
+        const pathParts = window.location.pathname.split('/').filter(p => p);
+        const basePath = pathParts.length > 1 ? '/' + pathParts[0] : '';
+        const regPath = `${basePath}/assets/imgs/register/${data.registerImage}`;
+        const regPlaceholderId = `reg-placeholder-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+        contentHTML += `
+            <div class="mb-4 border-b border-stone-200 dark:border-gray-600 pb-4">
+                <h3 class="text-lg font-semibold mb-2 text-stone-800 dark:text-white">Parish Register — Page ${data.registerPage}</h3>
+                <div class="relative">
+                    <img src="${regPath}" loading="lazy"
+                         alt="Parish register page ${data.registerPage}"
+                         class="w-full max-w-lg mx-auto rounded-lg shadow-lg border border-stone-300 dark:border-gray-600"
+                         onerror="this.style.display='none'; document.getElementById('${regPlaceholderId}').style.display='flex';">
+                    <div id="${regPlaceholderId}" class="w-full max-w-lg mx-auto rounded-lg shadow-lg border border-stone-300 dark:border-gray-600 bg-stone-100 dark:bg-gray-700 items-center justify-center aspect-[4/3] hidden">
+                        <div class="text-center p-8">
+                            <p class="text-stone-500 dark:text-gray-400 text-sm font-medium">Register image unavailable</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-xs text-stone-500 dark:text-gray-400 mt-2 text-center">Original handwritten entry — page ${data.registerPage} of 16</p>
+            </div>
+        `;
+    }
+
     // Display all data fields - Basic Information Section
     contentHTML += '<div class="border-b border-stone-200 dark:border-gray-600 pb-3"><h3 class="text-lg font-semibold mb-2 text-stone-800 dark:text-white">Basic Information</h3>';
     

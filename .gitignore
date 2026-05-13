@@ -3,6 +3,7 @@ _site/
 .DS_Store
 *.log
 .env
+.playwright-cli/
 
 # ingest_and_rebuild.py byproducts
 scripts/backups/

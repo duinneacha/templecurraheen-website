@@ -191,11 +191,12 @@ def rebuild_csv(output_path):
     df_ch['death_date'] = df_ch['Death_Date']
     df_ch['row_code'] = "X"
     df_ch['plot_code'] = " "
+    df_ch['register_page'] = df_ch['Page']
 
     df_ch_cleaned = df_ch[['grave_code', 'row_code', 'plot_code', 'last_name',
                            'first_name', 'age', 'death_date', 'Burial_Date',
                            'Months', 'Status', 'Occupation', 'Address',
-                           'Witness', 'Comments']].copy()
+                           'Witness', 'Comments', 'register_page']].copy()
 
     combined = pd.concat([tc_df_cleaned, df_ch_cleaned], ignore_index=True)
 
