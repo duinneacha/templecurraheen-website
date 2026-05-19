@@ -359,6 +359,19 @@ description: "Complete listing of burial records from Templecurraheen Graveyard"
     </div>
 </div>
 
+<!-- Image Lightbox (sits above the burial modal) -->
+<div id="imageLightbox" class="fixed inset-0 bg-black bg-opacity-90 hidden flex flex-col z-[60] items-center justify-center p-4" onclick="closeImageLightbox(event)">
+    <button onclick="closeImageLightbox()"
+            class="absolute top-4 right-4 z-10 text-white hover:text-gray-300 transition-colors bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center text-2xl font-bold"
+            aria-label="Close fullscreen image">
+        ×
+    </button>
+    <h3 id="imageLightboxTitle" class="text-white text-lg sm:text-2xl font-serif mb-4 text-center px-12"></h3>
+    <div class="flex-1 flex items-center justify-center min-h-0 w-full">
+        <img id="imageLightboxImg" src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl">
+    </div>
+</div>
+
 <div class="mt-12 bg-stone-100 dark:bg-gray-800 rounded-lg p-6">
     <h2 class="text-xl font-serif mb-4">About These Records</h2>
     <p class="text-stone-600 dark:text-gray-300 mb-4">
@@ -1064,10 +1077,12 @@ function openBurialModal(row, updateIndex = true) {
         const basePath = pathParts.length > 1 ? '/' + pathParts[0] : '';
         const imagePath = `${basePath}/assets/imgs/graves/${data.fileName}`;
         const placeholderId = `placeholder-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+        const lightboxTitle = escapeHtml(data.fullName) || 'Grave image';
         contentHTML += `
             <div class="relative">
-                <img src="${imagePath}" alt="Grave image for ${escapeHtml(data.fullName) || 'Unknown'}" 
-                     class="w-full max-w-lg mx-auto rounded-lg shadow-lg border border-stone-300 dark:border-gray-600"
+                <img src="${imagePath}" alt="Grave image for ${escapeHtml(data.fullName) || 'Unknown'}"
+                     class="w-full max-w-lg mx-auto rounded-lg shadow-lg border border-stone-300 dark:border-gray-600 cursor-zoom-in"
+                     onclick="openImageLightbox(this.src, '${lightboxTitle.replace(/'/g, "\\'")}', this.alt)"
                      onerror="this.style.display='none'; document.getElementById('${placeholderId}').style.display='flex';">
                 <div id="${placeholderId}" class="w-full max-w-lg mx-auto rounded-lg shadow-lg border border-stone-300 dark:border-gray-600 bg-stone-100 dark:bg-gray-700 flex items-center justify-center aspect-[4/3] hidden">
                     <div class="text-center p-8">
@@ -1101,13 +1116,15 @@ function openBurialModal(row, updateIndex = true) {
         const basePath = pathParts.length > 1 ? '/' + pathParts[0] : '';
         const regPath = `${basePath}/assets/imgs/register/${data.registerImage}`;
         const regPlaceholderId = `reg-placeholder-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+        const regLightboxTitle = (escapeHtml(data.fullName) || 'Parish register') + ` — Register page ${escapeHtml(data.registerPage)}`;
         contentHTML += `
             <div class="mb-4 border-b border-stone-200 dark:border-gray-600 pb-4">
                 <h3 class="text-lg font-semibold mb-2 text-stone-800 dark:text-white">Parish Register — Page ${data.registerPage}</h3>
                 <div class="relative">
                     <img src="${regPath}" loading="lazy"
                          alt="Parish register page ${data.registerPage}"
-                         class="w-full max-w-lg mx-auto rounded-lg shadow-lg border border-stone-300 dark:border-gray-600"
+                         class="w-full max-w-lg mx-auto rounded-lg shadow-lg border border-stone-300 dark:border-gray-600 cursor-zoom-in"
+                         onclick="openImageLightbox(this.src, '${regLightboxTitle.replace(/'/g, "\\'")}', this.alt)"
                          onerror="this.style.display='none'; document.getElementById('${regPlaceholderId}').style.display='flex';">
                     <div id="${regPlaceholderId}" class="w-full max-w-lg mx-auto rounded-lg shadow-lg border border-stone-300 dark:border-gray-600 bg-stone-100 dark:bg-gray-700 items-center justify-center aspect-[4/3] hidden">
                         <div class="text-center p-8">
@@ -1265,6 +1282,26 @@ function closeBurialModal() {
     document.body.style.overflow = 'auto';
 }
 
+function openImageLightbox(src, title, alt) {
+    const lb = document.getElementById('imageLightbox');
+    const img = document.getElementById('imageLightboxImg');
+    img.src = src;
+    img.alt = alt || title || '';
+    document.getElementById('imageLightboxTitle').textContent = title || '';
+    lb.classList.remove('hidden');
+}
+
+function closeImageLightbox(e) {
+    if (e && e.target !== e.currentTarget) return;
+    const lb = document.getElementById('imageLightbox');
+    lb.classList.add('hidden');
+    document.getElementById('imageLightboxImg').src = '';
+}
+
+function isImageLightboxOpen() {
+    return !document.getElementById('imageLightbox').classList.contains('hidden');
+}
+
 // Close modal when clicking outside
 document.getElementById('burialModal').addEventListener('click', function(e) {
     if (e.target === this) {
@@ -1277,11 +1314,14 @@ document.addEventListener('keydown', function(e) {
     const modal = document.getElementById('burialModal');
     const isModalOpen = !modal.classList.contains('hidden');
 
-    if (e.key === 'Escape' && isModalOpen) {
+    if (e.key === 'Escape' && isImageLightboxOpen()) {
+        // Lightbox takes precedence over the burial modal
+        closeImageLightbox();
+    } else if (e.key === 'Escape' && isModalOpen) {
         closeBurialModal();
     } else if (e.key === 'Escape' && isFilterPanelOpen()) {
         setFilterPanelOpen(false);
-    } else if (isModalOpen && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+    } else if (isModalOpen && !isImageLightboxOpen() && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
         // Prevent default scrolling behavior
         e.preventDefault();
 
