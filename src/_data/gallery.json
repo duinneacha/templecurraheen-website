@@ -2,9 +2,10 @@
   "images": [
     {
       "src": "/assets/imgs/famine-grave.jpg",
-      "alt": "Famine grave in Templecurraheen Graveyard",
-      "title": "Famine grave",
-      "description": "The famine burial ground at Templecurraheen, where over 1,000 souls rest in silence — a solemn reminder of the Great Hunger and its lasting mark on Carrigtwohill.",
+      "alt": "Raised, vegetated mound at the base of the ruined Templecurraheen church wall, set apart from the marked graves around it.",
+      "title": "The Famine Plot at Templecurraheen",
+      "description": "A raised, unmarked mound at the back of the graveyard, traditionally said to hold famine victims of the parish.",
+      "href": "/stories/the-famine-plot-at-templecurraheen/",
       "category": "historical"
     },
     {
@@ -24,7 +25,7 @@
     {
       "src": "/assets/imgs/story_a.jpg",
       "alt": "Historical documentation view",
-      "title": "Story Section A",
+      "title": "Fr. Michael Cotter",
       "description": "Part of the graveyard's historical narrative documentation",
       "category": "historical"
     },

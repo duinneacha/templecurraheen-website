@@ -1,0 +1,137 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - heading "Templecurraheen Graveyard" [level=1] [ref=e5]:
+          - link "Templecurraheen Graveyard" [ref=e6] [cursor=pointer]:
+            - /url: /templecurraheen-website/
+        - list [ref=e7]:
+          - listitem [ref=e8]:
+            - link "Home" [ref=e9] [cursor=pointer]:
+              - /url: /templecurraheen-website/
+          - listitem [ref=e10]:
+            - link "Burial List" [ref=e11] [cursor=pointer]:
+              - /url: /templecurraheen-website/burials/
+          - listitem [ref=e12]:
+            - link "Gallery" [ref=e13] [cursor=pointer]:
+              - /url: /templecurraheen-website/gallery/
+          - listitem [ref=e14]:
+            - link "Stories" [ref=e15] [cursor=pointer]:
+              - /url: /templecurraheen-website/stories/
+          - listitem [ref=e16]:
+            - link "About" [ref=e17] [cursor=pointer]:
+              - /url: /templecurraheen-website/about/
+  - main [ref=e18]:
+    - generic [ref=e19]:
+      - heading "Photo Gallery" [level=1] [ref=e20]
+      - paragraph [ref=e21]: A visual record of Templecurraheen Graveyard, featuring historical photographs, headstone documentation, and general views of the cemetery.
+      - generic [ref=e22]:
+        - button "All Photos" [ref=e23] [cursor=pointer]
+        - button "Headstones" [ref=e24] [cursor=pointer]
+        - button "General Views" [ref=e25] [cursor=pointer]
+        - button "Historical" [ref=e26] [cursor=pointer]
+    - generic [ref=e27]:
+      - generic [ref=e28]:
+        - img "Raised, vegetated mound at the base of the ruined Templecurraheen church wall, set apart from the marked graves around it." [ref=e30] [cursor=pointer]
+        - generic [ref=e31]:
+          - heading "The Famine Plot at Templecurraheen" [level=3] [ref=e32]
+          - paragraph [ref=e33]: Walk into the old graveyard at Templecurraheen and stand near the ruined medieval church. If you look toward the back, you will see a distinct shift in the ground — a large, irregular mound, set apart from the surrounding headstones, with no names, dates, or markers. Local tradition holds that beneath it lie the bones of famine victims from the parish.
+          - paragraph [ref=e34]: The mound is inside the graveyard wall, raised and vegetated, bare of headstones while the marked stones around it crowd up close but do not encroach. The church ruin rises directly behind it. No register known to me lists who is buried there, and no inscription marks the ground. The identification rests on what has been passed down in the parish.
+          - paragraph [ref=e35]: It is easy to walk past the mound without noticing it. But once you know it is there, the small patch of ground holds what the inscriptions around it cannot.
+      - generic [ref=e36]:
+        - img "Myrtle tree in Templecurraheen Graveyard" [ref=e38] [cursor=pointer]
+        - generic [ref=e39]:
+          - heading "Myrtle tree" [level=3] [ref=e40]
+          - paragraph [ref=e41]: Found in graveyards due to their symbolism of love, immortality and remembrance. The myrtle is evergreen symbolising immortality and the continuation of life beyond physical death. This aligns with the idea of remembering and honouring the deceased.
+      - generic [ref=e42]:
+        - img "Scenic view of Templecurraheen Graveyard" [ref=e44] [cursor=pointer]
+        - generic [ref=e45]:
+          - heading "Graveyard Banner View" [level=3] [ref=e46]
+          - paragraph [ref=e47]: Wide panoramic view showcasing the peaceful setting of the cemetery
+      - generic [ref=e48]:
+        - img "Historical documentation view" [ref=e50] [cursor=pointer]
+        - generic [ref=e51]:
+          - heading "Story Section A" [level=3] [ref=e52]
+          - paragraph [ref=e53]: Part of the graveyard's historical narrative documentation
+      - generic [ref=e54]:
+        - img "Historical documentation view" [ref=e56] [cursor=pointer]
+        - generic [ref=e57]:
+          - heading "Story Section B" [level=3] [ref=e58]
+          - paragraph [ref=e59]: Continuation of the graveyard's historical narrative
+      - generic [ref=e60]:
+        - img "Historical documentation view" [ref=e62] [cursor=pointer]
+        - generic [ref=e63]:
+          - heading "Story Section C" [level=3] [ref=e64]
+          - paragraph [ref=e65]: Final section of the graveyard's historical documentation
+      - generic [ref=e66]:
+        - img "Entrance sign and gate to Templecurraheen Graveyard" [ref=e68] [cursor=pointer]
+        - generic [ref=e69]:
+          - heading "Entrance Sign and Gate" [level=3] [ref=e70]
+          - paragraph [ref=e71]: The official entrance sign and gate welcoming visitors to the historic graveyard
+      - generic [ref=e72]:
+        - img "Historic gate entrance" [ref=e74] [cursor=pointer]
+        - generic [ref=e75]:
+          - heading "Graveyard Gate" [level=3] [ref=e76]
+          - paragraph [ref=e77]: The traditional gate providing access to the cemetery grounds
+      - generic [ref=e78]:
+        - img "Front entrance sign" [ref=e80] [cursor=pointer]
+        - generic [ref=e81]:
+          - heading "Cemetery Entrance Sign" [level=3] [ref=e82]
+          - paragraph [ref=e83]: The front signage marking the entrance to Templecurraheen Graveyard
+      - generic [ref=e84]:
+        - img "Open grass area in the graveyard" [ref=e86] [cursor=pointer]
+        - generic [ref=e87]:
+          - heading "Graveyard Grounds" [level=3] [ref=e88]
+          - paragraph [ref=e89]: Open grassy areas between burial sections
+      - generic [ref=e90]:
+        - img "Side view of grave area" [ref=e92] [cursor=pointer]
+        - generic [ref=e93]:
+          - heading "Grave Section View" [level=3] [ref=e94]
+          - paragraph [ref=e95]: Side perspective of one of the burial sections
+      - generic [ref=e96]:
+        - img "General view of graves" [ref=e98] [cursor=pointer]
+        - generic [ref=e99]:
+          - heading "General Grave View" [level=3] [ref=e100]
+          - paragraph [ref=e101]: Overview of typical grave markers and layout in the cemetery
+      - generic [ref=e102]:
+        - img "View from behind the memorial seat" [ref=e104] [cursor=pointer]
+        - generic [ref=e105]:
+          - heading "Memorial Seat View" [level=3] [ref=e106]
+          - paragraph [ref=e107]: Perspective from behind the memorial seating area
+      - generic [ref=e108]:
+        - img "John and Margaret Jeffers headstone" [ref=e110] [cursor=pointer]
+        - generic [ref=e111]:
+          - heading "John and Margaret Jeffers" [level=3] [ref=e112]
+          - paragraph [ref=e113]: John and Margaret Jeffers
+      - generic [ref=e114]:
+        - img "Aerial view of Templecurraheen Graveyard" [ref=e116] [cursor=pointer]
+        - generic [ref=e117]:
+          - heading "Aerial Drone View" [level=3] [ref=e118]
+          - paragraph [ref=e119]: High altitude drone photograph showing the complete layout of Templecurraheen Graveyard and surrounding countryside
+      - generic [ref=e120]:
+        - img "Entrance view of Templecurraheen Graveyard" [ref=e122] [cursor=pointer]
+        - generic [ref=e123]:
+          - heading "Graveyard Entrance" [level=3] [ref=e124]
+          - paragraph [ref=e125]: Ground-level view of the entrance to Templecurraheen Graveyard showing the entrance path and surrounding landscape
+      - generic [ref=e126]:
+        - img "James Cotter" [ref=e128] [cursor=pointer]
+        - generic [ref=e129]:
+          - heading "James Cotter" [level=3] [ref=e130]
+          - paragraph [ref=e131]: Story to be added
+    - generic [ref=e132]:
+      - heading "Contribute Photographs" [level=2] [ref=e133]
+      - paragraph [ref=e134]: Do you have historical photographs of Templecurraheen Graveyard or specific headstones? We'd love to include them in our archive to preserve this visual history.
+      - generic [ref=e135]:
+        - link "Email Photos" [ref=e136] [cursor=pointer]:
+          - /url: mailto:contact@example.com?subject=Photo Contribution
+        - link "Submit via GitHub" [ref=e137] [cursor=pointer]:
+          - /url: https://github.com/duinneacha/templecurraheen-website/issues
+  - contentinfo [ref=e138]:
+    - generic [ref=e139]:
+      - paragraph [ref=e140]: © 2026 Templecurraheen Graveyard Documentation Project
+      - generic [ref=e141]:
+        - link "View on GitHub" [ref=e142] [cursor=pointer]:
+          - /url: https://github.com/your-username/templecurraheen-graveyard
+        - generic [ref=e143]: "|"
+        - link "Contact Us" [ref=e144] [cursor=pointer]:
+          - /url: mailto:contact@example.com

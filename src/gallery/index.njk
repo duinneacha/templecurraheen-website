@@ -116,19 +116,20 @@ description: "Historical and contemporary photographs of Templecurraheen Graveya
 <div id="galleryGrid" class="gallery-grid">
     {% for image in gallery.images %}
     <div class="masonry-item gallery-item" data-category="{{ image.category }}" data-title="{{ image.title | lower }}">
+        {% if image.href %}<a href="{{ image.href | url }}" class="block hover:opacity-95 transition-opacity">{% endif %}
         <div class="aspect-w-4 aspect-h-3">
-            <img src="{{ image.src | url }}" 
-                 alt="{{ image.alt }}" 
-                 class="w-full h-40 sm:h-48 object-cover cursor-pointer hover:opacity-90 transition-opacity" 
+            <img src="{{ image.src | url }}"
+                 alt="{{ image.alt }}"
+                 class="w-full h-40 sm:h-48 object-cover {% if not image.href %}cursor-pointer {% endif %}hover:opacity-90 transition-opacity"
                  loading="lazy"
                  data-title="{{ image.title }}"
-                 data-description="{{ image.description }}"
+                 data-description="{{ image.description | stringify }}"
                  data-date="{{ image.date }}"
                  {% if image.customContent %}
                  data-poem-author="{{ image.customContent.author }}"
                  data-poem-stanzas="{{ image.customContent.stanzas | stringify | safe }}"
                  {% endif %}
-                 onclick="openLightbox(this)">
+                 {% if not image.href %}onclick="openLightbox(this)"{% endif %}>
         </div>
         <div class="p-4">
             <h3 class="font-medium text-stone-800 dark:text-white mb-2">{{ image.title }}</h3>
@@ -150,7 +151,13 @@ description: "Historical and contemporary photographs of Templecurraheen Graveya
                 </div>
             </div>
             {% elif image.description %}
-            <p class="text-sm text-stone-600 dark:text-gray-300 mb-2">{{ image.description }}</p>
+              {% if image.description is string %}
+              <p class="text-sm text-stone-600 dark:text-gray-300 mb-2">{{ image.description }}</p>
+              {% else %}
+                {% for para in image.description %}
+                <p class="text-sm text-stone-600 dark:text-gray-300 mb-2">{{ para }}</p>
+                {% endfor %}
+              {% endif %}
             {% endif %}
             {% if image.date %}
             <p class="text-xs text-stone-400 dark:text-gray-400">{{ image.date }}</p>
@@ -160,7 +167,13 @@ description: "Historical and contemporary photographs of Templecurraheen Graveya
                 View burial record →
             </a>
             {% endif %}
+            {% if image.href %}
+            <span class="inline-flex items-center text-primary-700 hover:text-primary-900 dark:text-purple-400 dark:hover:text-purple-300 text-sm font-medium transition-colors">
+                Read the full story →
+            </span>
+            {% endif %}
         </div>
+        {% if image.href %}</a>{% endif %}
     </div>
     {% endfor %}
 </div>
@@ -287,9 +300,22 @@ function openLightbox(imgElement) {
         }
     } else {
         console.log('No poem data found, using description');
-        // Fallback to description
-        const description = imgElement.dataset.description;
-        lightboxContent.textContent = description || '';
+        const rawDescription = imgElement.dataset.description;
+        let parsedDescription = null;
+        if (rawDescription) {
+            try {
+                parsedDescription = JSON.parse(rawDescription);
+            } catch (e) {
+                parsedDescription = rawDescription;
+            }
+        }
+        if (Array.isArray(parsedDescription)) {
+            lightboxContent.innerHTML = parsedDescription
+                .map(p => `<p class="mb-3 last:mb-0">${p.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>`)
+                .join('');
+        } else {
+            lightboxContent.textContent = parsedDescription || '';
+        }
     }
     
     // Set date
