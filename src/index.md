@@ -36,6 +36,7 @@ description: "Documenting the history and heritage of Templecurraheen Graveyard"
         <div class="space-y-2 mobile-text text-secondary-600 dark:text-gray-300 mb-6">
             <p><strong>Location:</strong> Templecurraheen, Carrigtwohill, Co. Cork</p>
             <p><strong>Coordinates:</strong> 51.924805, -8.278583</p>
+            <p><strong>Closest Eircode:</strong> T45 EO21</p>
             <p><strong>Access:</strong> Rural road access with limited parking</p>
             <p><strong>Visiting:</strong> Open during daylight hours</p>
         </div>

@@ -30,20 +30,6 @@
       "category": "historical"
     },
     {
-      "src": "/assets/imgs/story-b.jpg",
-      "alt": "Historical documentation view",
-      "title": "Story Section B",
-      "description": "Continuation of the graveyard's historical narrative",
-      "category": "historical"
-    },
-    {
-      "src": "/assets/imgs/story-c.jpg",
-      "alt": "Historical documentation view",
-      "title": "Story Section C",
-      "description": "Final section of the graveyard's historical documentation",
-      "category": "historical"
-    },
-    {
       "src": "/assets/imgs/sign-and-gate.png",
       "alt": "Entrance sign and gate to Templecurraheen Graveyard",
       "title": "Entrance Sign and Gate",
