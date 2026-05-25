@@ -10,3 +10,8 @@ scripts/backups/
 scripts/ingest_reports/
 scripts/__pycache__/
 assets/list/templecurraheen_stones_and_registers.DRYRUN_*.csv
+
+# Stray scratch files at repo root (screenshots, yml dumps).
+# Root-anchored so assets/imgs/*.png and src/_data/*.yml are unaffected.
+/*.png
+/*.yml
