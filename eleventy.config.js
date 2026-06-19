@@ -1,6 +1,7 @@
 module.exports = function(eleventyConfig) {
   // Copy assets
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
   
   // Watch CSS files for changes
   eleventyConfig.addWatchTarget("./src/css/");
@@ -81,7 +82,7 @@ module.exports = function(eleventyConfig) {
   });
   
   return {
-    pathPrefix: "/templecurraheen-website/",
+    pathPrefix: "/",
     dir: {
       input: "src",
       output: "_site",
