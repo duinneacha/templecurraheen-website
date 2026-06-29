@@ -23,6 +23,27 @@
 </head>
 <body class="min-h-screen flex flex-col">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-800 focus:text-white focus:rounded">Skip to main content</a>
+
+    <!-- LAUNCH-BANNER:START — remove this whole block on launch day -->
+    <div id="launch-banner" class="w-full bg-amber-100 border-b border-amber-300 text-amber-900">
+        <div class="container mx-auto px-4 py-2 flex items-center justify-between gap-4">
+            <p class="text-sm font-medium">
+                This site is launching Tuesday 30th June (afternoon). Some content is still being finished.
+            </p>
+            <button id="launch-banner-close" aria-label="Dismiss banner" class="flex-shrink-0 text-amber-700 hover:text-amber-900 transition-colors p-1 rounded hover:bg-amber-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('launch-banner-close').addEventListener('click', function () {
+            document.getElementById('launch-banner').style.display = 'none';
+        });
+    </script>
+    <!-- LAUNCH-BANNER:END -->
+
     <header class="sticky top-0 z-50 bg-primary-800 text-white shadow-lg dark:bg-gray-800 dark:shadow-purple-500/20">
         <nav class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
@@ -47,6 +68,7 @@
                     <li><a href="{{ '/gallery/' | url }}" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">Gallery</a></li>
                     <li><a href="{{ '/stories/' | url }}" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">Stories</a></li>
                     <li><a href="{{ '/about/' | url }}" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">About</a></li>
+                    <li><a href="{{ '/contact/' | url }}" class="hover:text-primary-200 dark:hover:text-purple-300 transition-colors">Contact</a></li>
                 </ul>
             </div>
             
@@ -58,6 +80,7 @@
                     <li><a href="{{ '/gallery/' | url }}" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">Gallery</a></li>
                     <li><a href="{{ '/stories/' | url }}" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">Stories</a></li>
                     <li><a href="{{ '/about/' | url }}" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">About</a></li>
+                    <li><a href="{{ '/contact/' | url }}" class="block hover:text-primary-200 dark:hover:text-purple-300 transition-colors py-2">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -70,11 +93,11 @@
     <footer class="bg-primary-100 border-t border-primary-200 mt-12 dark:bg-gray-800 dark:border-gray-700">
         <div class="container mx-auto px-4 py-6 text-center text-primary-600 dark:text-gray-300">
             <p class="text-sm sm:text-base">&copy; {{ helpers.year() }} Templecurraheen Graveyard Documentation Project</p>
-            <p class="text-xs mt-1 text-primary-500 dark:text-gray-500">Site developed by <a href="https://www.aidandennehy.ie" target="_blank" rel="noopener noreferrer" class="hover:text-primary-700 dark:hover:text-gray-300 transition-colors">aidandennehy.ie</a></p>
+            <p class="text-xs mt-1 text-primary-500 dark:text-gray-500">Site developed by <a href="https://www.aidandennehy.ie" target="_blank" rel="noopener noreferrer" class="hover:text-primary-700 dark:hover:text-gray-300 transition-colors">www.aidandennehy.ie</a></p>
             <div class="mt-2 flex flex-col sm:flex-row sm:justify-center sm:space-x-4 space-y-2 sm:space-y-0">
                 <a href="https://github.com/duinneacha/templecurraheen-website" class="text-primary-700 hover:text-primary-900 dark:text-purple-400 dark:hover:text-purple-300 transition-colors text-sm">View on GitHub</a>
                 <span class="hidden sm:inline text-primary-400 dark:text-gray-500">|</span>
-                <a href="mailto:duinneacha@gmail.com" class="text-primary-700 hover:text-primary-900 dark:text-purple-400 dark:hover:text-purple-300 transition-colors text-sm">Contact Us</a>
+                <a href="{{ '/contact/' | url }}" class="text-primary-700 hover:text-primary-900 dark:text-purple-400 dark:hover:text-purple-300 transition-colors text-sm">Contact Us</a>
             </div>
         </div>
     </footer>
