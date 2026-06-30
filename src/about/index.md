@@ -16,26 +16,29 @@ description: "About the Templecurraheen Graveyard documentation project"
 
 <div class="bg-white rounded-lg shadow-md p-8 mb-8">
     <p class="text-stone-600 leading-relaxed mb-4">
-        Our goal is to create a comprehensive record that honours those who rest here while providing valuable genealogical and historical resources for researchers, family members, and the local community.
+        My goal is to create a comprehensive record that honours those who rest here while providing valuable genealogical and historical resources for researchers, family members, and the local community.
     </p>
     <p class="text-stone-600 leading-relaxed">
-        Through careful documentation of burial records, historical photographs, and community stories, we aim to preserve this important heritage for future generations.
+        Through careful documentation of burial records, historical photographs, and community stories, I aim to preserve this important heritage for future generations.
     </p>
 </div>
 
-<!-- ## Contact Information
+## How This Began
 
-<div class="bg-stone-50 rounded-lg p-6 mb-8">
-    <h3 class="text-xl font-serif mb-4">Get in Touch</h3>
-    <p class="text-stone-600 mb-4">
-        We welcome contributions from anyone with historical knowledge about the graveyard, its burials, or the families connected to it.
+<div class="bg-white rounded-lg shadow-md p-8 mb-8">
+    <p class="text-stone-600 leading-relaxed mb-4">
+        One day I met Michael Finn in Templecurraheen, working in the graveyard. We got talking, and that conversation was the seed for this website.
     </p>
-    <div class="space-y-2 text-stone-600">
-        <p><strong>Email:</strong> <a href="mailto:contact@example.com" class="text-stone-700 hover:text-stone-900 underline">contact@example.com</a></p>
-        <p><strong>Contributions:</strong> Historical information, photographs, family records</p>
-        <p><strong>Location:</strong> Templecurraheen, Carrigtwohill, Co. Cork, Ireland</p>
-    </div>
-</div> -->
+    <p class="text-stone-600 leading-relaxed mb-4">
+        Michael and his wife Cora Finn make a great team. Cora sought a way of cataloguing the site and organised a map, and as best as could be done, organised it into rows, with each grave given a code reference. The writing on each stone, often worn and hard to read, was deciphered by Cora.
+    </p>
+    <p class="text-stone-600 leading-relaxed mb-4">
+        I took Cora's list and built it into this website, designing and developing the searchable database you see here. Every grave was then photographed and added to the list.
+    </p>
+    <p class="text-stone-600 leading-relaxed">
+        Official records were also brought in from the Carrigtwohill Historical Society.
+    </p>
+</div>
 
 ## Grateful Appreciation & Thanks
 
