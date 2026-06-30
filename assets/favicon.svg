@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Dark stone background -->
+  <rect width="32" height="32" rx="6" fill="#2d2a22"/>
+  <!-- Vertical arm of cross -->
+  <rect x="13" y="4" width="6" height="24" rx="1.5" fill="#c8b89a"/>
+  <!-- Horizontal arm of cross -->
+  <rect x="4" y="11" width="24" height="6" rx="1.5" fill="#c8b89a"/>
+  <!-- Celtic ring -->
+  <circle cx="16" cy="14" r="6" fill="none" stroke="#c8b89a" stroke-width="2"/>
+</svg>
